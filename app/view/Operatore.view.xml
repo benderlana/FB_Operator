@@ -1740,7 +1740,7 @@
                     <VBox id="logoVbox" height="25%" width="100%" justifyContent="center" alignItems="start" class="blueBorderBottom">
                         <VBox height="10%" width="100%"/>
                         <VBox height="65%" width="100%">
-                            <Image src="img/dececco_marchio_standard_rgb.png" class="Logo"/>
+                            <Image src="img/logo.png" class="Logo"/>
                         </VBox>
                         <VBox height="25%" width="100%"/>
                     </VBox>
