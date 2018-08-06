@@ -1,0 +1,1765 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:c="sap.ui.commons" xmlns="sap.m"
+          xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:t="sap.ui.table"
+          xmlns:u="sap.ui.unified" xmlns:comp="myapp.component" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+          xmlns:wt="myapp.control" 
+          
+          controllerName="myapp.controller.Operatore">
+    <SplitApp id="SplitAppDemo" initialDetail="Home" initialMaster="processi" > 
+        <detailPages>
+            <Page id="Home" showHeader="false" class="colorPage">
+                <content>
+                    <VBox height="100%" width="100%">
+                        <VBox height="25%" width="100%" class="blueBorderBottom">
+                            <VBox height="5%" width="100%"/>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/linea}" class="textTop"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text id="HomeDescrizione" text="{GeneralModel>/Intestazione/descrizione}" class="textTop"/>
+                                        
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text id="destinazione0" text="{GeneralModel>/Intestazione/destinazione}"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="5%" width="100%"/>
+                        </VBox>
+                        <VBox height="65%" width="100%">
+                        </VBox>
+                        <VBox height="10%" width="100%" class="blueBorderTop">
+                            <VBox height="15%" width="100%"/>
+                            <VBox height="85%" width="100%">
+                                <HBox>
+                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="70%">
+                                        <FlexBox alignItems="Start" justifyContent="Center">
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                        </FlexBox>
+                                    </VBox>
+                                    <VBox height="100%" width="15%"/>
+                                </HBox>
+                            </VBox>
+                            <!--<VBox height="10%" width="100%"/>-->
+                        </VBox>
+                    </VBox>
+                </content>
+            </Page>
+                    
+                    
+            <Page id="PresaInCarico" showHeader="false" class="colorPage"> 
+                <content>
+                    <VBox height="100%" width="100%">
+                        <VBox height="25%" width="100%" class="blueBorderBottom">
+                            <VBox height="5%" width="100%"/>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/linea}" class="textTop"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text id="PresaInCaricoDescrizione" text="{GeneralModel>/Intestazione/descrizione}" class="textTop"/>
+                                        
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">    
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text id="destinazione1" text="{GeneralModel>/Intestazione/destinazione}"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="5%" width="100%"/>
+                        </VBox>
+                        <VBox height="65%" width="100%">
+                            <HBox height="100%" width="100%">
+                                <VBox width="5%"/>
+                                <VBox width="90%">
+                                    <wt:CustomTreeTable
+                                        id="TreeTable_PresaInCarico"
+                                        rows="{path:'GeneralModel>/SKU/SKUattuale', parameters: {arrayNames:['attributi']}}"
+                                        selectionMode="None"
+                                        collapseRecursive="true"
+                                        enableSelectAll="false"
+                                        enableColumnReordering="false"
+                                        ariaLabelledBy="title"
+                                        visibleRowCount="20"
+                                        rowSelectionChange="ciao"
+                                        cellClick="TreeTableRowClickExpander"
+                                        app:mydata="TreeTable_PresaInCarico">
+                                        <wt:toolbar>
+                                            <Toolbar>
+                                                <ToolbarSpacer/>
+                                                <Button text="Collassa" press="CollapseAll" app:mydata="TreeTable_PresaInCarico" class="TTButton"/>
+                                                <Button text="Espandi" press="ExpandAll" app:mydata="TreeTable_PresaInCarico" class="TTButton"/>
+                                                <Button text="Speciali" press="ShowRelevant" app:mydata="TreeTable_PresaInCarico" class="TTButton"/>
+                                            </Toolbar>
+                                        </wt:toolbar>
+                                        <wt:columns>
+                                            <t:Column width="10rem" resizable="false">
+                                                <Label text="ATTRIBUTI"/>
+                                                <t:template>
+                                                    <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" diff="{GeneralModel>expand}" discr="{GeneralModel>value}" maxLines="1" />
+                                                </t:template>
+                                            </t:Column>
+                                            <t:Column width="10rem" resizable="false">
+                                                <Label text="VALORE"/>
+                                                <t:template>
+                                                    <HBox>
+                                                        <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLength="20" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
+                                                    </HBox>
+                                                </t:template>
+                                            </t:Column>
+                                        </wt:columns>
+                                    </wt:CustomTreeTable>
+                                    <Button text="Conferma presa in carico e inizio attrezzaggio" width="100%" press="ConfermaBatch" class="attrezzaggioButton"/>
+                                </VBox>
+                                <VBox width="5%"/>
+                            </HBox>
+                        </VBox>
+                        <VBox height="10%" width="100%" class="blueBorderTop">
+                            <VBox height="15%" width="100%"/>
+                            <VBox height="85%" width="100%">
+                                <HBox>
+                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="70%">
+                                        <FlexBox alignItems="Start" justifyContent="Center">
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                        </FlexBox>
+                                    </VBox>
+                                    <VBox height="100%" width="15%"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </content>
+            </Page>
+        
+        
+        
+            <Page id="PredisposizioneLinea" showHeader="false" class="colorPage">
+                <content>
+                    <VBox height="100%" width="100%">
+                        <VBox height="25%" width="100%" class="blueBorderBottom">
+                            <VBox height="5%" width="100%"/>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/linea}" class="textTop"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text id="PredisposizioneLineaDescrizione" text="{GeneralModel>/Intestazione/descrizione}" class="textTop"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/destinazione}" id="destinazione2"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="5%" width="100%"/>
+                        </VBox>
+                        <VBox height="65%" width="100%">
+                            <HBox height="100%" width="100%">
+                                <VBox width="5%"/>
+                                <VBox width="90%">
+                                    <TabContainer id="TabContainer"
+                                                  class="sapUiResponsiveContentPadding"
+                                                  itemClose="UpdateTabs">
+                                        <items>
+                                            <TabContainerItem 
+                                                id="tab1"
+                                                name="ATTRIBUTI PRODOTTO">
+                                                <content>
+                                                    <wt:CustomTreeTable
+                                                        id="TreeTable_AttributiPredisposizione"
+                                                        rows="{path:'GeneralModel>/SKU/SKUattuale', parameters: {arrayNames:['attributi']}}"
+                                                        selectionMode="None"
+                                                        collapseRecursive="true"
+                                                        enableSelectAll="false"
+                                                        enableColumnReordering="false"
+                                                        ariaLabelledBy="title"
+                                                        visibleRowCount="20"
+                                                        cellClick="TreeTableRowClickExpander"
+                                                        app:mydata="TreeTable_AttributiPredisposizione">
+                                                        <wt:toolbar>
+                                                            <Toolbar>
+                                                                <ToolbarSpacer/>
+                                                                <Button text="Collassa" press="CollapseAll" app:mydata="TreeTable_AttributiPredisposizione" class="TTButton"/>
+                                                                <Button text="Espandi" press="ExpandAll" app:mydata="TreeTable_AttributiPredisposizione" class="TTButton"/>
+                                                                <Button text="Speciali" press="ShowRelevant" app:mydata="TreeTable_AttributiPredisposizione" class="TTButton"/>
+                                                            </Toolbar>
+                                                        </wt:toolbar>
+                                                        <wt:columns>
+                                                            <t:Column width="13rem" resizable="false">
+                                                                <Label text="ATTRIBUTI"/>
+                                                                <t:template>
+                                                                    <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" diff="{GeneralModel>expand}" discr="{GeneralModel>value}" maxLines="1" />
+                                                                </t:template>
+                                                            </t:Column>
+                                                            <t:Column width="7rem" resizable="false">
+                                                                <Label text="VALORE"/>
+                                                                <t:template>
+                                                                    <HBox>
+                                                                        <wt:StyleTextTreeTableValue text="{GeneralModel>value}" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
+                                                                    </HBox>
+                                                                </t:template>
+                                                            </t:Column>
+                                                        </wt:columns>
+                                                    </wt:CustomTreeTable>
+                                                </content>
+                                            </TabContainerItem>
+                                            <TabContainerItem 
+                                                id="tab2"
+                                                name="PREDISPOSIZIONE LINEA">
+                                                <content>
+                                                    <FlexBox width="100%" alignItems="Start"
+                                                             justifyContent="Center">
+                                                        <HBox height="100%" width="100%">
+                                                            <VBox width="47%">
+                                                                <wt:CustomTreeTable
+                                                                    id="TreeTable_ConfermaSetupOld"
+                                                                    rows="{path:'GeneralModel>/SetupLinea/Old', parameters: {arrayNames:['attributi']}}"
+                                                                    selectionMode="None"
+                                                                    collapseRecursive="true"
+                                                                    enableColumnReordering="false"
+                                                                    enableSelectAll="false"
+                                                                    ariaLabelledBy="title"
+                                                                    visibleRowCount="20"
+                                                                    app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew"
+                                                                    cellClick="LinkClick"
+                                                                    toggleOpenState="COUPLEDTreeTableIconPress">
+                                                                    <wt:toolbar>
+                                                                        <Toolbar>
+                                                                            <Title text="PRECEDENTE" class="titleTT"/>
+                                                                            <ToolbarSpacer/>
+                                                                            <Button text="Collassa" press="COUPLEDCollapseAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Espandi" press="COUPLEDExpandAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Speciali" press="COUPLEDShowRelevant" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
+                                                                        </Toolbar>
+                                                                    </wt:toolbar>
+                                                                    <wt:columns>
+                                                                        <t:Column width="13rem" resizable="false">
+                                                                            <Label text="ATTRIBUTI"/>
+                                                                            <t:template>
+                                                                                <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" included="{GeneralModel>isIncluded}" diff="{GeneralModel>expand}" discr="{GeneralModel>value}" maxLines="1"/>
+                                                                            </t:template>
+                                                                        </t:Column>
+                                                                        <t:Column width="7rem" resizable="false">
+                                                                            <Label text="VALORE"/>
+                                                                            <t:template>
+                                                                                <wt:StyleTextTreeTableValue text="{GeneralModel>value}" included="{GeneralModel>isIncluded}" maxLength="20" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
+                                                                            </t:template>
+                                                                        </t:Column>
+                                                                    </wt:columns>
+                                                                </wt:CustomTreeTable>
+                                                            </VBox>
+                                                            <VBox width="6%"/>
+                                                            <VBox height="100%" width="47%">
+                                                                <wt:CustomTreeTable
+                                                                    id="TreeTable_ConfermaSetupNew"
+                                                                    rows="{path:'GeneralModel>/SetupLinea/New', parameters: {arrayNames:['attributi']}}"
+                                                                    selectionMode="None"
+                                                                    collapseRecursive="true"
+                                                                    enableSelectAll="false"
+                                                                    enableColumnReordering="false"
+                                                                    ariaLabelledBy="title"
+                                                                    visibleRowCount="20"
+                                                                    app:mydata="TreeTable_ConfermaSetupNew,TreeTable_ConfermaSetupOld"
+                                                                    cellClick="LinkClick"
+                                                                    toggleOpenState="COUPLEDTreeTableIconPress">
+                                                                    <wt:toolbar>
+                                                                        <Toolbar>
+                                                                            <Title text="ATTUALE" class="titleTT"/>
+                                                                            <ToolbarSpacer/>
+                                                                            <Button text="Collassa" press="COUPLEDCollapseAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Espandi" press="COUPLEDExpandAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/> 
+                                                                            <Button text="Speciali" press="COUPLEDShowRelevant" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
+                                                                        </Toolbar>
+                                                                    </wt:toolbar>
+                                                                    <wt:columns>
+                                                                        <t:Column width="13rem" resizable="false">
+                                                                            <Label text="ATTRIBUTI"/>
+                                                                            <t:template>
+                                                                                <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" diff="{GeneralModel>expand}" included="{GeneralModel>isIncluded}" discr="{GeneralModel>value}" maxLines="1"/>
+                                                                            </t:template>
+                                                                        </t:Column>
+                                                                        <t:Column width="7rem" resizable="false">
+                                                                            <Label text="VALORE"/>
+                                                                            <t:template>
+                                                                                <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLength="20" included="{GeneralModel>isIncluded}" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
+                                                                            </t:template>
+                                                                        </t:Column>
+                                                                    </wt:columns>
+                                                                </wt:CustomTreeTable>
+                                                            </VBox>
+                                                        </HBox>
+                                                    </FlexBox>
+                                                </content>
+                                            </TabContainerItem>
+                                        </items>
+                                    </TabContainer>
+                                </VBox>
+                                <VBox width="5%"/>
+                            </HBox>
+                        </VBox>
+                        <VBox height="10%" width="100%" class="blueBorderTop">
+                            <VBox height="15%" width="100%"/>
+                            <VBox height="85%" width="100%">
+                                <HBox>
+                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="70%">
+                                        <FlexBox alignItems="Start" justifyContent="Center">
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                        </FlexBox>
+                                    </VBox>
+                                    <VBox height="100%" width="15%"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </content>
+            </Page>
+        
+        
+                   
+                    
+                    
+            <Page id="InProgress" showHeader="false" class="colorPage">
+                <content>
+                    <VBox height="100%" width="100%">
+                        <VBox height="25%" width="100%" class="blueBorderBottom">
+                            <VBox height="5%" width="100%"/>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/linea}" class="textTop"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text id="InProgressDescrizione" text="{GeneralModel>/Intestazione/descrizione}" class="textTop"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/destinazione}" id="destinazione3"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="5%" width="100%"/>
+                        </VBox>
+                        <VBox height="65%" width="100%">
+                            <VBox height="5%" width="100%"/>
+                            <VBox height="15%" width="100%">
+                                <HBox height="100%" width="100%">
+                                    <VBox width="10%" height="100%"/>
+                                    <VBox width="64%" height="100%">
+                                        <ProgressIndicator
+                                            id="progressBar"
+                                            class="customTextBar ProgressBar"
+                                            percentValue="{GeneralModel>/DatiOEE/avanzamento}"
+                                            displayValue="{GeneralModel>/DatiOEE/perc_avanzamento}"
+                                            showValue="true"
+                                            state="Success"
+                                            height="120px"/>
+                                    </VBox>
+                                    <VBox width="4%" height="100%"/>
+                                    <VBox id="SPCButton" width="16%" height="100%">
+                                    </VBox>
+                                    <VBox width="6%" height="100%"/>
+                                </HBox>
+                            </VBox>
+                            <VBox height="10%" width="100%"/>
+                            <VBox height="35%" width="100%">
+                                <HBox>
+                                    <VBox height="100%" width="30%">
+                                        <HBox>
+                                            <VBox height="100%" width="10%"/>
+                                            <VBox height="100%" width="90%">
+                                                <VBox height="30%" width="100%">
+                                                    <Text text="Valori consuntivi" class="OEEText underlineOEE"/>
+                                                </VBox>
+                                                <VBox height="10%" width="100%">
+                                                    <Text/>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="{GeneralModel>/DatiOEE/massaConsuntiva}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="{GeneralModel>/DatiOEE/tempoConsuntivo}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="{GeneralModel>/DatiOEE/cartoniConsuntivi}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                            </VBox>
+                                        </HBox>
+                                    </VBox>
+                                    <VBox height="100%" width="40%">
+                                        <HBox>
+                                            <VBox height="100%" width="47.5%">
+                                                <VBox height="30%" width="100%">
+                                                    <FlexBox justifyContent="End">
+                                                        <Text text="OEE:" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="10%" width="100%">
+                                                    <Text/>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox justifyContent="End">
+                                                        <Text text=" Disponibilità:" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox justifyContent="End">
+                                                        <Text text=" Produttività:" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox justifyContent="End">
+                                                        <Text text=" Qualità:" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                            </VBox>
+                                            <VBox height="100%" width="5%"/>
+                                            <VBox height="100%" width="47.5%">
+                                                <VBox height="30%" width="100%">
+                                                    <FlexBox justifyContent="End">
+                                                        <Text text="{GeneralModel>/DatiOEE/OEE}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="10%" width="100%">
+                                                    <Text/>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox justifyContent="End">
+                                                        <Text text="{GeneralModel>/DatiOEE/disponibilita}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox justifyContent="End">
+                                                        <Text text="{GeneralModel>/DatiOEE/efficienza}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox justifyContent="End">
+                                                        <Text text="{GeneralModel>/DatiOEE/qualita}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                            </VBox>
+                                        </HBox>
+                                    </VBox>
+                                    <VBox height="100%" width="30%">
+                                        <HBox>
+                                            <VBox height="100%" width="45%"/>
+                                            <VBox height="100%" width="55%">
+                                                <VBox height="30%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="Valori residui" class="OEEText underlineOEE"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="10%" width="100%">
+                                                    <Text/>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="{GeneralModel>/DatiOEE/massaResidua}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="{GeneralModel>/DatiOEE/tempoResiduo}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="{GeneralModel>/DatiOEE/cartoniResidui}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                            </VBox>
+                                        </HBox>
+                                    </VBox>
+                                </HBox>
+                            </VBox>
+                            <VBox height="5%" width="100%"/>
+                            <VBox height="25%" width="100%">
+                                <HBox>
+                                    <VBox height="100%" width="14.5%"/>
+                                    <VBox height="100%" width="85.5%">
+                                        <HBox>
+                                            <VBox height="100%" width="48.5%">
+                                                <VBox height="33%" width="100%">
+                                                    <FlexBox alignItems="End" justifyContent="End">
+                                                        <Text text="Totale fermi:" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="33%" width="100%">
+                                                    <FlexBox alignItems="End" justifyContent="End">
+                                                        <Text text="Fermi automatici:" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="33%" width="100%">
+                                                    <FlexBox alignItems="End" justifyContent="End">
+                                                        <Text text="Fermi da causalizzare:" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="1%" width="100%">
+                                                    <Text/>
+                                                </VBox>
+                                            </VBox>
+                                            <VBox height="100%" width="3%"/>
+                                            <VBox height="100%" width="48.5%">
+                                                <VBox height="33%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="{GeneralModel>/DatiOEE/tempoFermi}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="33%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="{GeneralModel>/DatiOEE/tempoTotaleFermiAutomatici}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                        
+                                                <VBox height="33%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="{GeneralModel>/DatiOEE/tempoFermiAutomatici}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="1%" width="100%">
+                                                    <Text/>
+                                                </VBox>
+                                            </VBox>
+                                            <VBox height="100%" width="20%"/>
+                                        </HBox>
+                                    </VBox>
+                                </HBox>
+                            </VBox>
+                            <VBox height="5%" width="100%"/>
+                        </VBox>
+                        <VBox height="10%" width="100%" class="blueBorderTop">
+                            <VBox height="15%" width="100%"/>
+                            <VBox height="85%" width="100%">
+                                <HBox>
+                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="70%">
+                                        <FlexBox alignItems="Start" justifyContent="Center">
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                        </FlexBox>
+                                    </VBox>
+                                    <VBox height="100%" width="15%"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </content>
+            </Page>
+                    
+                    
+            <Page id="ModificaCondizioni" showHeader="false" class="colorPage">
+                <content>
+                    <VBox height="100%" width="100%">
+                        <VBox height="25%" width="100%" class="blueBorderBottom">
+                            <VBox height="5%" width="100%"/>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/linea}" class="textTop"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text id="ModificaCondizioniDescrizione" text="{GeneralModel>/Intestazione/descrizione}" class="textTop"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/destinazione}" id="destinazione4"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="5%" width="100%"/>
+                        </VBox>
+                        <VBox height="65%" width="100%">
+                            <HBox height="100%" width="100%">
+                                <VBox width="5%"/>
+                                <VBox width="90%">
+                                    <TabContainer id="TabContainer-mod"
+                                                  class="sapUiResponsiveContentPadding"
+                                                  itemClose="UpdateTabs">
+                                        <items>
+                                            <TabContainerItem 
+                                                id="tab1-mod"
+                                                name="ATTRIBUTI PRODOTTO">
+                                                <content>
+                                                    <wt:CustomTreeTable
+                                                        id="TreeTable_AttributiModifica"
+                                                        rows="{path:'GeneralModel>/SKU/SKUattuale', parameters: {arrayNames:['attributi']}}"
+                                                        selectionMode="None"
+                                                        collapseRecursive="true"
+                                                        enableColumnReordering="false"
+                                                        enableSelectAll="false"
+                                                        ariaLabelledBy="title"
+                                                        visibleRowCount="20"
+                                                        cellClick="TreeTableRowClickExpander"
+                                                        app:mydata="TreeTable_AttributiModifica">
+                                                        <wt:toolbar>
+                                                            <Toolbar>
+                                                                <ToolbarSpacer/>
+                                                                <Button text="Collassa" press="CollapseAll" app:mydata="TreeTable_AttributiModifica" class="TTButton"/>
+                                                                <Button text="Espandi" press="ExpandAll" app:mydata="TreeTable_AttributiModifica" class="TTButton"/>
+                                                                <Button text="Speciali" press="ShowRelevant" app:mydata="TreeTable_AttributiModifica" class="TTButton"/>
+                                                            </Toolbar>
+                                                        </wt:toolbar>
+                                                        <wt:columns>
+                                                            <t:Column width="13rem" resizable="false">
+                                                                <Label text="ATTRIBUTI"/>
+                                                                <t:template>
+                                                                    <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" diff="{GeneralModel>expand}" discr="{GeneralModel>value}" maxLines="1"/>
+                                                                </t:template>
+                                                            </t:Column>
+                                                            <t:Column width="7rem" resizable="false">
+                                                                <Label text="VALORE"/>
+                                                                <t:template>
+                                                                    <HBox>
+                                                                        <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLength="20" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
+                                                                    </HBox>
+                                                                </t:template>
+                                                            </t:Column>
+                                                        </wt:columns>
+                                                    </wt:CustomTreeTable>
+                                                </content>
+                                            </TabContainerItem>
+                                            <TabContainerItem 
+                                                id="tab2-mod"
+                                                name="MODIFICA CONDIZIONI">
+                                                <content>
+                                                    <wt:CustomTreeTable
+                                                        class="modificaCondizioniHeight"
+                                                        id="TreeTable_ModificaCondizioni"
+                                                        rows="{path:'GeneralModel>/SetupLinea/Modify', parameters: {arrayNames:['attributi']}}"
+                                                        selectionMode="None"
+                                                        ariaLabelledBy="title"
+                                                        enableColumnReordering="false"
+                                                        visibleRowCount="10"
+                                                        cellClick="TreeTableRowClickExpander"
+                                                        app:mydata="TreeTable_ModificaCondizioni">
+                                                        <wt:toolbar>
+                                                            <Toolbar>
+                                                                <Button text="Ripristina valori" press="RestoreDefault" class="TTButton"/>
+                                                                <ToolbarSpacer/>
+                                                                <Button text="Collassa" press="CollapseAll" app:mydata="TreeTable_ModificaCondizioni" class="TTButton"/>
+                                                                <Button text="Espandi" press="ExpandAll" app:mydata="TreeTable_ModificaCondizioni" class="TTButton"/>
+                                                                <Button text="Da confermare" press="ShowRelevant" app:mydata="TreeTable_ModificaCondizioni" class="TTButton"/>
+                                                            </Toolbar>
+                                                        </wt:toolbar>
+                                                        <wt:columns>
+                                                            <t:Column width="15rem" resizable="false">
+                                                                <Label text="ATTRIBUTI"/>
+                                                                <t:template>
+                                                                    <Text text="{GeneralModel>name}" maxLines="1" class="verticalAlignment"/>
+                                                                </t:template>
+                                                            </t:Column>
+                                                            <t:Column width="5rem" resizable="false">
+                                                                <Label text="VALORE"/>
+                                                                <t:template>
+                                                                    <Text text="{GeneralModel>value}" maxLines="1" tooltip="{GeneralModel>value}" class="verticalAlignment"/>
+                                                                </t:template>
+                                                            </t:Column>
+                                                            <t:Column width="5rem" resizable="false">
+                                                                <Label text="MATRICOLA/LOTTO"/>
+                                                                <t:template>
+                                                                    <Text text="{GeneralModel>codeValue}" visible="{= ${GeneralModel>code} === 1}" maxLines="1" tooltip="{GeneralModel>codeValue}" class="verticalAlignment"/>
+                                                                </t:template>
+                                                            </t:Column>
+                                                            <t:Column width="5rem" resizable="false">
+                                                                <Label text="MODIFICA VALORE"/>
+                                                                <t:template>
+                                                                    <Input value="{GeneralModel>valueModify}" editable="{= ${GeneralModel>modify} === 1}" type="Text" maxLength="30" visible="{= ${GeneralModel>modify} === 1}" class="diffStandard"/>
+                                                                </t:template>
+                                                            </t:Column>
+                                                            <t:Column width="5rem" resizable="false">
+                                                                <Label text="MODIFICA MATRICOLA/LOTTO"/>
+                                                                <t:template>
+                                                                    <Input value="{GeneralModel>codeValueModify}" placeholder="{GeneralModel>codePlaceholder}" type="Text" maxLength="30" editable="{= ${GeneralModel>code} === 1}" class="diffStandard"/>
+                                                                </t:template>
+                                                            </t:Column>
+                                                        </wt:columns>
+                                                    </wt:CustomTreeTable>
+                                                    <HBox>
+                                                        <VBox width="47%">
+                                                            <Button text="Annulla" width="100%" press="AnnullaModifica" class="annullaButton"/>
+                                                        </VBox>
+                                                        <VBox  width="6%">
+                                                            <Text/>
+                                                        </VBox>
+                                                        <VBox width="47%">
+                                                            <Button text="Conferma" width="100%" press="ConfermaModifica" class="confermaButton"/>
+                                                        </VBox> 
+                                                    </HBox>
+                                                </content>
+                                            </TabContainerItem>
+                                        </items>
+                                    </TabContainer>
+                                </VBox>
+                                <VBox width="5%"/>
+                            </HBox>
+                        </VBox>
+                        <VBox height="10%" width="100%" class="blueBorderTop">
+                            <VBox height="15%" width="100%"/>
+                            <VBox height="85%" width="100%">
+                                <HBox>
+                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="70%">
+                                        <FlexBox alignItems="Start" justifyContent="Center">
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                        </FlexBox>
+                                    </VBox>
+                                    <VBox height="100%" width="15%"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </content>
+            </Page>
+                    
+                    
+            <Page id="Fermo" showHeader="false" class="colorPage">
+                <content>
+                    <VBox height="100%" width="100%">
+                        <VBox height="25%" width="100%" class="blueBorderBottom">
+                            <VBox height="5%" width="100%"/>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/linea}" class="textTop"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text id="FermoDescrizione" text="{GeneralModel>/Intestazione/descrizione}" class="textTop"/>
+                                        
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/destinazione}" id="destinazione5"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="5%" width="100%"/>
+                        </VBox>
+                        <VBox>
+                            <ScrollContainer height="800px" vertical="true">
+                                <content>
+                                    <VBox id="vboxFermo" height="800px" width="100%"/> <!-- height="65%" -->
+                                </content>
+                            </ScrollContainer>
+                        </VBox>
+                        <VBox height="10%" width="100%" class="blueBorderTop">
+                            <VBox height="15%" width="100%"/>
+                            <VBox height="85%" width="100%">
+                                <HBox>
+                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="70%">
+                                        <FlexBox alignItems="Start" justifyContent="Center">
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                        </FlexBox>
+                                    </VBox>
+                                    <VBox height="100%" width="15%"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </content>
+            </Page>
+                    
+                    
+            <Page id="Causalizzazione" showHeader="false" class="colorPage" enableScrolling="false">
+                <content>
+                    <VBox height="100%" width="100%">
+                        <VBox height="25%" width="100%" class="blueBorderBottom">
+                            <VBox height="5%" width="100%"/>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/linea}" class="textTop"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text id="CausalizzazioneDescrizione" text="{GeneralModel>/Intestazione/descrizione}" class="textTop"/>
+                                        
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/destinazione}" id="destinazione6"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="5%" width="100%"/>
+                        </VBox>
+                        <VBox height="65%">
+                            <HBox height="100%" width="100%">
+                                <VBox height="100%" width="10%">
+                                    <Text/>
+                                </VBox>
+                                <VBox height="100%" width="80%">
+                                    <VBox height="15%">
+                                        <HBox>
+                                            <VBox width="10%"/>
+                                            <VBox width="25%">
+                                                <Button text="Esci" width="100%" press="EsciCausalizzazione" class="chiudiButton shiftDownCause"/>
+                                            </VBox>
+                                            <VBox width="30%"/>
+                                            <VBox width="25%">
+                                                <Button id="ConfermaCausalizzazione" text="Causalizza" width="100%" enabled="false" press="Causalizza" class="allarmeButton shiftDownCause"/>
+                                            </VBox>
+                                            <VBox width="10%"/>
+                                        </HBox>
+                                    </VBox>
+                                    <VBox id="vbox_table" height="15%" width="100%" class="vbox_table"/>
+                                    <VBox height="70%" width="100%">
+                                        <t:Table
+                                            id="SingoliTable"
+                                            visibleRowCount="9"
+                                            class="alternate-color causeSingleTexts blueBorder"
+                                            selectionMode="None"
+                                            rows="{GeneralModel>/FermiNonCausalizzati/fermi}">
+                                            <t:columns>
+                                                <t:Column hAlign="Center" width="15%" resizable="false">
+                                                    <Label text="INIZIO"/>
+                                                    <t:template>
+                                                        <Text text="{GeneralModel>inizio}"/>
+                                                    </t:template>
+                                                </t:Column>
+                                                <t:Column hAlign="Center" width="15%" resizable="false">
+                                                    <Label text="FINE"/>
+                                                    <t:template>
+                                                        <Text text="{GeneralModel>fine}"/>
+                                                    </t:template>
+                                                </t:Column>
+                                                <t:Column hAlign="Center" width="15%" resizable="false">
+                                                    <Label text="TEMPO"/>
+                                                    <t:template>
+                                                        <Text text="{GeneralModel>intervallo}"/>
+                                                    </t:template>
+                                                </t:Column>
+                                                <t:Column hAlign="Center" width="45%" resizable="false">
+                                                    <Label text="CAUSALE"/>
+                                                    <t:template>
+                                                        <Text text="{GeneralModel>causa}"/>
+                                                    </t:template>
+                                                </t:Column>
+                                                <t:Column hAlign="Center" width="10%" resizable="false">
+                                                    <t:template>
+                                                        <CheckBox id="CBSingoloCausa" selected="{GeneralModel>select}" enabled="{GeneralModel>enable}" select="ChangeSelezioneTotaleCausalizzazione"/>
+                                                    </t:template>
+                                                </t:Column>
+                                            </t:columns>
+                                        </t:Table>
+                                    </VBox>
+                                </VBox>
+                                <VBox height="100%" width="10%">
+                                    <Text/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                        <VBox height="10%" width="100%" class="blueBorderTop">
+                            <VBox height="15%" width="100%"/>
+                            <VBox height="85%" width="100%">
+                                <HBox>
+                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="70%">
+                                        <FlexBox alignItems="Start" justifyContent="Center">
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                        </FlexBox>
+                                    </VBox>
+                                    <VBox height="100%" width="15%"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </content>
+            </Page>
+                    
+                    
+            <Page id="Fault" showHeader="false" class="colorPage">
+                <content>
+                    <VBox height="100%" width="100%">
+                        <VBox height="25%" width="100%" class="blueBorderBottom">
+                            <VBox height="5%" width="100%"/>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/linea}" class="textTop"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text id="FaultDescrizione" text="{GeneralModel>/Intestazione/descrizione}" class="textTop"/>
+                                        
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/destinazione}" id="destinazione7"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="5%" width="100%"/>
+                        </VBox>
+                        <VBox height="5%" width="100%"/>
+                        <VBox height="60%" width="100%">
+                            <VBox height="20%" width="100%">
+                                <HBox height="100%" width="100%">
+                                    <VBox width="10%" height="100%"/>
+                                    <VBox width="64%" height="100%">
+                                        <ProgressIndicator
+                                            class="customTextBar ProgressBar"
+                                            percentValue="{GeneralModel>/DatiOEE/avanzamento}"
+                                            displayValue="{GeneralModel>/DatiOEE/perc_avanzamento}"
+                                            showValue="true"
+                                            height="120px"/>
+                                    </VBox>
+                                    <VBox width="4%" height="100%"/>
+                                    <VBox width="6.8%" height="120px" class="blueBorder shiftDown25">
+                                    </VBox>
+                                    <VBox width="6.8%" height="120px" class="blueBorder shiftDown25">
+                                    </VBox>
+                                    <VBox width="8.4%" height="100%"/>
+                                </HBox>
+                            </VBox>
+                            <VBox height="10%" width="100%"/>
+                            <VBox height="35%" width="100%">
+                                <HBox>
+                                    <VBox height="100%" width="30%">
+                                        <HBox>
+                                            <VBox height="100%" width="10%"/>
+                                            <VBox height="100%" width="90%">
+                                                <VBox height="30%" width="100%">
+                                                    <Text text="Valori consuntivi" class="OEEText underlineOEE"/>
+                                                </VBox>
+                                                <VBox height="10%" width="100%">
+                                                    <Text/>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="{GeneralModel>/DatiOEE/massaConsuntiva}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="{GeneralModel>/DatiOEE/tempoConsuntivo}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="{GeneralModel>/DatiOEE/cartoniConsuntivi}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                            </VBox>
+                                        </HBox>
+                                    </VBox>
+                                    <VBox height="100%" width="40%">
+                                        <HBox>
+                                            <VBox height="100%" width="47.5%">
+                                                <VBox height="30%" width="100%">
+                                                    <FlexBox justifyContent="End">
+                                                        <Text text="OEE:" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="10%" width="100%">
+                                                    <Text/>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox justifyContent="End">
+                                                        <Text text=" Disponibilità:" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox justifyContent="End">
+                                                        <Text text=" Produttività:" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox justifyContent="End">
+                                                        <Text text=" Qualità:" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                            </VBox>
+                                            <VBox height="100%" width="5%"/>
+                                            <VBox height="100%" width="47.5%">
+                                                <VBox height="30%" width="100%">
+                                                    <FlexBox justifyContent="End">
+                                                        <Text text="{GeneralModel>/DatiOEE/OEE}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="10%" width="100%">
+                                                    <Text/>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox justifyContent="End">
+                                                        <Text text="{GeneralModel>/DatiOEE/disponibilita}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox justifyContent="End">
+                                                        <Text text="{GeneralModel>/DatiOEE/efficienza}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox justifyContent="End">
+                                                        <Text text="{GeneralModel>/DatiOEE/qualita}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                            </VBox>
+                                        </HBox>
+                                    </VBox>
+                                    <VBox height="100%" width="30%">
+                                        <HBox>
+                                            <VBox height="100%" width="45%"/>
+                                            <VBox height="100%" width="55%">
+                                                <VBox height="30%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="Valori residui" class="OEEText underlineOEE"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="10%" width="100%">
+                                                    <Text/>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="{GeneralModel>/DatiOEE/massaResidua}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="{GeneralModel>/DatiOEE/tempoResiduo}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="20%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="{GeneralModel>/DatiOEE/cartoniResidui}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                            </VBox>
+                                        </HBox>
+                                    </VBox>
+                                </HBox>
+                            </VBox>
+                            <VBox height="5%" width="100%"/>
+                            <VBox height="25%" width="100%">
+                                <HBox>
+                                    <VBox height="100%" width="14.5%"/>
+                                    <VBox height="100%" width="85.5%">
+                                        <HBox>
+                                            <VBox height="100%" width="48.5%">
+                                                <VBox height="33%" width="100%">
+                                                    <FlexBox alignItems="End" justifyContent="End">
+                                                        <Text text="Totale fermi:" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="33%" width="100%">
+                                                    <FlexBox alignItems="End" justifyContent="End">
+                                                        <Text text="Fermi automatici:" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="33%" width="100%">
+                                                    <FlexBox alignItems="End" justifyContent="End">
+                                                        <Text text="Fermi da causalizzare:" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="1%" width="100%">
+                                                    <Text/>
+                                                </VBox>
+                                            </VBox>
+                                            <VBox height="100%" width="3%"/>
+                                            <VBox height="100%" width="48.5%">
+                                                <VBox height="33%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="{GeneralModel>/DatiOEE/tempoFermi}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="33%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="{GeneralModel>/DatiOEE/tempoTotaleFermiAutomatici}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                        
+                                                <VBox height="33%" width="100%">
+                                                    <FlexBox alignItems="Start" justifyContent="Start">
+                                                        <Text text="{GeneralModel>/DatiOEE/tempoFermiAutomatici}" class="OEEText"/>
+                                                    </FlexBox>
+                                                </VBox>
+                                                <VBox height="1%" width="100%">
+                                                    <Text/>
+                                                </VBox>
+                                            </VBox>
+                                            <VBox height="100%" width="20%"/>
+                                        </HBox>
+                                    </VBox>
+                                </HBox>
+                            </VBox>
+                            <VBox height="5%" width="100%"/>
+                        </VBox>
+                        <VBox height="10%" width="100%" class="blueBorderTop">
+                            <VBox height="15%" width="100%"/>
+                            <VBox height="85%" width="100%">
+                                <HBox>
+                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="70%">
+                                        <FlexBox alignItems="Start" justifyContent="Center">
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                        </FlexBox>
+                                    </VBox>
+                                    <VBox height="100%" width="15%"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </content>
+            </Page>
+                    
+                    
+            <Page id="RipristinoCondizioni" showHeader="false" class="colorPage">
+                <content>
+                    <VBox height="100%" width="100%">
+                        <VBox height="25%" width="100%" class="blueBorderBottom">
+                            <VBox height="5%" width="100%"/>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/linea}" class="textTop"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text id="RipristinoCondizioniDescrizione" text="{GeneralModel>/Intestazione/descrizione}" class="textTop"/>
+                                        
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/destinazione}" id="destinazione8"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="5%" width="100%"/>
+                        </VBox>
+                        <VBox height="65%" width="100%">
+                            <HBox height="100%" width="100%">
+                                <VBox width="5%"/>
+                                <VBox width="90%">
+                                    <wt:CustomTreeTable
+                                        class="modificaCondizioniHeight"
+                                        id="TreeTable_RipristinoCondizioni"
+                                        rows="{path:'GeneralModel>/SetupLinea/Modify', parameters: {arrayNames:['attributi']}}"
+                                        selectionMode="None"
+                                        collapseRecursive="true"
+                                        enableSelectAll="false"
+                                        enableColumnReordering="false"
+                                        ariaLabelledBy="title"
+                                        visibleRowCount="11"
+                                        cellClick="TreeTableRowClickExpander"
+                                        app:mydata="TreeTable_RipristinoCondizioni">
+                                        <wt:toolbar>
+                                            <Toolbar>
+                                                <Button text="Ripristina valori" press="RestoreDefault" class="TTButton"/>
+                                                <ToolbarSpacer/>
+                                                <Button text="Collassa" press="CollapseAll" app:mydata="TreeTable_RipristinoCondizioni" class="TTButton"/>
+                                                <Button text="Espandi" press="ExpandAll" app:mydata="TreeTable_RipristinoCondizioni" class="TTButton"/>
+                                                <Button text="Da confermare" press="ShowRelevant" app:mydata="TreeTable_RipristinoCondizioni" class="TTButton"/>
+                                            </Toolbar>
+                                        </wt:toolbar>
+                                        <wt:columns>
+                                            <t:Column width="15rem" resizable="false">
+                                                <Label text="ATTRIBUTI"/>
+                                                <t:template>
+                                                    <Text text="{GeneralModel>name}" maxLines="1" class="verticalAlignment"/>
+                                                </t:template>
+                                            </t:Column>
+                                            <t:Column width="5rem" resizable="false">
+                                                <Label text="VALORE"/>
+                                                <t:template>
+                                                    <Text text="{GeneralModel>value}" maxLines="1" tooltip="{GeneralModel>value}" class="verticalAlignment"/>
+                                                </t:template>
+                                            </t:Column>
+                                            <t:Column width="5rem" resizable="false">
+                                                <Label text="MATRICOLA/LOTTO"/>
+                                                <t:template>
+                                                    <Text text="{GeneralModel>codeValue}" visible="{= ${GeneralModel>code} === 1}" maxLines="1" tooltip="{GeneralModel>codeValue}" class="verticalAlignment"/>
+                                                </t:template>
+                                            </t:Column>
+                                            <t:Column width="5rem" resizable="false">
+                                                <Label text="MODIFICA VALORE"/>
+                                                <t:template>
+                                                    <Input value="{GeneralModel>valueModify}" editable="{= ${GeneralModel>modify} === 1}" type="Text" maxLength="30" visible="{= ${GeneralModel>modify} === 1}" class="diffStandard"/>
+                                                </t:template>
+                                            </t:Column>
+                                            <t:Column width="5rem" resizable="false">
+                                                <Label text="MODIFICA MATRICOLA/LOTTO"/>
+                                                <t:template>
+                                                    <Input value="{GeneralModel>codeValueModify}" placeholder="{GeneralModel>codePlaceholder}" type="Text" maxLength="30" editable="{= ${GeneralModel>code} === 1}" class="diffStandard"/>
+                                                </t:template>
+                                            </t:Column>
+                                        </wt:columns>
+                                    </wt:CustomTreeTable>
+                                    <HBox>
+                                        <VBox width="47%">
+                                            <Button text="Annulla" width="100%" press="AnnullaRipristino" class="annullaButton"/>
+                                        </VBox>
+                                        <VBox  width="6%">
+                                            <Text/>
+                                        </VBox>
+                                        <VBox width="47%">
+                                            <Button text="Conferma" width="100%" press="ConfermaRipristino" class="confermaButton"/>
+                                        </VBox> 
+                                    </HBox>
+                                </VBox>
+                                <VBox width="5%"/>
+                            </HBox>
+                        </VBox>
+                        <VBox height="10%" width="100%" class="blueBorderTop">
+                            <VBox height="15%" width="100%"/>
+                            <VBox height="85%" width="100%">
+                                <HBox>
+                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="70%">
+                                        <FlexBox alignItems="Start" justifyContent="Center">
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                        </FlexBox>
+                                    </VBox>
+                                    <VBox height="100%" width="15%"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </content>
+            </Page>
+                    
+                    
+            <Page id="ChiusuraConfezionamento" showHeader="false" class="colorPage"> 
+                <content>
+                    <VBox height="100%" width="100%">
+                        <VBox height="25%" width="100%" class="blueBorderBottom">
+                            <VBox height="5%" width="100%"/>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/linea}" class="textTop"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text id="ChiusuraConfezionamentoDescrizione" text="{GeneralModel>/Intestazione/descrizione}" class="textTop"/>
+                                        
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/destinazione}" id="destinazione9"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="5%" width="100%"/>
+                        </VBox>
+                        <VBox height="65%" width="100%">
+                            <HBox height="100%" width="100%">
+                                <VBox width="5%"/>
+                                <VBox width="90%">
+                                    <wt:CustomTreeTable
+                                        id="TreeTable_Chiusura"
+                                        rows="{path:'GeneralModel>/ParametriChiusura', parameters: {arrayNames:['attributi']}}"
+                                        selectionMode="None"
+                                        collapseRecursive="true"
+                                        enableColumnReordering="false"
+                                        enableSelectAll="false"
+                                        ariaLabelledBy="title"
+                                        visibleRowCount="18"
+                                        cellClick="TreeTableRowClickExpander"
+                                        app:mydata="TreeTable_Chiusura">
+                                        <wt:toolbar>
+                                            <Toolbar>
+                                                <ToolbarSpacer/>
+                                                <Button text="Collassa" press="CollapseAll" app:mydata="TreeTable_Chiusura" class="TTButton"/>
+                                                <Button text="Espandi" press="ExpandAll" app:mydata="TreeTable_Chiusura" class="TTButton"/>
+                                            </Toolbar>
+                                        </wt:toolbar>
+                                        <wt:columns>
+                                            <t:Column width="10rem"  resizable="false">
+                                                <Label text="ATTRIBUTI"/>
+                                                <t:template>
+                                                    <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" diff="{GeneralModel>expand}" discr="{GeneralModel>value}" maxLines="1"/>
+                                                </t:template>
+                                            </t:Column>
+                                            <t:Column width="10rem"  resizable="false">
+                                                <Label text="VALORE"/>
+                                                <t:template>
+                                                    <HBox>
+                                                        <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLines="1" tooltip="{GeneralModel>value}" diff="{GeneralModel>expand}" />
+                                                    </HBox>
+                                                </t:template>
+                                            </t:Column>
+                                        </wt:columns>
+                                    </wt:CustomTreeTable>
+                                    <Button text="Chiusura Batch" width="100%" press="SvuotaLinea" class="attrezzaggioButton"/>
+                                </VBox>
+                                <VBox width="5%"/>
+                            </HBox>
+                        </VBox>
+                        <VBox height="10%" width="100%" class="blueBorderTop">
+                            <VBox height="15%" width="100%"/>
+                            <VBox height="85%" width="100%">
+                                <HBox>
+                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="70%">
+                                        <FlexBox alignItems="Start" justifyContent="Center">
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                        </FlexBox>
+                                    </VBox>
+                                    <VBox height="100%" width="15%"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </content>
+            </Page>
+                    
+                    
+                    
+                    
+            
+            <Page id="BatchAttrezzaggio" showHeader="false" class="colorPage"> 
+                <content>
+                    <VBox height="100%" width="100%">
+                        <VBox height="25%" width="100%" class="blueBorderBottom">
+                            <VBox height="5%" width="100%"/>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/linea}" class="textTop"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text id="BatchAttrezzaggioDescrizione" text="{GeneralModel>/Intestazione/descrizione}" class="textTop"/>
+                                        
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/destinazione}" id="destinazione10"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="5%" width="100%"/>
+                        </VBox>
+                        <VBox height="65%" width="100%">
+                            <HBox height="100%" width="100%">
+                                <VBox width="5%"/>
+                                <VBox width="90%">
+                                    <!--<Panel>-->
+                                    <wt:CustomTreeTable
+                                        id="TreeTable_BatchAttrezzaggio"
+                                        rows="{path:'GeneralModel>/SKU/SKUattuale', parameters: {arrayNames:['attributi']}}"
+                                        selectionMode="None"
+                                        collapseRecursive="true"
+                                        enableColumnReordering="false"
+                                        enableSelectAll="false"
+                                        ariaLabelledBy="title"
+                                        visibleRowCount="20"
+                                        cellClick="TreeTableRowClickExpander"
+                                        app:mydata="TreeTable_BatchAttrezzaggio">
+                                        <wt:toolbar>
+                                            <Toolbar>
+                                                <ToolbarSpacer/>
+                                                <Button text="Collassa" press="CollapseAll" app:mydata="TreeTable_BatchAttrezzaggio" class="TTButton"/>
+                                                <Button text="Espandi" press="ExpandAll" app:mydata="TreeTable_BatchAttrezzaggio" class="TTButton"/>
+                                                <Button text="Speciali" press="ShowRelevant" app:mydata="TreeTable_BatchAttrezzaggio" class="TTButton"/>
+                                            </Toolbar>
+                                        </wt:toolbar>
+                                        <wt:columns>
+                                            <t:Column width="10rem" resizable="false">
+                                                <Label text="ATTRIBUTI"/>
+                                                <t:template>
+                                                    <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" diff="{GeneralModel>expand}" discr="{GeneralModel>value}" maxLines="1"/>
+                                                </t:template>
+                                            </t:Column>
+                                            <t:Column width="10rem" resizable="false">
+                                                <Label text="VALORE"/>
+                                                <t:template>
+                                                    <HBox>
+                                                        <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLength="20" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
+                                                    </HBox>
+                                                </t:template>
+                                            </t:Column>
+                                        </wt:columns>
+                                    </wt:CustomTreeTable>
+                                    <Button text="Conferma presa in carico e inizio attrezzaggio" width="100%" press="ConfermaBatchAttrezzaggio" class="attrezzaggioButton"/>
+                                </VBox>
+                                <VBox width="5%"/>
+                            </HBox>
+                        </VBox>
+                        <VBox height="10%" width="100%" class="blueBorderTop">
+                            <VBox height="15%" width="100%"/>
+                            <VBox height="85%" width="100%">
+                                <HBox>
+                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="70%">
+                                        <FlexBox alignItems="Start" justifyContent="Center">
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                        </FlexBox>
+                                    </VBox>
+                                    <VBox height="100%" width="15%"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </content>
+            </Page>
+            
+                                                                    
+            
+            
+            <Page id="PredisposizioneLineaAttrezzaggio" showHeader="false" class="colorPage">
+                <content>
+                    <VBox height="100%" width="100%">
+                        <VBox height="25%" width="100%" class="blueBorderBottom">
+                            <VBox height="5%" width="100%"/>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/linea}" class="textTop"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text id="PredisposizioneLineaAttrezzaggioDescrizione" text="{GeneralModel>/Intestazione/descrizione}" class="textTop"/>
+                                        
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/destinazione}" id="destinazione11"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="5%" width="100%"/>
+                        </VBox>
+                        <VBox height="65%" width="100%">
+                            <HBox height="100%" width="100%">
+                                <VBox width="5%"/>
+                                <VBox width="90%">
+                                    <TabContainer id="TabContainerAttrezzaggio"
+                                                  class="sapUiResponsiveContentPadding"
+                                                  itemClose="UpdateTabs">
+                                        <items>
+                                            <TabContainerItem 
+                                                id="tab1A"
+                                                name="ATTRIBUTI PRODOTTO">
+                                                <content>
+                                                    <wt:CustomTreeTable
+                                                        id="TreeTable_AttributiAttrezzaggio"
+                                                        rows="{path:'GeneralModel>/SKU/SKUattuale', parameters: {arrayNames:['attributi']}}"
+                                                        selectionMode="None"
+                                                        collapseRecursive="true"
+                                                        enableSelectAll="false"
+                                                        enableColumnReordering="false"
+                                                        ariaLabelledBy="title"
+                                                        visibleRowCount="20"
+                                                        cellClick="TreeTableRowClickExpander"
+                                                        app:mydata="TreeTable_AttributiAttrezzaggio">
+                                                        <wt:toolbar>
+                                                            <Toolbar>
+                                                                <ToolbarSpacer/>
+                                                                <Button text="Collassa" press="CollapseAll" app:mydata="TreeTable_AttributiAttrezzaggio" class="TTButton"/>
+                                                                <Button text="Espandi" press="ExpandAll" app:mydata="TreeTable_AttributiAttrezzaggio" class="TTButton"/>
+                                                                <Button text="Speciali" press="ShowRelevant" app:mydata="TreeTable_AttributiAttrezzaggio" class="TTButton"/>
+                                                            </Toolbar>
+                                                        </wt:toolbar>
+                                                        <wt:columns>
+                                                            <t:Column width="13rem" resizable="false">
+                                                                <Label text="ATTRIBUTI"/>
+                                                                <t:template>
+                                                                    <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" diff="{GeneralModel>expand}" discr="{GeneralModel>value}" maxLines="1"/>
+                                                                </t:template>
+                                                            </t:Column>
+                                                            <t:Column width="7rem" resizable="false">
+                                                                <Label text="VALORE"/>
+                                                                <t:template>
+                                                                    <HBox>
+                                                                        <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLength="20" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
+                                                                    </HBox>
+                                                                </t:template>
+                                                            </t:Column>
+                                                        </wt:columns>
+                                                    </wt:CustomTreeTable>
+                                                </content>
+                                            </TabContainerItem>
+                                            <TabContainerItem 
+                                                id="tab2A"
+                                                name="ATTREZZAGGIO LINEA">
+                                                <content>
+                                                    <FlexBox width="100%" alignItems="Start" justifyContent="Center">
+                                                        <HBox height="100%" width="100%">
+                                                            <VBox width="47%">
+                                                                <wt:CustomTreeTable
+                                                                    id="TreeTable_AttrezzaggioOld"
+                                                                    rows="{path:'GeneralModel>/SetupLinea/Old', parameters: {arrayNames:['attributi']}}"
+                                                                    selectionMode="None"
+                                                                    collapseRecursive="true"
+                                                                    enableColumnReordering="false"
+                                                                    enableSelectAll="false"
+                                                                    ariaLabelledBy="title"
+                                                                    visibleRowCount="20"
+                                                                    app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew"
+                                                                    toggleOpenState="COUPLEDTreeTableIconPress"
+                                                                    cellClick="LinkClick">
+                                                                    <wt:toolbar>
+                                                                        <Toolbar>
+                                                                            <ToolbarSpacer/>
+                                                                            <Button text="Collassa" press="COUPLEDCollapseAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Espandi" press="COUPLEDExpandAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Speciali" press="COUPLEDShowRelevant" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
+                                                                        </Toolbar>
+                                                                    </wt:toolbar>
+                                                                    <wt:columns>
+                                                                        <t:Column width="13rem" resizable="false">
+                                                                            <Label text="ATTRIBUTI"/>
+                                                                            <t:template>
+                                                                                <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" diff="{GeneralModel>expand}" included="{GeneralModel>isIncluded}" discr="{GeneralModel>value}" maxLines="1"/>
+                                                                            </t:template>
+                                                                        </t:Column>
+                                                                        <t:Column width="7rem" resizable="false">
+                                                                            <Label text="VALORE"/>
+                                                                            <t:template>
+                                                                                <wt:StyleTextTreeTableValue text="{GeneralModel>value}" included="{GeneralModel>isIncluded}" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
+                                                                            </t:template>
+                                                                        </t:Column>
+                                                                    </wt:columns>
+                                                                </wt:CustomTreeTable>
+                                                            </VBox>
+                                                            <VBox width="6%"/>
+                                                            <VBox width="47%">
+                                                                <wt:CustomTreeTable
+                                                                    id="TreeTable_AttrezzaggioNew"
+                                                                    rows="{path:'GeneralModel>/SetupLinea/New', parameters: {arrayNames:['attributi']}}"
+                                                                    selectionMode="None"
+                                                                    collapseRecursive="true"
+                                                                    enableColumnReordering="false"
+                                                                    enableSelectAll="false"
+                                                                    ariaLabelledBy="title"
+                                                                    visibleRowCount="20"
+                                                                    app:mydata="TreeTable_AttrezzaggioNew,TreeTable_AttrezzaggioOld"
+                                                                    toggleOpenState="COUPLEDTreeTableIconPress"
+                                                                    cellClick="LinkClick">
+                                                                    <wt:toolbar>
+                                                                        <Toolbar>
+                                                                            <ToolbarSpacer/>
+                                                                            <Button text="Collassa" press="COUPLEDCollapseAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Espandi" press="COUPLEDExpandAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/> 
+                                                                            <Button text="Speciali" press="COUPLEDShowRelevant" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
+                                                                        </Toolbar>
+                                                                    </wt:toolbar>
+                                                                    <wt:columns>
+                                                                        <t:Column width="13rem" resizable="false">
+                                                                            <Label text="ATTRIBUTI"/>
+                                                                            <t:template>
+                                                                                <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" diff="{GeneralModel>expand}" included="{GeneralModel>isIncluded}" discr="{GeneralModel>value}" maxLines="1"/>
+                                                                            </t:template>
+                                                                        </t:Column>
+                                                                        <t:Column width="7rem" resizable="false">
+                                                                            <Label text="VALORE"/>
+                                                                            <t:template>
+                                                                                <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLength="20" included="{GeneralModel>isIncluded}" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
+                                                                            </t:template>
+                                                                        </t:Column>
+                                                                    </wt:columns>
+                                                                </wt:CustomTreeTable>
+                                                            </VBox>
+                                                        </HBox>
+                                                    </FlexBox>
+                                                </content>
+                                            </TabContainerItem>
+                                        </items>
+                                    </TabContainer>
+                                </VBox>
+                                <VBox width="5%"/>
+                            </HBox>
+                        </VBox>
+                        <VBox height="10%" width="100%" class="blueBorderTop">
+                            <VBox height="15%" width="100%"/>
+                            <VBox height="85%" width="100%">
+                                <HBox>
+                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="70%">
+                                        <FlexBox alignItems="Start" justifyContent="Center">
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                        </FlexBox>
+                                    </VBox>
+                                    <VBox height="100%" width="15%"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </content>
+            </Page>
+            
+            
+            <Page id="ConfermaAttrezzaggio" showHeader="false" class="colorPage"> 
+                <content>
+                    <VBox height="100%" width="100%">
+                        <VBox height="25%" width="100%" class="blueBorderBottom">
+                            <VBox height="5%" width="100%"/>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/linea}" class="textTop"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text id="ConfermaAttrezzaggioDescrizione" text="{GeneralModel>/Intestazione/descrizione}" class="textTop"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="30%" width="100%">
+                                <VBox width="100%">
+                                    <FlexBox alignItems="Start" justifyContent="Center">
+                                        <Text text="{GeneralModel>/Intestazione/destinazione}" id="destinazione12"/>
+                                    </FlexBox>
+                                </VBox>
+                            </VBox>
+                            <VBox height="5%" width="100%"/>
+                        </VBox>
+                        <VBox height="57%" width="100%">
+                            <Text/>
+                        </VBox>
+                        <VBox height="8%" width="100%">
+                            <HBox>
+                                <VBox width="10%"/>
+                                <VBox width="80%">
+                                    <Button text="Chiusura Attrezzaggio" width="100%" press="FineAttrezzaggio" class="attrezzaggioButton"/>
+                                </VBox>
+                                <VBox width="10%"/>
+                            </HBox>
+                        </VBox>
+                        <VBox height="10%" width="100%" class="blueBorderTop">
+                            <VBox height="15%" width="100%"/>
+                            <VBox height="85%" width="100%">
+                                <HBox>
+                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="70%">
+                                        <FlexBox alignItems="Start" justifyContent="Center">
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                        </FlexBox>
+                                    </VBox>
+                                    <VBox height="100%" width="15%"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </content>
+            </Page>
+            
+                    
+        </detailPages>
+                
+                
+                
+        <masterPages>
+            <Page id="processi" showHeader="false" class="colorPage">
+                <content>
+                    <VBox id="logoVbox" height="25%" width="100%" justifyContent="center" alignItems="start" class="blueBorderBottom">
+                        <VBox height="10%" width="100%"/>
+                        <VBox height="65%" width="100%">
+                            <Image src="img/dececco_marchio_standard_rgb.png" class="Logo"/>
+                        </VBox>
+                        <VBox height="25%" width="100%"/>
+                    </VBox>
+                    <VBox id="panel_processi" class="MasterPanels" height="65%" width="100%" justifyContent="center" alignItems="start">
+                    </VBox>
+                    <VBox id="clock" class="MasterPanels blueBorderTop" height="10%" width="100%">
+                        <VBox height="15%" width="100%"/>
+                        <VBox height="85%" width="100%">
+                            <HBox>
+                                <VBox height="100%" width="20%"/>
+                                <VBox height="100%" width="80%" justifyContent="center" alignItems="start">
+                                    <Label id="clockL2" class="textTop"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                    </VBox>
+                </content>
+            </Page>
+        </masterPages>
+    </SplitApp>
+           
+</mvc:View>

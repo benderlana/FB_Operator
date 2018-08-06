@@ -1,0 +1,22 @@
+{
+    "undef" : true,
+    "unused" : false,
+    "globals" : {
+        "window" : false,
+        "module" : false,
+        "$" : false,
+        "jQuery" : false,
+        "sap" : false,
+        "console" : false,
+        "sprintf" : false,
+        "accounting" : false,
+		"alert": false,
+		"setTimeout": false,
+		"document": false,
+		"setInterval": false,
+		"location": false,
+		"Plotly": false,
+		"require": false,
+        "clearInterval": false
+    }
+}

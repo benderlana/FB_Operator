@@ -1,0 +1,22 @@
+{
+    "descrizione": "Fara San Martino",
+    "errore": "0",
+    "linee": [
+        {
+            "icon": "sap-icon://machine",
+            "linea": "Coppia 05",
+            "info": "Produzione",
+            "infoState": "Success",
+            "idlinea": "1",
+            "linea_desc": "05"
+        },
+        {
+            "icon": "sap-icon://machine",
+            "linea": "Coppia 06",
+            "info": "Produzione",
+            "infoState": "Success",
+            "idlinea": "16",
+            "linea_desc": "06"
+        }
+    ]
+}
