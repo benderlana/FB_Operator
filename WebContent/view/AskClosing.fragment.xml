@@ -10,7 +10,7 @@
                 <VBox height="48px"/>
                 <VBox height="60px">
                     <FlexBox alignItems="Start" justifyContent="Center">
-                        <Text text="Chiusura confezionamento" class="textTop"/>
+                        <Text text="Packaging closure" class="textTop"/>
                     </FlexBox>
                 </VBox>
                 <VBox height="60px"/>
@@ -18,13 +18,13 @@
                     <HBox>
                         <VBox width="70px"/>
                         <VBox width="400px">
-                            <Button text="Annulla" width="400px" press="AnnullaChiusuraConfezionamento" class="annullaButtonDialog textButtonsDialog"/>
+                            <Button text="Undo" width="400px" press="AnnullaChiusuraConfezionamento" class="annullaButtonDialog textButtonsDialog"/>
                         </VBox>
                         <VBox  width="60px">
                             <Text/>
                         </VBox>
                         <VBox width="400px">
-                            <Button text="Conferma" width="400px" press="ConfermaChiusuraConfezionamento" class="confermaButtonDialog textButtonsDialog"/>
+                            <Button text="Confirm" width="400px" press="ConfermaChiusuraConfezionamento" class="confermaButtonDialog textButtonsDialog"/>
                         </VBox>
                         <VBox width="70px"/>
                     </HBox>

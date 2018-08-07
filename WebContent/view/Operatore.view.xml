@@ -105,20 +105,20 @@
                                         <wt:toolbar>
                                             <Toolbar>
                                                 <ToolbarSpacer/>
-                                                <Button text="Collassa" press="CollapseAll" app:mydata="TreeTable_PresaInCarico" class="TTButton"/>
-                                                <Button text="Espandi" press="ExpandAll" app:mydata="TreeTable_PresaInCarico" class="TTButton"/>
-                                                <Button text="Speciali" press="ShowRelevant" app:mydata="TreeTable_PresaInCarico" class="TTButton"/>
+                                                <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_PresaInCarico" class="TTButton"/>
+                                                <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_PresaInCarico" class="TTButton"/>
+                                                <Button text="No Standard" press="ShowRelevant" app:mydata="TreeTable_PresaInCarico" class="TTButton"/>
                                             </Toolbar>
                                         </wt:toolbar>
                                         <wt:columns>
                                             <t:Column width="10rem" resizable="false">
-                                                <Label text="ATTRIBUTI"/>
+                                                <Label text="ATTRIBUTES"/>
                                                 <t:template>
                                                     <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" diff="{GeneralModel>expand}" discr="{GeneralModel>value}" maxLines="1" />
                                                 </t:template>
                                             </t:Column>
                                             <t:Column width="10rem" resizable="false">
-                                                <Label text="VALORE"/>
+                                                <Label text="VALUE"/>
                                                 <t:template>
                                                     <HBox>
                                                         <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLength="20" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
@@ -127,7 +127,7 @@
                                             </t:Column>
                                         </wt:columns>
                                     </wt:CustomTreeTable>
-                                    <Button text="Conferma presa in carico e inizio attrezzaggio" width="100%" press="ConfermaBatch" class="attrezzaggioButton"/>
+                                    <Button text="Confirmation of the take charge and start of tooling" width="100%" press="ConfermaBatch" class="attrezzaggioButton"/>
                                 </VBox>
                                 <VBox width="5%"/>
                             </HBox>
@@ -190,7 +190,7 @@
                                         <items>
                                             <TabContainerItem 
                                                 id="tab1"
-                                                name="ATTRIBUTI PRODOTTO">
+                                                name="PRODUCT ATTRIBUTES">
                                                 <content>
                                                     <wt:CustomTreeTable
                                                         id="TreeTable_AttributiPredisposizione"
@@ -206,20 +206,20 @@
                                                         <wt:toolbar>
                                                             <Toolbar>
                                                                 <ToolbarSpacer/>
-                                                                <Button text="Collassa" press="CollapseAll" app:mydata="TreeTable_AttributiPredisposizione" class="TTButton"/>
-                                                                <Button text="Espandi" press="ExpandAll" app:mydata="TreeTable_AttributiPredisposizione" class="TTButton"/>
-                                                                <Button text="Speciali" press="ShowRelevant" app:mydata="TreeTable_AttributiPredisposizione" class="TTButton"/>
+                                                                <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_AttributiPredisposizione" class="TTButton"/>
+                                                                <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_AttributiPredisposizione" class="TTButton"/>
+                                                                <Button text="No Standard" press="ShowRelevant" app:mydata="TreeTable_AttributiPredisposizione" class="TTButton"/>
                                                             </Toolbar>
                                                         </wt:toolbar>
                                                         <wt:columns>
                                                             <t:Column width="13rem" resizable="false">
-                                                                <Label text="ATTRIBUTI"/>
+                                                                <Label text="ATTRIBUTES"/>
                                                                 <t:template>
                                                                     <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" diff="{GeneralModel>expand}" discr="{GeneralModel>value}" maxLines="1" />
                                                                 </t:template>
                                                             </t:Column>
                                                             <t:Column width="7rem" resizable="false">
-                                                                <Label text="VALORE"/>
+                                                                <Label text="VALUE"/>
                                                                 <t:template>
                                                                     <HBox>
                                                                         <wt:StyleTextTreeTableValue text="{GeneralModel>value}" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
@@ -232,7 +232,7 @@
                                             </TabContainerItem>
                                             <TabContainerItem 
                                                 id="tab2"
-                                                name="PREDISPOSIZIONE LINEA">
+                                                name="LINE'S PREDISPOSITION">
                                                 <content>
                                                     <FlexBox width="100%" alignItems="Start"
                                                              justifyContent="Center">
@@ -252,22 +252,22 @@
                                                                     toggleOpenState="COUPLEDTreeTableIconPress">
                                                                     <wt:toolbar>
                                                                         <Toolbar>
-                                                                            <Title text="PRECEDENTE" class="titleTT"/>
+                                                                            <Title text="PREVIOUS" class="titleTT"/>
                                                                             <ToolbarSpacer/>
-                                                                            <Button text="Collassa" press="COUPLEDCollapseAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
-                                                                            <Button text="Espandi" press="COUPLEDExpandAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
-                                                                            <Button text="Speciali" press="COUPLEDShowRelevant" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Collapse" press="COUPLEDCollapseAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Expand" press="COUPLEDExpandAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="No Standard" press="COUPLEDShowRelevant" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
                                                                         </Toolbar>
                                                                     </wt:toolbar>
                                                                     <wt:columns>
                                                                         <t:Column width="13rem" resizable="false">
-                                                                            <Label text="ATTRIBUTI"/>
+                                                                            <Label text="ATTRIBUTES"/>
                                                                             <t:template>
                                                                                 <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" included="{GeneralModel>isIncluded}" diff="{GeneralModel>expand}" discr="{GeneralModel>value}" maxLines="1"/>
                                                                             </t:template>
                                                                         </t:Column>
                                                                         <t:Column width="7rem" resizable="false">
-                                                                            <Label text="VALORE"/>
+                                                                            <Label text="VALUE"/>
                                                                             <t:template>
                                                                                 <wt:StyleTextTreeTableValue text="{GeneralModel>value}" included="{GeneralModel>isIncluded}" maxLength="20" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
                                                                             </t:template>
@@ -291,22 +291,22 @@
                                                                     toggleOpenState="COUPLEDTreeTableIconPress">
                                                                     <wt:toolbar>
                                                                         <Toolbar>
-                                                                            <Title text="ATTUALE" class="titleTT"/>
+                                                                            <Title text="CURRENT" class="titleTT"/>
                                                                             <ToolbarSpacer/>
-                                                                            <Button text="Collassa" press="COUPLEDCollapseAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
-                                                                            <Button text="Espandi" press="COUPLEDExpandAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/> 
-                                                                            <Button text="Speciali" press="COUPLEDShowRelevant" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Collapse" press="COUPLEDCollapseAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Expand" press="COUPLEDExpandAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/> 
+                                                                            <Button text="No Standard" press="COUPLEDShowRelevant" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
                                                                         </Toolbar>
                                                                     </wt:toolbar>
                                                                     <wt:columns>
                                                                         <t:Column width="13rem" resizable="false">
-                                                                            <Label text="ATTRIBUTI"/>
+                                                                            <Label text="ATTRIBUTES"/>
                                                                             <t:template>
                                                                                 <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" diff="{GeneralModel>expand}" included="{GeneralModel>isIncluded}" discr="{GeneralModel>value}" maxLines="1"/>
                                                                             </t:template>
                                                                         </t:Column>
                                                                         <t:Column width="7rem" resizable="false">
-                                                                            <Label text="VALORE"/>
+                                                                            <Label text="VALUE"/>
                                                                             <t:template>
                                                                                 <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLength="20" included="{GeneralModel>isIncluded}" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
                                                                             </t:template>
@@ -403,7 +403,7 @@
                                             <VBox height="100%" width="10%"/>
                                             <VBox height="100%" width="90%">
                                                 <VBox height="30%" width="100%">
-                                                    <Text text="Valori consuntivi" class="OEEText underlineOEE"/>
+                                                    <Text text="Balance sheet values" class="OEEText underlineOEE"/>
                                                 </VBox>
                                                 <VBox height="10%" width="100%">
                                                     <Text/>
@@ -439,17 +439,17 @@
                                                 </VBox>
                                                 <VBox height="20%" width="100%">
                                                     <FlexBox justifyContent="End">
-                                                        <Text text=" Disponibilità:" class="OEEText"/>
+                                                        <Text text=" Availability:" class="OEEText"/>
                                                     </FlexBox>
                                                 </VBox>
                                                 <VBox height="20%" width="100%">
                                                     <FlexBox justifyContent="End">
-                                                        <Text text=" Produttività:" class="OEEText"/>
+                                                        <Text text=" Productivity:" class="OEEText"/>
                                                     </FlexBox>
                                                 </VBox>
                                                 <VBox height="20%" width="100%">
                                                     <FlexBox justifyContent="End">
-                                                        <Text text=" Qualità:" class="OEEText"/>
+                                                        <Text text=" Quality:" class="OEEText"/>
                                                     </FlexBox>
                                                 </VBox>
                                             </VBox>
@@ -487,7 +487,7 @@
                                             <VBox height="100%" width="55%">
                                                 <VBox height="30%" width="100%">
                                                     <FlexBox alignItems="Start" justifyContent="Start">
-                                                        <Text text="Valori residui" class="OEEText underlineOEE"/>
+                                                        <Text text="Residue values" class="OEEText underlineOEE"/>
                                                     </FlexBox>
                                                 </VBox>
                                                 <VBox height="10%" width="100%">
@@ -522,17 +522,17 @@
                                             <VBox height="100%" width="48.5%">
                                                 <VBox height="33%" width="100%">
                                                     <FlexBox alignItems="End" justifyContent="End">
-                                                        <Text text="Totale fermi:" class="OEEText"/>
+                                                        <Text text="Stops total:" class="OEEText"/>
                                                     </FlexBox>
                                                 </VBox>
                                                 <VBox height="33%" width="100%">
                                                     <FlexBox alignItems="End" justifyContent="End">
-                                                        <Text text="Fermi automatici:" class="OEEText"/>
+                                                        <Text text="Automatic stops:" class="OEEText"/>
                                                     </FlexBox>
                                                 </VBox>
                                                 <VBox height="33%" width="100%">
                                                     <FlexBox alignItems="End" justifyContent="End">
-                                                        <Text text="Fermi da causalizzare:" class="OEEText"/>
+                                                        <Text text="Stops without causal:" class="OEEText"/>
                                                     </FlexBox>
                                                 </VBox>
                                                 <VBox height="1%" width="100%">
@@ -625,7 +625,7 @@
                                         <items>
                                             <TabContainerItem 
                                                 id="tab1-mod"
-                                                name="ATTRIBUTI PRODOTTO">
+                                                name="PRODUCT ATTRIBUTES">
                                                 <content>
                                                     <wt:CustomTreeTable
                                                         id="TreeTable_AttributiModifica"
@@ -641,20 +641,20 @@
                                                         <wt:toolbar>
                                                             <Toolbar>
                                                                 <ToolbarSpacer/>
-                                                                <Button text="Collassa" press="CollapseAll" app:mydata="TreeTable_AttributiModifica" class="TTButton"/>
-                                                                <Button text="Espandi" press="ExpandAll" app:mydata="TreeTable_AttributiModifica" class="TTButton"/>
-                                                                <Button text="Speciali" press="ShowRelevant" app:mydata="TreeTable_AttributiModifica" class="TTButton"/>
+                                                                <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_AttributiModifica" class="TTButton"/>
+                                                                <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_AttributiModifica" class="TTButton"/>
+                                                                <Button text="No Standard" press="ShowRelevant" app:mydata="TreeTable_AttributiModifica" class="TTButton"/>
                                                             </Toolbar>
                                                         </wt:toolbar>
                                                         <wt:columns>
                                                             <t:Column width="13rem" resizable="false">
-                                                                <Label text="ATTRIBUTI"/>
+                                                                <Label text="ATTRIBUTES"/>
                                                                 <t:template>
                                                                     <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" diff="{GeneralModel>expand}" discr="{GeneralModel>value}" maxLines="1"/>
                                                                 </t:template>
                                                             </t:Column>
                                                             <t:Column width="7rem" resizable="false">
-                                                                <Label text="VALORE"/>
+                                                                <Label text="VALUE"/>
                                                                 <t:template>
                                                                     <HBox>
                                                                         <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLength="20" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
@@ -667,7 +667,7 @@
                                             </TabContainerItem>
                                             <TabContainerItem 
                                                 id="tab2-mod"
-                                                name="MODIFICA CONDIZIONI">
+                                                    name="MODIFY CONDITIONS">
                                                 <content>
                                                     <wt:CustomTreeTable
                                                         class="modificaCondizioniHeight"
@@ -681,40 +681,40 @@
                                                         app:mydata="TreeTable_ModificaCondizioni">
                                                         <wt:toolbar>
                                                             <Toolbar>
-                                                                <Button text="Ripristina valori" press="RestoreDefault" class="TTButton"/>
+                                                                <Button text="Restore values" press="RestoreDefault" class="TTButton"/>
                                                                 <ToolbarSpacer/>
-                                                                <Button text="Collassa" press="CollapseAll" app:mydata="TreeTable_ModificaCondizioni" class="TTButton"/>
-                                                                <Button text="Espandi" press="ExpandAll" app:mydata="TreeTable_ModificaCondizioni" class="TTButton"/>
-                                                                <Button text="Da confermare" press="ShowRelevant" app:mydata="TreeTable_ModificaCondizioni" class="TTButton"/>
+                                                                <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_ModificaCondizioni" class="TTButton"/>
+                                                                <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_ModificaCondizioni" class="TTButton"/>
+                                                                <Button text="To be confirmed" press="ShowRelevant" app:mydata="TreeTable_ModificaCondizioni" class="TTButton"/>
                                                             </Toolbar>
                                                         </wt:toolbar>
                                                         <wt:columns>
                                                             <t:Column width="15rem" resizable="false">
-                                                                <Label text="ATTRIBUTI"/>
+                                                                <Label text="ATTRIBUTES"/>
                                                                 <t:template>
                                                                     <Text text="{GeneralModel>name}" maxLines="1" class="verticalAlignment"/>
                                                                 </t:template>
                                                             </t:Column>
                                                             <t:Column width="5rem" resizable="false">
-                                                                <Label text="VALORE"/>
+                                                                <Label text="VALUE"/>
                                                                 <t:template>
                                                                     <Text text="{GeneralModel>value}" maxLines="1" tooltip="{GeneralModel>value}" class="verticalAlignment"/>
                                                                 </t:template>
                                                             </t:Column>
                                                             <t:Column width="5rem" resizable="false">
-                                                                <Label text="MATRICOLA/LOTTO"/>
+                                                                <Label text="SERIAL NUMBER/BATCH"/>
                                                                 <t:template>
                                                                     <Text text="{GeneralModel>codeValue}" visible="{= ${GeneralModel>code} === 1}" maxLines="1" tooltip="{GeneralModel>codeValue}" class="verticalAlignment"/>
                                                                 </t:template>
                                                             </t:Column>
                                                             <t:Column width="5rem" resizable="false">
-                                                                <Label text="MODIFICA VALORE"/>
+                                                                <Label text="MODIFY VALUE"/>
                                                                 <t:template>
                                                                     <Input value="{GeneralModel>valueModify}" editable="{= ${GeneralModel>modify} === 1}" type="Text" maxLength="30" visible="{= ${GeneralModel>modify} === 1}" class="diffStandard"/>
                                                                 </t:template>
                                                             </t:Column>
                                                             <t:Column width="5rem" resizable="false">
-                                                                <Label text="MODIFICA MATRICOLA/LOTTO"/>
+                                                                <Label text="MODIFIY SERIAL NUMBER/BATCH"/>
                                                                 <t:template>
                                                                     <Input value="{GeneralModel>codeValueModify}" placeholder="{GeneralModel>codePlaceholder}" type="Text" maxLength="30" editable="{= ${GeneralModel>code} === 1}" class="diffStandard"/>
                                                                 </t:template>
@@ -723,13 +723,13 @@
                                                     </wt:CustomTreeTable>
                                                     <HBox>
                                                         <VBox width="47%">
-                                                            <Button text="Annulla" width="100%" press="AnnullaModifica" class="annullaButton"/>
+                                                            <Button text="Undo" width="100%" press="AnnullaModifica" class="annullaButton"/>
                                                         </VBox>
                                                         <VBox  width="6%">
                                                             <Text/>
                                                         </VBox>
                                                         <VBox width="47%">
-                                                            <Button text="Conferma" width="100%" press="ConfermaModifica" class="confermaButton"/>
+                                                            <Button text="Confirm" width="100%" press="ConfermaModifica" class="confermaButton"/>
                                                         </VBox> 
                                                     </HBox>
                                                 </content>
@@ -853,11 +853,11 @@
                                         <HBox>
                                             <VBox width="10%"/>
                                             <VBox width="25%">
-                                                <Button text="Esci" width="100%" press="EsciCausalizzazione" class="chiudiButton shiftDownCause"/>
+                                                <Button text="Exit" width="100%" press="EsciCausalizzazione" class="chiudiButton shiftDownCause"/>
                                             </VBox>
                                             <VBox width="30%"/>
                                             <VBox width="25%">
-                                                <Button id="ConfermaCausalizzazione" text="Causalizza" width="100%" enabled="false" press="Causalizza" class="allarmeButton shiftDownCause"/>
+                                                <Button id="ConfermaCausalizzazione" text="Enter causal" width="100%" enabled="false" press="Causalizza" class="allarmeButton shiftDownCause"/>
                                             </VBox>
                                             <VBox width="10%"/>
                                         </HBox>
@@ -872,25 +872,25 @@
                                             rows="{GeneralModel>/FermiNonCausalizzati/fermi}">
                                             <t:columns>
                                                 <t:Column hAlign="Center" width="15%" resizable="false">
-                                                    <Label text="INIZIO"/>
+                                                    <Label text="START"/>
                                                     <t:template>
                                                         <Text text="{GeneralModel>inizio}"/>
                                                     </t:template>
                                                 </t:Column>
                                                 <t:Column hAlign="Center" width="15%" resizable="false">
-                                                    <Label text="FINE"/>
+                                                    <Label text="END"/>
                                                     <t:template>
                                                         <Text text="{GeneralModel>fine}"/>
                                                     </t:template>
                                                 </t:Column>
                                                 <t:Column hAlign="Center" width="15%" resizable="false">
-                                                    <Label text="TEMPO"/>
+                                                    <Label text="TIME INTERVAL"/>
                                                     <t:template>
                                                         <Text text="{GeneralModel>intervallo}"/>
                                                     </t:template>
                                                 </t:Column>
                                                 <t:Column hAlign="Center" width="45%" resizable="false">
-                                                    <Label text="CAUSALE"/>
+                                                    <Label text="CAUSAL"/>
                                                     <t:template>
                                                         <Text text="{GeneralModel>causa}"/>
                                                     </t:template>
@@ -986,7 +986,7 @@
                                             <VBox height="100%" width="10%"/>
                                             <VBox height="100%" width="90%">
                                                 <VBox height="30%" width="100%">
-                                                    <Text text="Valori consuntivi" class="OEEText underlineOEE"/>
+                                                    <Text text="Balance sheet values" class="OEEText underlineOEE"/>
                                                 </VBox>
                                                 <VBox height="10%" width="100%">
                                                     <Text/>
@@ -1022,17 +1022,17 @@
                                                 </VBox>
                                                 <VBox height="20%" width="100%">
                                                     <FlexBox justifyContent="End">
-                                                        <Text text=" Disponibilità:" class="OEEText"/>
+                                                        <Text text=" Availability:" class="OEEText"/>
                                                     </FlexBox>
                                                 </VBox>
                                                 <VBox height="20%" width="100%">
                                                     <FlexBox justifyContent="End">
-                                                        <Text text=" Produttività:" class="OEEText"/>
+                                                        <Text text=" Productivity:" class="OEEText"/>
                                                     </FlexBox>
                                                 </VBox>
                                                 <VBox height="20%" width="100%">
                                                     <FlexBox justifyContent="End">
-                                                        <Text text=" Qualità:" class="OEEText"/>
+                                                        <Text text=" Quality:" class="OEEText"/>
                                                     </FlexBox>
                                                 </VBox>
                                             </VBox>
@@ -1070,7 +1070,7 @@
                                             <VBox height="100%" width="55%">
                                                 <VBox height="30%" width="100%">
                                                     <FlexBox alignItems="Start" justifyContent="Start">
-                                                        <Text text="Valori residui" class="OEEText underlineOEE"/>
+                                                        <Text text="Residue values" class="OEEText underlineOEE"/>
                                                     </FlexBox>
                                                 </VBox>
                                                 <VBox height="10%" width="100%">
@@ -1105,17 +1105,17 @@
                                             <VBox height="100%" width="48.5%">
                                                 <VBox height="33%" width="100%">
                                                     <FlexBox alignItems="End" justifyContent="End">
-                                                        <Text text="Totale fermi:" class="OEEText"/>
+                                                        <Text text="Stops total:" class="OEEText"/>
                                                     </FlexBox>
                                                 </VBox>
                                                 <VBox height="33%" width="100%">
                                                     <FlexBox alignItems="End" justifyContent="End">
-                                                        <Text text="Fermi automatici:" class="OEEText"/>
+                                                        <Text text="Automatic stops:" class="OEEText"/>
                                                     </FlexBox>
                                                 </VBox>
                                                 <VBox height="33%" width="100%">
                                                     <FlexBox alignItems="End" justifyContent="End">
-                                                        <Text text="Fermi da causalizzare:" class="OEEText"/>
+                                                        <Text text="Stops without causal:" class="OEEText"/>
                                                     </FlexBox>
                                                 </VBox>
                                                 <VBox height="1%" width="100%">
@@ -1217,40 +1217,40 @@
                                         app:mydata="TreeTable_RipristinoCondizioni">
                                         <wt:toolbar>
                                             <Toolbar>
-                                                <Button text="Ripristina valori" press="RestoreDefault" class="TTButton"/>
+                                                <Button text="Restore values" press="RestoreDefault" class="TTButton"/>
                                                 <ToolbarSpacer/>
-                                                <Button text="Collassa" press="CollapseAll" app:mydata="TreeTable_RipristinoCondizioni" class="TTButton"/>
-                                                <Button text="Espandi" press="ExpandAll" app:mydata="TreeTable_RipristinoCondizioni" class="TTButton"/>
-                                                <Button text="Da confermare" press="ShowRelevant" app:mydata="TreeTable_RipristinoCondizioni" class="TTButton"/>
+                                                <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_RipristinoCondizioni" class="TTButton"/>
+                                                <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_RipristinoCondizioni" class="TTButton"/>
+                                                <Button text="To be confirmed" press="ShowRelevant" app:mydata="TreeTable_RipristinoCondizioni" class="TTButton"/>
                                             </Toolbar>
                                         </wt:toolbar>
                                         <wt:columns>
                                             <t:Column width="15rem" resizable="false">
-                                                <Label text="ATTRIBUTI"/>
+                                                <Label text="ATTRIBUTES"/>
                                                 <t:template>
                                                     <Text text="{GeneralModel>name}" maxLines="1" class="verticalAlignment"/>
                                                 </t:template>
                                             </t:Column>
                                             <t:Column width="5rem" resizable="false">
-                                                <Label text="VALORE"/>
+                                                <Label text="VALUE"/>
                                                 <t:template>
                                                     <Text text="{GeneralModel>value}" maxLines="1" tooltip="{GeneralModel>value}" class="verticalAlignment"/>
                                                 </t:template>
                                             </t:Column>
                                             <t:Column width="5rem" resizable="false">
-                                                <Label text="MATRICOLA/LOTTO"/>
+                                                <Label text="SERIAL NUMBER/BATCH"/>
                                                 <t:template>
                                                     <Text text="{GeneralModel>codeValue}" visible="{= ${GeneralModel>code} === 1}" maxLines="1" tooltip="{GeneralModel>codeValue}" class="verticalAlignment"/>
                                                 </t:template>
                                             </t:Column>
                                             <t:Column width="5rem" resizable="false">
-                                                <Label text="MODIFICA VALORE"/>
+                                                <Label text="MODIFY VALUE"/>
                                                 <t:template>
                                                     <Input value="{GeneralModel>valueModify}" editable="{= ${GeneralModel>modify} === 1}" type="Text" maxLength="30" visible="{= ${GeneralModel>modify} === 1}" class="diffStandard"/>
                                                 </t:template>
                                             </t:Column>
                                             <t:Column width="5rem" resizable="false">
-                                                <Label text="MODIFICA MATRICOLA/LOTTO"/>
+                                                <Label text="MODIFY SERIAL NUMBER/BATCH"/>
                                                 <t:template>
                                                     <Input value="{GeneralModel>codeValueModify}" placeholder="{GeneralModel>codePlaceholder}" type="Text" maxLength="30" editable="{= ${GeneralModel>code} === 1}" class="diffStandard"/>
                                                 </t:template>
@@ -1259,13 +1259,13 @@
                                     </wt:CustomTreeTable>
                                     <HBox>
                                         <VBox width="47%">
-                                            <Button text="Annulla" width="100%" press="AnnullaRipristino" class="annullaButton"/>
+                                            <Button text="Undo" width="100%" press="AnnullaRipristino" class="annullaButton"/>
                                         </VBox>
                                         <VBox  width="6%">
                                             <Text/>
                                         </VBox>
                                         <VBox width="47%">
-                                            <Button text="Conferma" width="100%" press="ConfermaRipristino" class="confermaButton"/>
+                                            <Button text="Confirm" width="100%" press="ConfermaRipristino" class="confermaButton"/>
                                         </VBox> 
                                     </HBox>
                                 </VBox>
