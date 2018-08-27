@@ -484,7 +484,7 @@ sap.ui.define([
                 this.TabContainer.removeItem(tab);
             }
             this.Item = new sap.m.TabContainerItem({});
-            this.Item.setName("CONFERMA PREDISPOSIZIONE");
+            this.Item.setName("CONFIRM PREDISPOSITION");
             var inputValueMod = new sap.m.Input({
                 editable: "{= ${GeneralModel>modify} === 1}",
                 visible: "{= ${GeneralModel>modify} === 1}",
@@ -515,22 +515,22 @@ sap.ui.define([
                 toolbar: [
                     new sap.m.Toolbar({
                         content: [
-                            btn1 = new sap.m.Button({text: "Ripristina valori", press: [this.RestoreDefault, this]}),
+                            btn1 = new sap.m.Button({text: "Restore values", press: [this.RestoreDefault, this]}),
                             new sap.m.ToolbarSpacer({}),
-                            btn2 = new sap.m.Button({text: "Collassa", press: [TT, this.CollapseAll, this]}),
-                            btn3 = new sap.m.Button({text: "Espandi", press: [TT, this.ExpandAll, this]}),
-                            btn4 = new sap.m.Button({text: "Da confermare", press: [TT, this.ShowRelevant, this]})
+                            btn2 = new sap.m.Button({text: "Collapse", press: [TT, this.CollapseAll, this]}),
+                            btn3 = new sap.m.Button({text: "Expand", press: [TT, this.ExpandAll, this]}),
+                            btn4 = new sap.m.Button({text: "To be confirmed", press: [TT, this.ShowRelevant, this]})
                         ]})],
                 columns: [
                     new sap.ui.table.Column({
-                        label: "ATTRIBUTI",
+                        label: "ATTRIBUTES",
                         resizable: false,
                         width: "15rem",
                         template: new sap.m.Text({
                             text: "{GeneralModel>name}",
                             maxLines: 1}).addStyleClass("verticalAlignment")}),
                     new sap.ui.table.Column({
-                        label: "VALORE",
+                        label: "VALUE",
                         resizable: false,
                         width: "5rem",
                         template: new sap.m.Text({
@@ -538,12 +538,12 @@ sap.ui.define([
                             maxLines: 1,
                             tooltip: "{GeneralModel>value}"}).addStyleClass("verticalAlignment")}),
                     new sap.ui.table.Column({
-                        label: "MODIFICA",
+                        label: "MODIFY",
                         resizable: false,
                         width: "5rem",
                         template: inputValueMod}),
                     new sap.ui.table.Column({
-                        label: "MATRICOLA/LOTTO",
+                        label: "SERIAL NUMBER/BATCH",
                         resizable: false,
                         width: "5rem",
                         template: inputCodeValue})
@@ -559,12 +559,12 @@ sap.ui.define([
             var vb4 = new sap.m.VBox({width: "6%"});
             var vb5 = new sap.m.VBox({width: "47%"});
             var bt2 = new sap.m.Button({
-                text: "Annulla",
+                text: "Undo",
                 width: "100%",
                 press: [this.AnnullaPredisposizione, this]});
             bt2.addStyleClass("annullaButton");
             var bt3 = new sap.m.Button({
-                text: "Conferma",
+                text: "Confirm",
                 width: "100%",
                 press: [this.ConfermaPredisposizione, this]});
             bt3.addStyleClass("confermaButton");
@@ -619,7 +619,7 @@ sap.ui.define([
                     this.SyncAjaxCallerData(link, this.SUCCESSConfermaAttrezzaggio.bind(this));
                 }
             } else {
-                MessageToast.show("Tutti i codici Lotto/Matricola devono essere inseriti.");
+                MessageToast.show("All serial number/batch codes have to be entered.");
             }
         },
         SUCCESSConfermaAttrezzaggio: function (Jdata) {
@@ -796,7 +796,7 @@ sap.ui.define([
                     this.RefreshFunction(0);
                 }
             } else {
-                MessageToast.show("Non puoi confermare codici Lotto/Matricola vuoti.");
+                MessageToast.show("Can't confirm empty serial number/batch codes");
             }
         },
         SUCCESSConfermaModifica: function (Jdata) {
@@ -899,14 +899,14 @@ sap.ui.define([
             var vb4 = new sap.m.VBox({width: "10%"});
             var bt1 = new sap.m.Button({
                 id: "AnnullaFermo",
-                text: "ANNULLA",
+                text: "UNDO",
                 width: "100%",
                 enabled: true,
                 press: [this.AnnullaFermo, this]});
             bt1.addStyleClass("annullaButton");
             var bt2 = new sap.m.Button({
                 id: "ConfermaFermo",
-                text: "CONFERMA",
+                text: "CONFIRM",
                 width: "100%",
                 enabled: false,
                 press: [this.ConfermaFermo, this]});
@@ -1095,7 +1095,7 @@ sap.ui.define([
                     this.RefreshFunction(0);
                 }
             } else {
-                MessageToast.show("Non puoi confermare codici Lotto/Matricola vuoti.");
+                MessageToast.show("Can't confirm empty serial number/batch codes");
                 this.getView().setModel(this.ModelDetailPages, "GeneralModel");
             }
         },
@@ -1136,7 +1136,7 @@ sap.ui.define([
             this.getView().byId("vbox_table").destroyItems();
             if (this.ModelDetailPages.getData().FermiNonCausalizzati.fermi.length === 0) {
                 var text = new sap.m.Text({
-                    text: "Tutti i fermi automatici sono stati causalizzati",
+                    text: "No automatic stops are without causal",
                     textAlign: "Center"
                 });
                 text.addStyleClass("customText");
@@ -1172,7 +1172,7 @@ sap.ui.define([
                 });
                 table.addStyleClass("mysapMTable");
                 var ColumnList = new sap.m.ColumnListItem();
-                ColumnList.addCell(new sap.m.Text({text: "Totale Complessivo", textAlign: "Center"}));
+                ColumnList.addCell(new sap.m.Text({text: "Total", textAlign: "Center"}));
                 ColumnList.addCell(new sap.m.Text({text: tot.tempoGuastoTotale}));
                 ColumnList.addCell(new sap.m.Text({text: tot.causaTotale}));
                 ColumnList.addCell(new sap.m.CheckBox({textAlign: "Center", id: "CBTotaleCausa", selected: tot.select, select: [this.ChangeSelezioneTotaleCausalizzazione, this]}));
@@ -1359,7 +1359,7 @@ sap.ui.define([
 
         FinePredisposizioneAttrezzaggio: function () {
 
-            var data = {"stringa": "SOLO PREDISPOSIZIONE"};
+            var data = {"stringa": "ONLY PREDISPOSITION"};
             this.ModelDetailPages.setProperty("/FineAttrezzaggio/", data);
             this.TabContainer = this.getView().byId("TabContainerAttrezzaggio");
             this.getView().setModel(this.ModelDetailPages, "GeneralModel");
@@ -1370,7 +1370,7 @@ sap.ui.define([
                 this.TabContainer.removeItem(tab);
             }
             this.Item = new sap.m.TabContainerItem({});
-            this.Item.setName("CONFERMA PREDISPOSIZIONE");
+            this.Item.setName("CONFIRM PREDISPOSITION");
             var inputValueMod = new sap.m.Input({
                 editable: "{= ${GeneralModel>modify} === 1}",
                 visible: "{= ${GeneralModel>modify} === 1}",
@@ -1401,22 +1401,22 @@ sap.ui.define([
                 toolbar: [
                     new sap.m.Toolbar({
                         content: [
-                            btn1 = new sap.m.Button({text: "Ripristina valori", press: [this.RestoreDefault, this]}),
+                            btn1 = new sap.m.Button({text: "Restore values", press: [this.RestoreDefault, this]}),
                             new sap.m.ToolbarSpacer({}),
-                            btn2 = new sap.m.Button({text: "Collassa", press: [TT, this.CollapseAll, this]}),
-                            btn3 = new sap.m.Button({text: "Espandi", press: [TT, this.ExpandAll, this]}),
-                            btn4 = new sap.m.Button({text: "Da confermare", press: [TT, this.ShowRelevant, this]})
+                            btn2 = new sap.m.Button({text: "Collapse", press: [TT, this.CollapseAll, this]}),
+                            btn3 = new sap.m.Button({text: "Expand", press: [TT, this.ExpandAll, this]}),
+                            btn4 = new sap.m.Button({text: "To be confirmed", press: [TT, this.ShowRelevant, this]})
                         ]})],
                 columns: [
                     new sap.ui.table.Column({
-                        label: "ATTRIBUTI",
+                        label: "ATTRIBUTES",
                         resizable: false,
                         width: "15rem",
                         template: new sap.m.Text({
                             text: "{GeneralModel>name}",
                             maxLines: 1})}),
                     new sap.ui.table.Column({
-                        label: "VALORE",
+                        label: "VALUE",
                         resizable: false,
                         width: "5rem",
                         template: new sap.m.Text({
@@ -1424,12 +1424,12 @@ sap.ui.define([
                             maxLines: 1,
                             tooltip: "{GeneralModel>value}"})}),
                     new sap.ui.table.Column({
-                        label: "MODIFICA",
+                        label: "MODIFY",
                         resizable: false,
                         width: "5rem",
                         template: inputValueMod}),
                     new sap.ui.table.Column({
-                        label: "MATRICOLA/LOTTO",
+                        label: "SERIAL NUMBER/BATCH",
                         resizable: false,
                         width: "5rem",
                         template: inputCodeValue})
@@ -1445,12 +1445,12 @@ sap.ui.define([
             var vb2 = new sap.m.VBox({width: "6%"});
             var vb3 = new sap.m.VBox({width: "47%"});
             var bt1 = new sap.m.Button({
-                text: "Annulla",
+                text: "Undo",
                 width: "100%",
                 press: [this.AnnullaAttrezzaggio, this]});
             bt1.addStyleClass("annullaButton");
             var bt2 = new sap.m.Button({
-                text: "Conferma",
+                text: "Confirm",
                 width: "100%",
                 press: ['F', this.ConfermaAttrezzaggio, this]});
             bt2.addStyleClass("confermaButton");
@@ -1474,7 +1474,7 @@ sap.ui.define([
         },
         SospensioneAttrezzaggio: function () {
 
-            var data = {"stringa": "SOSPENSIONE PREDISPOSIZIONE"};
+                var data = {"stringa": "PREDISPOSITION SUSPENDED"};
             this.ModelDetailPages.setProperty("/FineAttrezzaggio/", data);
             this.TabContainer = this.getView().byId("TabContainerAttrezzaggio");
             this.getView().setModel(this.ModelDetailPages, "GeneralModel");
@@ -1485,7 +1485,7 @@ sap.ui.define([
                 this.TabContainer.removeItem(tab);
             }
             this.Item = new sap.m.TabContainerItem({});
-            this.Item.setName("SOSPENSIONE PREDISPOSIZIONE");
+            this.Item.setName("PREDISPOSITION SUSPENDED");
             var inputValueMod = new sap.m.Input({
                 editable: "{= ${GeneralModel>modify} === 1}",
                 visible: "{= ${GeneralModel>modify} === 1}",
@@ -1516,22 +1516,22 @@ sap.ui.define([
                 toolbar: [
                     new sap.m.Toolbar({
                         content: [
-                            btn1 = new sap.m.Button({text: "Ripristina valori", press: [this.RestoreDefault, this]}),
+                            btn1 = new sap.m.Button({text: "Restore values", press: [this.RestoreDefault, this]}),
                             new sap.m.ToolbarSpacer({}),
-                            btn2 = new sap.m.Button({text: "Collassa", press: [TT, this.CollapseAll, this]}),
-                            btn3 = new sap.m.Button({text: "Espandi", press: [TT, this.ExpandAll, this]}),
-                            btn4 = new sap.m.Button({text: "Da confermare", press: [TT, this.ShowRelevant, this]})
+                            btn2 = new sap.m.Button({text: "Collapse", press: [TT, this.CollapseAll, this]}),
+                            btn3 = new sap.m.Button({text: "Expand", press: [TT, this.ExpandAll, this]}),
+                            btn4 = new sap.m.Button({text: "To be confirmed", press: [TT, this.ShowRelevant, this]})
                         ]})],
                 columns: [
                     new sap.ui.table.Column({
-                        label: "ATTRIBUTI",
+                        label: "ATTRIBUTES",
                         resizable: false,
                         width: "15rem",
                         template: new sap.m.Text({
                             text: "{GeneralModel>name}",
                             maxLines: 1})}),
                     new sap.ui.table.Column({
-                        label: "VALORE",
+                        label: "VALUE",
                         resizable: false,
                         width: "5rem",
                         template: new sap.m.Text({
@@ -1539,12 +1539,12 @@ sap.ui.define([
                             maxLines: 1,
                             tooltip: "{GeneralModel>value}"})}),
                     new sap.ui.table.Column({
-                        label: "MODIFICA",
+                        label: "MODIFY",
                         resizable: false,
                         width: "5rem",
                         template: inputValueMod}),
                     new sap.ui.table.Column({
-                        label: "MATRICOLA/LOTTO",
+                        label: "SERIAL NUMBER/BATCH",
                         resizable: false,
                         width: "5rem",
                         template: inputCodeValue})
@@ -1559,12 +1559,12 @@ sap.ui.define([
             var vb2 = new sap.m.VBox({width: "6%"});
             var vb3 = new sap.m.VBox({width: "47%"});
             var bt1 = new sap.m.Button({
-                text: "ANNULLA",
+                text: "UNDO",
                 width: "100%",
                 press: [this.AnnullaAttrezzaggio, this]});
             bt1.addStyleClass("annullaButton");
             var bt2 = new sap.m.Button({
-                text: "CONFERMA",
+                text: "CONFIRM",
                 width: "100%",
                 press: ['S', this.ConfermaAttrezzaggio, this]});
             bt2.addStyleClass("confermaButton");
@@ -1602,7 +1602,7 @@ sap.ui.define([
             this.codeCheck = 0;
             data = this.RecursiveJSONCodeCheck(data, "codeValue");
             if (this.codeCheck === 1 && source === 'F') {
-                MessageToast.show("Tutti i codici Lotto/Matricola devono essere inseriti.");
+                MessageToast.show("All serial number/batch codes have to be entered.");
             } else {
                 if (this.ISLOCAL === 1) {
                     this.getSplitAppObj().toDetail(this.createId("ConfermaAttrezzaggio"));
@@ -1797,7 +1797,7 @@ sap.ui.define([
             var vbox = this.getView().byId("panel_processi");
             var btn, btn_vbox;
             var IDs = ["ButtonPresaInCarico", "ButtonFinePredisposizione", "ButtonModificaCondizioni", "ButtonFermo", "ButtonRiavvio", "ButtonCausalizzazione", "ButtonChiusuraConfezionamento"];
-            var texts = ["Presa in carico nuovo confezionamento", "Fine predisposizione inizio confezionamento", "Visualizza / Modifica condizioni operative", "Fermo", "Riavvio", "Causalizzazione fermi automatici", "Chiusura confezionamento svuotamento linea"];
+            var texts = ["Take charge new packaging", "End predisposition start packaging", "See / Modify operative conditions", "Stop", "Restart", "Enter causal for automatic stops", "Packaging closure line's emptying"];
             var press = [[this.PresaInCarico, this], [this.FinePredisposizione, this], [this.ModificaCondizioni, this], [this.Fermo, this], [this.Riavvio, this], [this.Causalizzazione, this], [this.ChiusuraConfezionamento, this]];
             var classes = ["styleLongButton", "styleLongButton", "styleLongButton", "styleButton", "styleButton", "styleLongButton", "styleVeryLongButton"];
             var a = 5;
