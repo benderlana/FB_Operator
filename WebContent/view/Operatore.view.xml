@@ -1338,19 +1338,19 @@
                                         <wt:toolbar>
                                             <Toolbar>
                                                 <ToolbarSpacer/>
-                                                <Button text="Collassa" press="CollapseAll" app:mydata="TreeTable_Chiusura" class="TTButton"/>
-                                                <Button text="Espandi" press="ExpandAll" app:mydata="TreeTable_Chiusura" class="TTButton"/>
+                                                <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_Chiusura" class="TTButton"/>
+                                                <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_Chiusura" class="TTButton"/>
                                             </Toolbar>
                                         </wt:toolbar>
                                         <wt:columns>
                                             <t:Column width="10rem"  resizable="false">
-                                                <Label text="ATTRIBUTI"/>
+                                                <Label text="ATTRIBUTES"/>
                                                 <t:template>
                                                     <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" diff="{GeneralModel>expand}" discr="{GeneralModel>value}" maxLines="1"/>
                                                 </t:template>
                                             </t:Column>
                                             <t:Column width="10rem"  resizable="false">
-                                                <Label text="VALORE"/>
+                                                <Label text="VALUE"/>
                                                 <t:template>
                                                     <HBox>
                                                         <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLines="1" tooltip="{GeneralModel>value}" diff="{GeneralModel>expand}" />
@@ -1359,7 +1359,7 @@
                                             </t:Column>
                                         </wt:columns>
                                     </wt:CustomTreeTable>
-                                    <Button text="Chiusura Batch" width="100%" press="SvuotaLinea" class="attrezzaggioButton"/>
+                                    <Button text="Batch Closure" width="100%" press="SvuotaLinea" class="attrezzaggioButton"/>
                                 </VBox>
                                 <VBox width="5%"/>
                             </HBox>
@@ -1434,20 +1434,20 @@
                                         <wt:toolbar>
                                             <Toolbar>
                                                 <ToolbarSpacer/>
-                                                <Button text="Collassa" press="CollapseAll" app:mydata="TreeTable_BatchAttrezzaggio" class="TTButton"/>
-                                                <Button text="Espandi" press="ExpandAll" app:mydata="TreeTable_BatchAttrezzaggio" class="TTButton"/>
-                                                <Button text="Speciali" press="ShowRelevant" app:mydata="TreeTable_BatchAttrezzaggio" class="TTButton"/>
+                                                <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_BatchAttrezzaggio" class="TTButton"/>
+                                                <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_BatchAttrezzaggio" class="TTButton"/>
+                                                <Button text="No Standard" press="ShowRelevant" app:mydata="TreeTable_BatchAttrezzaggio" class="TTButton"/>
                                             </Toolbar>
                                         </wt:toolbar>
                                         <wt:columns>
                                             <t:Column width="10rem" resizable="false">
-                                                <Label text="ATTRIBUTI"/>
+                                                <Label text="ATTRIBUTES"/>
                                                 <t:template>
                                                     <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" diff="{GeneralModel>expand}" discr="{GeneralModel>value}" maxLines="1"/>
                                                 </t:template>
                                             </t:Column>
                                             <t:Column width="10rem" resizable="false">
-                                                <Label text="VALORE"/>
+                                                <Label text="VALUE"/>
                                                 <t:template>
                                                     <HBox>
                                                         <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLength="20" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
@@ -1456,7 +1456,7 @@
                                             </t:Column>
                                         </wt:columns>
                                     </wt:CustomTreeTable>
-                                    <Button text="Conferma presa in carico e inizio attrezzaggio" width="100%" press="ConfermaBatchAttrezzaggio" class="attrezzaggioButton"/>
+                                    <Button text="Confirmation of the take charge and start of tooling" width="100%" press="ConfermaBatchAttrezzaggio" class="attrezzaggioButton"/>
                                 </VBox>
                                 <VBox width="5%"/>
                             </HBox>
@@ -1521,7 +1521,7 @@
                                         <items>
                                             <TabContainerItem 
                                                 id="tab1A"
-                                                name="ATTRIBUTI PRODOTTO">
+                                                name="PRODUCT ATTRIBUTES">
                                                 <content>
                                                     <wt:CustomTreeTable
                                                         id="TreeTable_AttributiAttrezzaggio"
@@ -1537,20 +1537,20 @@
                                                         <wt:toolbar>
                                                             <Toolbar>
                                                                 <ToolbarSpacer/>
-                                                                <Button text="Collassa" press="CollapseAll" app:mydata="TreeTable_AttributiAttrezzaggio" class="TTButton"/>
-                                                                <Button text="Espandi" press="ExpandAll" app:mydata="TreeTable_AttributiAttrezzaggio" class="TTButton"/>
-                                                                <Button text="Speciali" press="ShowRelevant" app:mydata="TreeTable_AttributiAttrezzaggio" class="TTButton"/>
+                                                                <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_AttributiAttrezzaggio" class="TTButton"/>
+                                                                <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_AttributiAttrezzaggio" class="TTButton"/>
+                                                                <Button text="No Standard" press="ShowRelevant" app:mydata="TreeTable_AttributiAttrezzaggio" class="TTButton"/>
                                                             </Toolbar>
                                                         </wt:toolbar>
                                                         <wt:columns>
                                                             <t:Column width="13rem" resizable="false">
-                                                                <Label text="ATTRIBUTI"/>
+                                                                <Label text="ATTRIBUTES"/>
                                                                 <t:template>
                                                                     <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" diff="{GeneralModel>expand}" discr="{GeneralModel>value}" maxLines="1"/>
                                                                 </t:template>
                                                             </t:Column>
                                                             <t:Column width="7rem" resizable="false">
-                                                                <Label text="VALORE"/>
+                                                                <Label text="VALUE"/>
                                                                 <t:template>
                                                                     <HBox>
                                                                         <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLength="20" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
@@ -1563,7 +1563,7 @@
                                             </TabContainerItem>
                                             <TabContainerItem 
                                                 id="tab2A"
-                                                name="ATTREZZAGGIO LINEA">
+                                                name="LINE'S PREDISPOSITION">
                                                 <content>
                                                     <FlexBox width="100%" alignItems="Start" justifyContent="Center">
                                                         <HBox height="100%" width="100%">
@@ -1583,20 +1583,20 @@
                                                                     <wt:toolbar>
                                                                         <Toolbar>
                                                                             <ToolbarSpacer/>
-                                                                            <Button text="Collassa" press="COUPLEDCollapseAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
-                                                                            <Button text="Espandi" press="COUPLEDExpandAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
-                                                                            <Button text="Speciali" press="COUPLEDShowRelevant" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Collapse" press="COUPLEDCollapseAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Expand" press="COUPLEDExpandAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="No Standard" press="COUPLEDShowRelevant" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
                                                                         </Toolbar>
                                                                     </wt:toolbar>
                                                                     <wt:columns>
                                                                         <t:Column width="13rem" resizable="false">
-                                                                            <Label text="ATTRIBUTI"/>
+                                                                            <Label text="ATTRIBUTES"/>
                                                                             <t:template>
                                                                                 <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" diff="{GeneralModel>expand}" included="{GeneralModel>isIncluded}" discr="{GeneralModel>value}" maxLines="1"/>
                                                                             </t:template>
                                                                         </t:Column>
                                                                         <t:Column width="7rem" resizable="false">
-                                                                            <Label text="VALORE"/>
+                                                                            <Label text="VALUE"/>
                                                                             <t:template>
                                                                                 <wt:StyleTextTreeTableValue text="{GeneralModel>value}" included="{GeneralModel>isIncluded}" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
                                                                             </t:template>
@@ -1621,20 +1621,20 @@
                                                                     <wt:toolbar>
                                                                         <Toolbar>
                                                                             <ToolbarSpacer/>
-                                                                            <Button text="Collassa" press="COUPLEDCollapseAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
-                                                                            <Button text="Espandi" press="COUPLEDExpandAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/> 
-                                                                            <Button text="Speciali" press="COUPLEDShowRelevant" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Collapse" press="COUPLEDCollapseAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Expand" press="COUPLEDExpandAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/> 
+                                                                            <Button text="No Standard" press="COUPLEDShowRelevant" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
                                                                         </Toolbar>
                                                                     </wt:toolbar>
                                                                     <wt:columns>
                                                                         <t:Column width="13rem" resizable="false">
-                                                                            <Label text="ATTRIBUTI"/>
+                                                                            <Label text="ATTRIBUTES"/>
                                                                             <t:template>
                                                                                 <wt:StyleTextTreeTableAttr text="{GeneralModel>name}" diff="{GeneralModel>expand}" included="{GeneralModel>isIncluded}" discr="{GeneralModel>value}" maxLines="1"/>
                                                                             </t:template>
                                                                         </t:Column>
                                                                         <t:Column width="7rem" resizable="false">
-                                                                            <Label text="VALORE"/>
+                                                                            <Label text="VALUE"/>
                                                                             <t:template>
                                                                                 <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLength="20" included="{GeneralModel>isIncluded}" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
                                                                             </t:template>
@@ -1706,7 +1706,7 @@
                             <HBox>
                                 <VBox width="10%"/>
                                 <VBox width="80%">
-                                    <Button text="Chiusura Attrezzaggio" width="100%" press="FineAttrezzaggio" class="attrezzaggioButton"/>
+                                    <Button text="End Predisposition" width="100%" press="FineAttrezzaggio" class="attrezzaggioButton"/>
                                 </VBox>
                                 <VBox width="10%"/>
                             </HBox>
