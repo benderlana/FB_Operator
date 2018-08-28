@@ -160,6 +160,7 @@ sap.ui.define([
                                 this.SwitchColor("");
                                 this.EnableButtons(["ButtonPresaInCarico"]);
                             }
+                            this.ModelDetailPages.getData().ENGStatus = "EXAMINING BATCH DETAILS";
                             break;
                         case "Disponibile.Attrezzaggio":
                             if (this.State !== "Disponibile.Attrezzaggio") {
@@ -169,20 +170,24 @@ sap.ui.define([
                                 this.PredisposizioneLinea();
                                 this.getView().setModel(this.ModelDetailPages, "GeneralModel");
                             }
+                            this.ModelDetailPages.getData().ENGStatus = "LINE SETUP";
                             break;
                         case "Disponibile.Lavorazione":
                             link = "/XMII/Runner?Transaction=DeCecco/Transactions/OEE_SPCBatchInCorso&Content-Type=text/json&LineaID=" + this.ModelDetailPages.getData().DettaglioLinea.idLinea + "&OutputParameter=JSON";
                             this.SyncAjaxCallerData(link, this.SUCCESSLavorazioneOEE.bind(this));
+                            this.ModelDetailPages.getData().ENGStatus = "PACKAGING";
                             break;
                         case "Disponibile.Fermo":
                             link = "/XMII/Runner?Transaction=DeCecco/Transactions/OEEBatchInCorso&Content-Type=text/json&OutputParameter=JSON&LineaID=" + this.ModelDetailPages.getData().DettaglioLinea.idLinea;
                             this.SyncAjaxCallerData(link, this.SUCCESSFermoOEE.bind(this));
+                            this.ModelDetailPages.getData().ENGStatus = "STOP";
                             break;
                         case "Disponibile.Svuotamento":
                             if (this.State !== "Disponibile.Svuotamento") {
                                 link = "/XMII/Runner?Transaction=DeCecco/Transactions/RiassuntoOperatore&Content-Type=text/json&OutputParameter=JSON&LineaID=" + this.ModelDetailPages.getData().DettaglioLinea.idLinea;
                                 this.SyncAjaxCallerData(link, this.SUCCESSChiusura.bind(this));
                             }
+                            this.ModelDetailPages.getData().ENGStatus = "EMPTYING THE LINE";
                             break;
                     }
                 } else {
@@ -200,6 +205,7 @@ sap.ui.define([
                                 this.SwitchColor("");
                                 this.EnableButtonsAttr(["ButtonBatchAttrezzaggio"]);
                             }
+                            this.ModelDetailPages.getData().ENGStatus = "EXAMINING BATCH DETAILS";
                             break;
                         case "Disponibile.Attrezzaggio":
                             if (this.State !== "Disponibile.Attrezzaggio") {
@@ -209,6 +215,7 @@ sap.ui.define([
                                 this.EnableButtonsAttr(["ButtonFinePredisposizioneAttrezzaggio", "ButtonSospensioneAttrezzaggio"]);
                                 this.getView().setModel(this.ModelDetailPages, "GeneralModel");
                             }
+                            this.ModelDetailPages.getData().ENGStatus = "LINE SETUP";
                             break;
                         case "Disponibile.Svuotamento":
                             if (this.State !== "Disponibile.Svuotamento") {
@@ -217,6 +224,7 @@ sap.ui.define([
                                 this.SwitchColor("brown");
                                 this.EnableButtonsAttr([]);
                             }
+                            this.ModelDetailPages.getData().ENGStatus = "EMPTYING THE LINE";
                             break;
                         default:
                             console.log("C'è un problema.");
@@ -236,12 +244,14 @@ sap.ui.define([
                         this.getSplitAppObj().toDetail(this.createId("Home"));
                         this.SwitchColor("");
                         this.getView().setModel(this.ModelDetailPages, "GeneralModel");
+                        this.ModelDetailPages.getData().ENGStatus = "THE LINE IS EMPTY";
                         break;
                     case "NonDisponibile":
                         this.SwitchColor("red");
                         this.getSplitAppObj().toDetail(this.createId("Home"));
                         model.Intestazione = {"linea": model.DettaglioLinea.Linea, "descrizione": "NON DISPONIBILE", "conforme": ""};
                         this.getView().setModel(this.ModelDetailPages, "GeneralModel");
+                        this.ModelDetailPages.getData().ENGStatus = "NOT AVAILABLE";
                         break;
                 }
             }
@@ -257,7 +267,7 @@ sap.ui.define([
             this.ModelDetailPages.setProperty("/DatiOEE/", Jdata.OEE);
             this.ModelDetailPages.setProperty("/DatiSPC/", Jdata.SPC);
             if (this.State !== "Disponibile.Lavorazione") {
-                sap.ui.getCore().byId("ButtonFermo").setText("Fermo");
+                sap.ui.getCore().byId("ButtonFermo").setText("Stop");
                 this.getSplitAppObj().toDetail(this.createId("InProgress"));
                 this.SwitchColor("green");
                 this.EnableButtons(["ButtonModificaCondizioni", "ButtonFermo", "ButtonCausalizzazione", "ButtonChiusuraConfezionamento"]);
@@ -283,11 +293,11 @@ sap.ui.define([
             this.ModelDetailPages.setProperty("/DatiOEE/", Jdata);
             var data = this.ModelDetailPages.getData().Linea;
             if (this.State !== "Disponibile.Fermo") {
-                sap.ui.getCore().byId("ButtonFermo").setText("Modifica causale fermo");
+                sap.ui.getCore().byId("ButtonFermo").setText("Modify stop justification");
                 if (data.CausaleEvento === "---") {
-                    this.ModelDetailPages.setProperty("/CausaFermo/", "FERMO AUTOMATICO");
+                    this.ModelDetailPages.setProperty("/CausaFermo/", "AUTOMATIC STOP");
                 } else {
-                    this.ModelDetailPages.setProperty("/CausaFermo/", "FERMO - " + data.CausaleEvento);
+                    this.ModelDetailPages.setProperty("/CausaFermo/", "STOP - " + data.CausaleEvento);
                 }
                 this.SwitchColor("red");
                 this.getSplitAppObj().toDetail(this.createId("Fault"));
@@ -619,7 +629,7 @@ sap.ui.define([
                     this.SyncAjaxCallerData(link, this.SUCCESSConfermaAttrezzaggio.bind(this));
                 }
             } else {
-                MessageToast.show("All serial number/batch codes have to be entered.");
+                MessageToast.show("All serial numbers must be entered.");
             }
         },
         SUCCESSConfermaAttrezzaggio: function (Jdata) {
@@ -796,7 +806,7 @@ sap.ui.define([
                     this.RefreshFunction(0);
                 }
             } else {
-                MessageToast.show("Can't confirm empty serial number/batch codes");
+                MessageToast.show("All serial numbers must be entered");
             }
         },
         SUCCESSConfermaModifica: function (Jdata) {
@@ -812,7 +822,7 @@ sap.ui.define([
         Fermo: function (event) {
             var name = event.getSource().getProperty("text");
             var link;
-            if (name === "Fermo") {
+            if (name === "Stop") {
                 this.discr = "FermoManuale";
             } else {
                 this.discr = "CambioCausaleFermo";
@@ -1006,7 +1016,7 @@ sap.ui.define([
                     this.LOCALState = "Disponibile.Fermo";
                     this.getSplitAppObj().toDetail(this.createId("Fault"));
                     this.EnableButtons(["ButtonModificaCondizioni", "ButtonFermo", "ButtonRiavvio", "ButtonChiusuraConfezionamento"]);
-                    this.ModelDetailPages.setProperty("/CausaFermo/", "FERMO - " + CB.getProperty("text"));
+                    this.ModelDetailPages.setProperty("/CausaFermo/", "STOP - " + CB.getProperty("text"));
                     this.getView().setModel(this.ModelDetailPages, "GeneralModel");
                 } else {
                     link = "/XMII/Runner?Transaction=DeCecco/Transactions/ChangeFermo&Content-Type=text/json&LineaID=" + this.ModelDetailPages.getData().DettaglioLinea.idLinea + "&CausaleID=" + id;
@@ -1095,7 +1105,7 @@ sap.ui.define([
                     this.RefreshFunction(0);
                 }
             } else {
-                MessageToast.show("Can't confirm empty serial number/batch codes");
+                MessageToast.show("All serial numbers must be entered");
                 this.getView().setModel(this.ModelDetailPages, "GeneralModel");
             }
         },
@@ -1602,7 +1612,7 @@ sap.ui.define([
             this.codeCheck = 0;
             data = this.RecursiveJSONCodeCheck(data, "codeValue");
             if (this.codeCheck === 1 && source === 'F') {
-                MessageToast.show("All serial number/batch codes have to be entered.");
+                MessageToast.show("All serial numbers must be entered.");
             } else {
                 if (this.ISLOCAL === 1) {
                     this.getSplitAppObj().toDetail(this.createId("ConfermaAttrezzaggio"));
@@ -1679,14 +1689,14 @@ sap.ui.define([
                 if (stato === "Disponibile.Lavorazione") {
                     fermiString = this.ModelDetailPages.getData().DatiOEE;
                     if (typeof fermiString !== "undefined") {
-                        if (fermiString.tempoFermiAutomatici === "0 ore, 0 min, 0 sec") {
+                        if (fermiString.tempoFermiAutomatici === "0 hh, 0 mm, 0 ss") {
                             sap.ui.getCore().byId(id).setEnabled(false);
                         }
                     }
                 } else if (stato === "Disponibile.Svuotamento") {
                     fermiString = this.ModelDetailPages.getData().ParametriChiusura;
                     if (typeof fermiString !== "undefined") {
-                        if (fermiString.attributi[1].attributi[0].value === "0 ore, 0 min, 0 sec") {
+                        if (fermiString.attributi[1].attributi[0].value === "0 hh, 0 mm, 0 ss") {
                             sap.ui.getCore().byId(id).setEnabled(false);
                         }
                     }
@@ -1741,24 +1751,24 @@ sap.ui.define([
             var data = this.ModelDetailPages.getData().Linea;
             switch (state) {
                 case "Disponibile.Vuota":
-                    return "VUOTA";
+                    return "THE LINE IS EMPTY";
                 case "NonDisponibile":
-                    return "NON DISPONIBILE";
+                    return "NOT AVAILABLE";
                 case "Disponibile.AttesaPresaInCarico":
-                    return "PRESA IN CARICO";
+                    return "EXAMINING BATCH DETAILS";
                 case "Disponibile.Attrezzaggio":
-                    return "ATTREZZAGGIO";
+                    return "LINE SETUP";
                 case "Disponibile.Lavorazione":
-                    return "CONFEZIONAMENTO";
+                    return "PACKAGING";
                 case "Disponibile.Fermo":
                     if (data.CausaleEvento === "---") {
-                        return "FERMO AUTOMATICO";
+                        return "AUTOMATIC STOP";
                     } else {
-                        return "FERMO - " + data.CausaleEvento;
+                        return "STOP - " + data.CausaleEvento;
                     }
                     break;
                 case "Disponibile.Svuotamento":
-                    return "SVUOTAMENTO";
+                    return "EMPTYING THE LINE";
             }
         },
         AddColorDescrizione: function (color) {
@@ -1797,9 +1807,9 @@ sap.ui.define([
             var vbox = this.getView().byId("panel_processi");
             var btn, btn_vbox;
             var IDs = ["ButtonPresaInCarico", "ButtonFinePredisposizione", "ButtonModificaCondizioni", "ButtonFermo", "ButtonRiavvio", "ButtonCausalizzazione", "ButtonChiusuraConfezionamento"];
-            var texts = ["Take charge new packaging", "End predisposition start packaging", "See / Modify operative conditions", "Stop", "Restart", "Enter causal for automatic stops", "Packaging closure line's emptying"];
+            var texts = ["Take charge of the batch", "End the setup and start packaging", "Check / Modify the operative conditions", "Stop", "Restart", "Justify automatic stops", "Terminate the packaging and empty the line"];
             var press = [[this.PresaInCarico, this], [this.FinePredisposizione, this], [this.ModificaCondizioni, this], [this.Fermo, this], [this.Riavvio, this], [this.Causalizzazione, this], [this.ChiusuraConfezionamento, this]];
-            var classes = ["styleLongButton", "styleLongButton", "styleLongButton", "styleButton", "styleButton", "styleLongButton", "styleVeryLongButton"];
+            var classes = ["styleButton", "styleLongButton", "styleLongButton", "styleButton", "styleButton", "styleButton", "styleVeryLongButton"];
             var a = 5;
             var PBt = 10;
             for (var i in IDs) {
@@ -1834,9 +1844,9 @@ sap.ui.define([
             var vbox = this.getView().byId("panel_processi");
             var btn, btn_vbox;
             var IDs = ["ButtonBatchAttrezzaggio", "ButtonFinePredisposizioneAttrezzaggio", "ButtonSospensioneAttrezzaggio"];
-            var texts = ["Predisposizione nuovo confezionamento", "Fine predisposizione", "Sospensione predisposizione"];
+            var texts = ["Take charge of the batch", "End the setup", "Suspend the setup"];
             var press = [[this.BatchAttrezzaggio, this], [this.FinePredisposizioneAttrezzaggio, this], [this.SospensioneAttrezzaggio, this]];
-            var classes = ["styleLongButton", "styleButton", "styleLongButton"];
+            var classes = ["styleButton", "styleButton", "styleButton"];
             var a = 5;
             var PBt = 10;
             for (var i in IDs) {

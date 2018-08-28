@@ -49,6 +49,7 @@ sap.ui.define([
         },
         Starter: function () {
             this.ModelDetailPages = new JSONModel({});
+            this.ModelDetailPages.setProperty("/ENGStatus/", {});
             clearInterval(this.TIMER);
             this.IDsTreeTables.setProperty("/IDs/", {});
             for (var key in this.IDsTreeTables.getData().IDs) {
@@ -160,6 +161,7 @@ sap.ui.define([
                                 this.SwitchColor("");
                                 this.EnableButtons(["ButtonPresaInCarico"]);
                             }
+                            this.ModelDetailPages.ENGStatus = "EXAMINING BATCH DETAILS";
                             break;
                         case "Disponibile.Attrezzaggio":
                             if (this.State !== "Disponibile.Attrezzaggio") {
@@ -169,20 +171,24 @@ sap.ui.define([
                                 this.PredisposizioneLinea();
                                 this.getView().setModel(this.ModelDetailPages, "GeneralModel");
                             }
+                            this.ModelDetailPages.ENGStatus = "LINE SETUP";
                             break;
                         case "Disponibile.Lavorazione":
                             link = "/XMII/Runner?Transaction=DeCecco/Transactions/OEE_SPCBatchInCorso&Content-Type=text/json&LineaID=" + this.ModelDetailPages.getData().DettaglioLinea.idLinea + "&OutputParameter=JSON";
                             this.SyncAjaxCallerData(link, this.SUCCESSLavorazioneOEE.bind(this));
+                            this.ModelDetailPages.ENGStatus = "PACKAGING";
                             break;
                         case "Disponibile.Fermo":
                             link = "/XMII/Runner?Transaction=DeCecco/Transactions/OEEBatchInCorso&Content-Type=text/json&OutputParameter=JSON&LineaID=" + this.ModelDetailPages.getData().DettaglioLinea.idLinea;
                             this.SyncAjaxCallerData(link, this.SUCCESSFermoOEE.bind(this));
+                            this.ModelDetailPages.ENGStatus = "STOP";
                             break;
                         case "Disponibile.Svuotamento":
                             if (this.State !== "Disponibile.Svuotamento") {
                                 link = "/XMII/Runner?Transaction=DeCecco/Transactions/RiassuntoOperatore&Content-Type=text/json&OutputParameter=JSON&LineaID=" + this.ModelDetailPages.getData().DettaglioLinea.idLinea;
                                 this.SyncAjaxCallerData(link, this.SUCCESSChiusura.bind(this));
                             }
+                            this.ModelDetailPages.ENGStatus = "EMPTYING THE LINE";
                             break;
                     }
                 } else {
@@ -200,6 +206,7 @@ sap.ui.define([
                                 this.SwitchColor("");
                                 this.EnableButtonsAttr(["ButtonBatchAttrezzaggio"]);
                             }
+                            this.ModelDetailPages.ENGStatus = "EXAMINING BATCH DETAILS";
                             break;
                         case "Disponibile.Attrezzaggio":
                             if (this.State !== "Disponibile.Attrezzaggio") {
@@ -209,6 +216,7 @@ sap.ui.define([
                                 this.EnableButtonsAttr(["ButtonFinePredisposizioneAttrezzaggio", "ButtonSospensioneAttrezzaggio"]);
                                 this.getView().setModel(this.ModelDetailPages, "GeneralModel");
                             }
+                            this.ModelDetailPages.ENGStatus = "LINE SETUP";
                             break;
                         case "Disponibile.Svuotamento":
                             if (this.State !== "Disponibile.Svuotamento") {
@@ -217,6 +225,7 @@ sap.ui.define([
                                 this.SwitchColor("brown");
                                 this.EnableButtonsAttr([]);
                             }
+                            this.ModelDetailPages.ENGStatus = "EMPTYING THE LINE";
                             break;
                         default:
                             console.log("C'è un problema.");
@@ -236,12 +245,14 @@ sap.ui.define([
                         this.getSplitAppObj().toDetail(this.createId("Home"));
                         this.SwitchColor("");
                         this.getView().setModel(this.ModelDetailPages, "GeneralModel");
+                        this.ModelDetailPages.ENGStatus = "THE LINE IS EMPTY";
                         break;
                     case "NonDisponibile":
                         this.SwitchColor("red");
                         this.getSplitAppObj().toDetail(this.createId("Home"));
                         model.Intestazione = {"linea": model.DettaglioLinea.Linea, "descrizione": "NON DISPONIBILE", "conforme": ""};
                         this.getView().setModel(this.ModelDetailPages, "GeneralModel");
+                        this.ModelDetailPages.ENGStatus = "NOT AVAILABLE";
                         break;
                 }
             }
@@ -1797,9 +1808,9 @@ sap.ui.define([
             var vbox = this.getView().byId("panel_processi");
             var btn, btn_vbox;
             var IDs = ["ButtonPresaInCarico", "ButtonFinePredisposizione", "ButtonModificaCondizioni", "ButtonFermo", "ButtonRiavvio", "ButtonCausalizzazione", "ButtonChiusuraConfezionamento"];
-            var texts = ["Take charge new packaging", "End predisposition start packaging", "See / Modify operative conditions", "Stop", "Restart", "Enter causal for automatic stops", "Packaging closure line's emptying"];
+            var texts = ["Take charge of the batch", "End the setup and start packaging", "Check / Modify the operative conditions", "Stop", "Restart", "Justify automatic stops", "Terminate the packaging and empty the line"];
             var press = [[this.PresaInCarico, this], [this.FinePredisposizione, this], [this.ModificaCondizioni, this], [this.Fermo, this], [this.Riavvio, this], [this.Causalizzazione, this], [this.ChiusuraConfezionamento, this]];
-            var classes = ["styleLongButton", "styleLongButton", "styleLongButton", "styleButton", "styleButton", "styleLongButton", "styleVeryLongButton"];
+            var classes = ["styleButton", "styleLongButton", "styleLongButton", "styleButton", "styleButton", "styleButton", "styleVeryLongButton"];
             var a = 5;
             var PBt = 10;
             for (var i in IDs) {
@@ -1834,9 +1845,9 @@ sap.ui.define([
             var vbox = this.getView().byId("panel_processi");
             var btn, btn_vbox;
             var IDs = ["ButtonBatchAttrezzaggio", "ButtonFinePredisposizioneAttrezzaggio", "ButtonSospensioneAttrezzaggio"];
-            var texts = ["Predisposizione nuovo confezionamento", "Fine predisposizione", "Sospensione predisposizione"];
+            var texts = ["Take charge of the batch", "End the setup", "Suspend the setup"];
             var press = [[this.BatchAttrezzaggio, this], [this.FinePredisposizioneAttrezzaggio, this], [this.SospensioneAttrezzaggio, this]];
-            var classes = ["styleLongButton", "styleButton", "styleLongButton"];
+            var classes = ["styleButton", "styleButton", "styleButton"];
             var a = 5;
             var PBt = 10;
             for (var i in IDs) {

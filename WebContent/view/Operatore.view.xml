@@ -44,13 +44,12 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
                                 </HBox>
                             </VBox>
-                            <!--<VBox height="10%" width="100%"/>-->
                         </VBox>
                     </VBox>
                 </content>
@@ -139,7 +138,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -331,7 +330,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -575,7 +574,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -747,7 +746,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -802,7 +801,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -916,7 +915,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -1158,7 +1157,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -1279,7 +1278,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -1371,7 +1370,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -1468,7 +1467,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -1659,7 +1658,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -1718,7 +1717,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
+                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
