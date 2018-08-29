@@ -44,7 +44,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -106,7 +106,7 @@
                                                 <ToolbarSpacer/>
                                                 <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_PresaInCarico" class="TTButton"/>
                                                 <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_PresaInCarico" class="TTButton"/>
-                                                <Button text="No Standard" press="ShowRelevant" app:mydata="TreeTable_PresaInCarico" class="TTButton"/>
+                                                <Button text="Special" press="ShowRelevant" app:mydata="TreeTable_PresaInCarico" class="TTButton"/>
                                             </Toolbar>
                                         </wt:toolbar>
                                         <wt:columns>
@@ -117,7 +117,7 @@
                                                 </t:template>
                                             </t:Column>
                                             <t:Column width="10rem" resizable="false">
-                                                <Label text="VALUE"/>
+                                                <Label text="VALUES"/>
                                                 <t:template>
                                                     <HBox>
                                                         <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLength="20" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
@@ -126,7 +126,7 @@
                                             </t:Column>
                                         </wt:columns>
                                     </wt:CustomTreeTable>
-                                    <Button text="Confirmation of the take charge and start of tooling" width="100%" press="ConfermaBatch" class="attrezzaggioButton"/>
+                                    <Button text="Confirm the batch and start the setup" width="100%" press="ConfermaBatch" class="attrezzaggioButton"/>
                                 </VBox>
                                 <VBox width="5%"/>
                             </HBox>
@@ -138,7 +138,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -189,7 +189,7 @@
                                         <items>
                                             <TabContainerItem 
                                                 id="tab1"
-                                                name="PRODUCT ATTRIBUTES">
+                                                name="BATCH ATTRIBUTES">
                                                 <content>
                                                     <wt:CustomTreeTable
                                                         id="TreeTable_AttributiPredisposizione"
@@ -207,7 +207,7 @@
                                                                 <ToolbarSpacer/>
                                                                 <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_AttributiPredisposizione" class="TTButton"/>
                                                                 <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_AttributiPredisposizione" class="TTButton"/>
-                                                                <Button text="No Standard" press="ShowRelevant" app:mydata="TreeTable_AttributiPredisposizione" class="TTButton"/>
+                                                                <Button text="Special" press="ShowRelevant" app:mydata="TreeTable_AttributiPredisposizione" class="TTButton"/>
                                                             </Toolbar>
                                                         </wt:toolbar>
                                                         <wt:columns>
@@ -218,7 +218,7 @@
                                                                 </t:template>
                                                             </t:Column>
                                                             <t:Column width="7rem" resizable="false">
-                                                                <Label text="VALUE"/>
+                                                                <Label text="VALUES"/>
                                                                 <t:template>
                                                                     <HBox>
                                                                         <wt:StyleTextTreeTableValue text="{GeneralModel>value}" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
@@ -231,7 +231,7 @@
                                             </TabContainerItem>
                                             <TabContainerItem 
                                                 id="tab2"
-                                                name="LINE'S PREDISPOSITION">
+                                                name="LINE SETUP">
                                                 <content>
                                                     <FlexBox width="100%" alignItems="Start"
                                                              justifyContent="Center">
@@ -251,11 +251,11 @@
                                                                     toggleOpenState="COUPLEDTreeTableIconPress">
                                                                     <wt:toolbar>
                                                                         <Toolbar>
-                                                                            <Title text="PREVIOUS" class="titleTT"/>
+                                                                            <Title text="PREVIOUS SETUP" class="titleTT"/>
                                                                             <ToolbarSpacer/>
                                                                             <Button text="Collapse" press="COUPLEDCollapseAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
                                                                             <Button text="Expand" press="COUPLEDExpandAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
-                                                                            <Button text="No Standard" press="COUPLEDShowRelevant" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Special" press="COUPLEDShowRelevant" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
                                                                         </Toolbar>
                                                                     </wt:toolbar>
                                                                     <wt:columns>
@@ -266,7 +266,7 @@
                                                                             </t:template>
                                                                         </t:Column>
                                                                         <t:Column width="7rem" resizable="false">
-                                                                            <Label text="VALUE"/>
+                                                                            <Label text="VALUES"/>
                                                                             <t:template>
                                                                                 <wt:StyleTextTreeTableValue text="{GeneralModel>value}" included="{GeneralModel>isIncluded}" maxLength="20" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
                                                                             </t:template>
@@ -290,11 +290,11 @@
                                                                     toggleOpenState="COUPLEDTreeTableIconPress">
                                                                     <wt:toolbar>
                                                                         <Toolbar>
-                                                                            <Title text="CURRENT" class="titleTT"/>
+                                                                            <Title text="CURRENT SETUP" class="titleTT"/>
                                                                             <ToolbarSpacer/>
                                                                             <Button text="Collapse" press="COUPLEDCollapseAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
                                                                             <Button text="Expand" press="COUPLEDExpandAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/> 
-                                                                            <Button text="No Standard" press="COUPLEDShowRelevant" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Special" press="COUPLEDShowRelevant" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
                                                                         </Toolbar>
                                                                     </wt:toolbar>
                                                                     <wt:columns>
@@ -305,7 +305,7 @@
                                                                             </t:template>
                                                                         </t:Column>
                                                                         <t:Column width="7rem" resizable="false">
-                                                                            <Label text="VALUE"/>
+                                                                            <Label text="VALUES"/>
                                                                             <t:template>
                                                                                 <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLength="20" included="{GeneralModel>isIncluded}" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
                                                                             </t:template>
@@ -330,7 +330,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -402,7 +402,7 @@
                                             <VBox height="100%" width="10%"/>
                                             <VBox height="100%" width="90%">
                                                 <VBox height="30%" width="100%">
-                                                    <Text text="Balance sheet values" class="OEEText underlineOEE"/>
+                                                    <Text text="Produced" class="OEEText underlineOEE"/>
                                                 </VBox>
                                                 <VBox height="10%" width="100%">
                                                     <Text/>
@@ -486,7 +486,7 @@
                                             <VBox height="100%" width="55%">
                                                 <VBox height="30%" width="100%">
                                                     <FlexBox alignItems="Start" justifyContent="Start">
-                                                        <Text text="Residue values" class="OEEText underlineOEE"/>
+                                                        <Text text="Remaining" class="OEEText underlineOEE"/>
                                                     </FlexBox>
                                                 </VBox>
                                                 <VBox height="10%" width="100%">
@@ -521,7 +521,7 @@
                                             <VBox height="100%" width="48.5%">
                                                 <VBox height="33%" width="100%">
                                                     <FlexBox alignItems="End" justifyContent="End">
-                                                        <Text text="Stops total:" class="OEEText"/>
+                                                        <Text text="Total stops:" class="OEEText"/>
                                                     </FlexBox>
                                                 </VBox>
                                                 <VBox height="33%" width="100%">
@@ -531,7 +531,7 @@
                                                 </VBox>
                                                 <VBox height="33%" width="100%">
                                                     <FlexBox alignItems="End" justifyContent="End">
-                                                        <Text text="Stops without causal:" class="OEEText"/>
+                                                        <Text text="Not justified stops:" class="OEEText"/>
                                                     </FlexBox>
                                                 </VBox>
                                                 <VBox height="1%" width="100%">
@@ -574,7 +574,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -624,7 +624,7 @@
                                         <items>
                                             <TabContainerItem 
                                                 id="tab1-mod"
-                                                name="PRODUCT ATTRIBUTES">
+                                                name="BATCH ATTRIBUTES">
                                                 <content>
                                                     <wt:CustomTreeTable
                                                         id="TreeTable_AttributiModifica"
@@ -642,7 +642,7 @@
                                                                 <ToolbarSpacer/>
                                                                 <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_AttributiModifica" class="TTButton"/>
                                                                 <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_AttributiModifica" class="TTButton"/>
-                                                                <Button text="No Standard" press="ShowRelevant" app:mydata="TreeTable_AttributiModifica" class="TTButton"/>
+                                                                <Button text="Special" press="ShowRelevant" app:mydata="TreeTable_AttributiModifica" class="TTButton"/>
                                                             </Toolbar>
                                                         </wt:toolbar>
                                                         <wt:columns>
@@ -653,7 +653,7 @@
                                                                 </t:template>
                                                             </t:Column>
                                                             <t:Column width="7rem" resizable="false">
-                                                                <Label text="VALUE"/>
+                                                                <Label text="VALUES"/>
                                                                 <t:template>
                                                                     <HBox>
                                                                         <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLength="20" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
@@ -684,7 +684,7 @@
                                                                 <ToolbarSpacer/>
                                                                 <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_ModificaCondizioni" class="TTButton"/>
                                                                 <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_ModificaCondizioni" class="TTButton"/>
-                                                                <Button text="To be confirmed" press="ShowRelevant" app:mydata="TreeTable_ModificaCondizioni" class="TTButton"/>
+                                                                <Button text="To be filled" press="ShowRelevant" app:mydata="TreeTable_ModificaCondizioni" class="TTButton"/>
                                                             </Toolbar>
                                                         </wt:toolbar>
                                                         <wt:columns>
@@ -695,25 +695,25 @@
                                                                 </t:template>
                                                             </t:Column>
                                                             <t:Column width="5rem" resizable="false">
-                                                                <Label text="VALUE"/>
+                                                                <Label text="VALUES"/>
                                                                 <t:template>
                                                                     <Text text="{GeneralModel>value}" maxLines="1" tooltip="{GeneralModel>value}" class="verticalAlignment"/>
                                                                 </t:template>
                                                             </t:Column>
                                                             <t:Column width="5rem" resizable="false">
-                                                                <Label text="SERIAL NUMBER/BATCH"/>
+                                                                <Label text="SERIAL NUMBERS"/>
                                                                 <t:template>
                                                                     <Text text="{GeneralModel>codeValue}" visible="{= ${GeneralModel>code} === 1}" maxLines="1" tooltip="{GeneralModel>codeValue}" class="verticalAlignment"/>
                                                                 </t:template>
                                                             </t:Column>
                                                             <t:Column width="5rem" resizable="false">
-                                                                <Label text="MODIFY VALUE"/>
+                                                                <Label text="MODIFY VALUES"/>
                                                                 <t:template>
                                                                     <Input value="{GeneralModel>valueModify}" editable="{= ${GeneralModel>modify} === 1}" type="Text" maxLength="30" visible="{= ${GeneralModel>modify} === 1}" class="diffStandard"/>
                                                                 </t:template>
                                                             </t:Column>
                                                             <t:Column width="5rem" resizable="false">
-                                                                <Label text="MODIFIY SERIAL NUMBER/BATCH"/>
+                                                                <Label text="MODIFIY SERIAL NUMBERS"/>
                                                                 <t:template>
                                                                     <Input value="{GeneralModel>codeValueModify}" placeholder="{GeneralModel>codePlaceholder}" type="Text" maxLength="30" editable="{= ${GeneralModel>code} === 1}" class="diffStandard"/>
                                                                 </t:template>
@@ -746,7 +746,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -801,7 +801,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -856,7 +856,7 @@
                                             </VBox>
                                             <VBox width="30%"/>
                                             <VBox width="25%">
-                                                <Button id="ConfermaCausalizzazione" text="Enter causal" width="100%" enabled="false" press="Causalizza" class="allarmeButton shiftDownCause"/>
+                                                <Button id="ConfermaCausalizzazione" text="Enter justification" width="100%" enabled="false" press="Causalizza" class="allarmeButton shiftDownCause"/>
                                             </VBox>
                                             <VBox width="10%"/>
                                         </HBox>
@@ -871,7 +871,7 @@
                                             rows="{GeneralModel>/FermiNonCausalizzati/fermi}">
                                             <t:columns>
                                                 <t:Column hAlign="Center" width="15%" resizable="false">
-                                                    <Label text="START"/>
+                                                    <Label text="BEGIN"/>
                                                     <t:template>
                                                         <Text text="{GeneralModel>inizio}"/>
                                                     </t:template>
@@ -889,7 +889,7 @@
                                                     </t:template>
                                                 </t:Column>
                                                 <t:Column hAlign="Center" width="45%" resizable="false">
-                                                    <Label text="CAUSAL"/>
+                                                    <Label text="JUSTIFICATION"/>
                                                     <t:template>
                                                         <Text text="{GeneralModel>causa}"/>
                                                     </t:template>
@@ -915,7 +915,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -985,7 +985,7 @@
                                             <VBox height="100%" width="10%"/>
                                             <VBox height="100%" width="90%">
                                                 <VBox height="30%" width="100%">
-                                                    <Text text="Balance sheet values" class="OEEText underlineOEE"/>
+                                                    <Text text="Produced" class="OEEText underlineOEE"/>
                                                 </VBox>
                                                 <VBox height="10%" width="100%">
                                                     <Text/>
@@ -1069,7 +1069,7 @@
                                             <VBox height="100%" width="55%">
                                                 <VBox height="30%" width="100%">
                                                     <FlexBox alignItems="Start" justifyContent="Start">
-                                                        <Text text="Residue values" class="OEEText underlineOEE"/>
+                                                        <Text text="Remaining" class="OEEText underlineOEE"/>
                                                     </FlexBox>
                                                 </VBox>
                                                 <VBox height="10%" width="100%">
@@ -1104,7 +1104,7 @@
                                             <VBox height="100%" width="48.5%">
                                                 <VBox height="33%" width="100%">
                                                     <FlexBox alignItems="End" justifyContent="End">
-                                                        <Text text="Stops total:" class="OEEText"/>
+                                                        <Text text="Total stops:" class="OEEText"/>
                                                     </FlexBox>
                                                 </VBox>
                                                 <VBox height="33%" width="100%">
@@ -1114,7 +1114,7 @@
                                                 </VBox>
                                                 <VBox height="33%" width="100%">
                                                     <FlexBox alignItems="End" justifyContent="End">
-                                                        <Text text="Stops without causal:" class="OEEText"/>
+                                                        <Text text="Not justified stops:" class="OEEText"/>
                                                     </FlexBox>
                                                 </VBox>
                                                 <VBox height="1%" width="100%">
@@ -1157,7 +1157,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -1185,7 +1185,6 @@
                                 <VBox width="100%">
                                     <FlexBox alignItems="Start" justifyContent="Center">
                                         <Text id="RipristinoCondizioniDescrizione" text="{GeneralModel>/Intestazione/descrizione}" class="textTop"/>
-                                        
                                     </FlexBox>
                                 </VBox>
                             </VBox>
@@ -1220,7 +1219,7 @@
                                                 <ToolbarSpacer/>
                                                 <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_RipristinoCondizioni" class="TTButton"/>
                                                 <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_RipristinoCondizioni" class="TTButton"/>
-                                                <Button text="To be confirmed" press="ShowRelevant" app:mydata="TreeTable_RipristinoCondizioni" class="TTButton"/>
+                                                <Button text="To be filled" press="ShowRelevant" app:mydata="TreeTable_RipristinoCondizioni" class="TTButton"/>
                                             </Toolbar>
                                         </wt:toolbar>
                                         <wt:columns>
@@ -1231,25 +1230,25 @@
                                                 </t:template>
                                             </t:Column>
                                             <t:Column width="5rem" resizable="false">
-                                                <Label text="VALUE"/>
+                                                <Label text="VALUES"/>
                                                 <t:template>
                                                     <Text text="{GeneralModel>value}" maxLines="1" tooltip="{GeneralModel>value}" class="verticalAlignment"/>
                                                 </t:template>
                                             </t:Column>
                                             <t:Column width="5rem" resizable="false">
-                                                <Label text="SERIAL NUMBER/BATCH"/>
+                                                <Label text="SERIAL NUMBERS"/>
                                                 <t:template>
                                                     <Text text="{GeneralModel>codeValue}" visible="{= ${GeneralModel>code} === 1}" maxLines="1" tooltip="{GeneralModel>codeValue}" class="verticalAlignment"/>
                                                 </t:template>
                                             </t:Column>
                                             <t:Column width="5rem" resizable="false">
-                                                <Label text="MODIFY VALUE"/>
+                                                <Label text="MODIFY VALUES"/>
                                                 <t:template>
                                                     <Input value="{GeneralModel>valueModify}" editable="{= ${GeneralModel>modify} === 1}" type="Text" maxLength="30" visible="{= ${GeneralModel>modify} === 1}" class="diffStandard"/>
                                                 </t:template>
                                             </t:Column>
                                             <t:Column width="5rem" resizable="false">
-                                                <Label text="MODIFY SERIAL NUMBER/BATCH"/>
+                                                <Label text="MODIFY SERIAL NUMBERS"/>
                                                 <t:template>
                                                     <Input value="{GeneralModel>codeValueModify}" placeholder="{GeneralModel>codePlaceholder}" type="Text" maxLength="30" editable="{= ${GeneralModel>code} === 1}" class="diffStandard"/>
                                                 </t:template>
@@ -1278,7 +1277,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -1349,7 +1348,7 @@
                                                 </t:template>
                                             </t:Column>
                                             <t:Column width="10rem"  resizable="false">
-                                                <Label text="VALUE"/>
+                                                <Label text="VALUES"/>
                                                 <t:template>
                                                     <HBox>
                                                         <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLines="1" tooltip="{GeneralModel>value}" diff="{GeneralModel>expand}" />
@@ -1358,7 +1357,7 @@
                                             </t:Column>
                                         </wt:columns>
                                     </wt:CustomTreeTable>
-                                    <Button text="Batch Closure" width="100%" press="SvuotaLinea" class="attrezzaggioButton"/>
+                                    <Button text="Confirm line emptying" width="100%" press="SvuotaLinea" class="attrezzaggioButton"/>
                                 </VBox>
                                 <VBox width="5%"/>
                             </HBox>
@@ -1370,7 +1369,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -1435,7 +1434,7 @@
                                                 <ToolbarSpacer/>
                                                 <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_BatchAttrezzaggio" class="TTButton"/>
                                                 <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_BatchAttrezzaggio" class="TTButton"/>
-                                                <Button text="No Standard" press="ShowRelevant" app:mydata="TreeTable_BatchAttrezzaggio" class="TTButton"/>
+                                                <Button text="Special" press="ShowRelevant" app:mydata="TreeTable_BatchAttrezzaggio" class="TTButton"/>
                                             </Toolbar>
                                         </wt:toolbar>
                                         <wt:columns>
@@ -1446,7 +1445,7 @@
                                                 </t:template>
                                             </t:Column>
                                             <t:Column width="10rem" resizable="false">
-                                                <Label text="VALUE"/>
+                                                <Label text="VALUES"/>
                                                 <t:template>
                                                     <HBox>
                                                         <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLength="20" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
@@ -1455,7 +1454,7 @@
                                             </t:Column>
                                         </wt:columns>
                                     </wt:CustomTreeTable>
-                                    <Button text="Confirmation of the take charge and start of tooling" width="100%" press="ConfermaBatchAttrezzaggio" class="attrezzaggioButton"/>
+                                    <Button text="Confirm the batch and start the setup" width="100%" press="ConfermaBatchAttrezzaggio" class="attrezzaggioButton"/>
                                 </VBox>
                                 <VBox width="5%"/>
                             </HBox>
@@ -1467,7 +1466,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -1520,7 +1519,7 @@
                                         <items>
                                             <TabContainerItem 
                                                 id="tab1A"
-                                                name="PRODUCT ATTRIBUTES">
+                                                name="BATCH ATTRIBUTES">
                                                 <content>
                                                     <wt:CustomTreeTable
                                                         id="TreeTable_AttributiAttrezzaggio"
@@ -1538,7 +1537,7 @@
                                                                 <ToolbarSpacer/>
                                                                 <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_AttributiAttrezzaggio" class="TTButton"/>
                                                                 <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_AttributiAttrezzaggio" class="TTButton"/>
-                                                                <Button text="No Standard" press="ShowRelevant" app:mydata="TreeTable_AttributiAttrezzaggio" class="TTButton"/>
+                                                                <Button text="Special" press="ShowRelevant" app:mydata="TreeTable_AttributiAttrezzaggio" class="TTButton"/>
                                                             </Toolbar>
                                                         </wt:toolbar>
                                                         <wt:columns>
@@ -1549,7 +1548,7 @@
                                                                 </t:template>
                                                             </t:Column>
                                                             <t:Column width="7rem" resizable="false">
-                                                                <Label text="VALUE"/>
+                                                                <Label text="VALUES"/>
                                                                 <t:template>
                                                                     <HBox>
                                                                         <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLength="20" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
@@ -1562,7 +1561,7 @@
                                             </TabContainerItem>
                                             <TabContainerItem 
                                                 id="tab2A"
-                                                name="LINE'S PREDISPOSITION">
+                                                name="LINE SETUP">
                                                 <content>
                                                     <FlexBox width="100%" alignItems="Start" justifyContent="Center">
                                                         <HBox height="100%" width="100%">
@@ -1584,7 +1583,7 @@
                                                                             <ToolbarSpacer/>
                                                                             <Button text="Collapse" press="COUPLEDCollapseAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
                                                                             <Button text="Expand" press="COUPLEDExpandAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
-                                                                            <Button text="No Standard" press="COUPLEDShowRelevant" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Special" press="COUPLEDShowRelevant" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
                                                                         </Toolbar>
                                                                     </wt:toolbar>
                                                                     <wt:columns>
@@ -1595,7 +1594,7 @@
                                                                             </t:template>
                                                                         </t:Column>
                                                                         <t:Column width="7rem" resizable="false">
-                                                                            <Label text="VALUE"/>
+                                                                            <Label text="VALUES"/>
                                                                             <t:template>
                                                                                 <wt:StyleTextTreeTableValue text="{GeneralModel>value}" included="{GeneralModel>isIncluded}" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
                                                                             </t:template>
@@ -1622,7 +1621,7 @@
                                                                             <ToolbarSpacer/>
                                                                             <Button text="Collapse" press="COUPLEDCollapseAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
                                                                             <Button text="Expand" press="COUPLEDExpandAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/> 
-                                                                            <Button text="No Standard" press="COUPLEDShowRelevant" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Special" press="COUPLEDShowRelevant" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
                                                                         </Toolbar>
                                                                     </wt:toolbar>
                                                                     <wt:columns>
@@ -1633,7 +1632,7 @@
                                                                             </t:template>
                                                                         </t:Column>
                                                                         <t:Column width="7rem" resizable="false">
-                                                                            <Label text="VALUE"/>
+                                                                            <Label text="VALUES"/>
                                                                             <t:template>
                                                                                 <wt:StyleTextTreeTableValue text="{GeneralModel>value}" maxLength="20" included="{GeneralModel>isIncluded}" diff="{GeneralModel>expand}" maxLines="1" tooltip="{GeneralModel>value}"/>
                                                                             </t:template>
@@ -1658,7 +1657,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>
@@ -1705,7 +1704,7 @@
                             <HBox>
                                 <VBox width="10%"/>
                                 <VBox width="80%">
-                                    <Button text="End Predisposition" width="100%" press="FineAttrezzaggio" class="attrezzaggioButton"/>
+                                    <Button text="Confirm line emptying" width="100%" press="FineAttrezzaggio" class="attrezzaggioButton"/>
                                 </VBox>
                                 <VBox width="10%"/>
                             </HBox>
@@ -1717,7 +1716,7 @@
                                     <VBox height="100%" width="15%"/>
                                     <VBox height="100%" width="70%">
                                         <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text text="{GeneralModel>/ENGStatus}" class="textTop"/>
+                                            <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
                                     <VBox height="100%" width="15%"/>

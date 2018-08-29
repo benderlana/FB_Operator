@@ -106,7 +106,7 @@
                                                 <ToolbarSpacer/>
                                                 <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_PresaInCarico" class="TTButton"/>
                                                 <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_PresaInCarico" class="TTButton"/>
-                                                <Button text="No Standard" press="ShowRelevant" app:mydata="TreeTable_PresaInCarico" class="TTButton"/>
+                                                <Button text="Special" press="ShowRelevant" app:mydata="TreeTable_PresaInCarico" class="TTButton"/>
                                             </Toolbar>
                                         </wt:toolbar>
                                         <wt:columns>
@@ -207,7 +207,7 @@
                                                                 <ToolbarSpacer/>
                                                                 <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_AttributiPredisposizione" class="TTButton"/>
                                                                 <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_AttributiPredisposizione" class="TTButton"/>
-                                                                <Button text="Not Standard" press="ShowRelevant" app:mydata="TreeTable_AttributiPredisposizione" class="TTButton"/>
+                                                                <Button text="Special" press="ShowRelevant" app:mydata="TreeTable_AttributiPredisposizione" class="TTButton"/>
                                                             </Toolbar>
                                                         </wt:toolbar>
                                                         <wt:columns>
@@ -255,7 +255,7 @@
                                                                             <ToolbarSpacer/>
                                                                             <Button text="Collapse" press="COUPLEDCollapseAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
                                                                             <Button text="Expand" press="COUPLEDExpandAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
-                                                                            <Button text="No Standard" press="COUPLEDShowRelevant" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Special" press="COUPLEDShowRelevant" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
                                                                         </Toolbar>
                                                                     </wt:toolbar>
                                                                     <wt:columns>
@@ -294,7 +294,7 @@
                                                                             <ToolbarSpacer/>
                                                                             <Button text="Collapse" press="COUPLEDCollapseAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
                                                                             <Button text="Expand" press="COUPLEDExpandAll" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/> 
-                                                                            <Button text="No Standard" press="COUPLEDShowRelevant" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Special" press="COUPLEDShowRelevant" app:mydata="TreeTable_ConfermaSetupOld,TreeTable_ConfermaSetupNew" class="COUPLEDTTButton"/>
                                                                         </Toolbar>
                                                                     </wt:toolbar>
                                                                     <wt:columns>
@@ -642,7 +642,7 @@
                                                                 <ToolbarSpacer/>
                                                                 <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_AttributiModifica" class="TTButton"/>
                                                                 <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_AttributiModifica" class="TTButton"/>
-                                                                <Button text="No Standard" press="ShowRelevant" app:mydata="TreeTable_AttributiModifica" class="TTButton"/>
+                                                                <Button text="Special" press="ShowRelevant" app:mydata="TreeTable_AttributiModifica" class="TTButton"/>
                                                             </Toolbar>
                                                         </wt:toolbar>
                                                         <wt:columns>
@@ -1434,7 +1434,7 @@
                                                 <ToolbarSpacer/>
                                                 <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_BatchAttrezzaggio" class="TTButton"/>
                                                 <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_BatchAttrezzaggio" class="TTButton"/>
-                                                <Button text="Not Standard" press="ShowRelevant" app:mydata="TreeTable_BatchAttrezzaggio" class="TTButton"/>
+                                                <Button text="Special" press="ShowRelevant" app:mydata="TreeTable_BatchAttrezzaggio" class="TTButton"/>
                                             </Toolbar>
                                         </wt:toolbar>
                                         <wt:columns>
@@ -1537,7 +1537,7 @@
                                                                 <ToolbarSpacer/>
                                                                 <Button text="Collapse" press="CollapseAll" app:mydata="TreeTable_AttributiAttrezzaggio" class="TTButton"/>
                                                                 <Button text="Expand" press="ExpandAll" app:mydata="TreeTable_AttributiAttrezzaggio" class="TTButton"/>
-                                                                <Button text="Not Standard" press="ShowRelevant" app:mydata="TreeTable_AttributiAttrezzaggio" class="TTButton"/>
+                                                                <Button text="Special" press="ShowRelevant" app:mydata="TreeTable_AttributiAttrezzaggio" class="TTButton"/>
                                                             </Toolbar>
                                                         </wt:toolbar>
                                                         <wt:columns>
@@ -1583,7 +1583,7 @@
                                                                             <ToolbarSpacer/>
                                                                             <Button text="Collapse" press="COUPLEDCollapseAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
                                                                             <Button text="Expand" press="COUPLEDExpandAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
-                                                                            <Button text="Not Standard" press="COUPLEDShowRelevant" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Special" press="COUPLEDShowRelevant" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
                                                                         </Toolbar>
                                                                     </wt:toolbar>
                                                                     <wt:columns>
@@ -1621,7 +1621,7 @@
                                                                             <ToolbarSpacer/>
                                                                             <Button text="Collapse" press="COUPLEDCollapseAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
                                                                             <Button text="Expand" press="COUPLEDExpandAll" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/> 
-                                                                            <Button text="Not Standard" press="COUPLEDShowRelevant" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
+                                                                            <Button text="Special" press="COUPLEDShowRelevant" app:mydata="TreeTable_AttrezzaggioOld,TreeTable_AttrezzaggioNew" class="COUPLEDTTButton"/>
                                                                         </Toolbar>
                                                                     </wt:toolbar>
                                                                     <wt:columns>

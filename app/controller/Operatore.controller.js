@@ -388,7 +388,7 @@ sap.ui.define([
             var that = this;
             setTimeout(function () {
                 that.ShowRelevant(null, "TreeTable_PresaInCarico");
-            }, 500);
+            }, 1000);
         },
 //        RICHIAMATO DAL BOTTONE "CONFERMA" NELLA SCHERMATA DI PRESA IN CARICO
 //          Questa funzione assegna i modelli alle TreeTables, rimuove la possibilità di
@@ -494,7 +494,7 @@ sap.ui.define([
                 this.TabContainer.removeItem(tab);
             }
             this.Item = new sap.m.TabContainerItem({});
-            this.Item.setName("CONFIRM PREDISPOSITION");
+            this.Item.setName("CONFIRM SETUP");
             var inputValueMod = new sap.m.Input({
                 editable: "{= ${GeneralModel>modify} === 1}",
                 visible: "{= ${GeneralModel>modify} === 1}",
@@ -529,7 +529,7 @@ sap.ui.define([
                             new sap.m.ToolbarSpacer({}),
                             btn2 = new sap.m.Button({text: "Collapse", press: [TT, this.CollapseAll, this]}),
                             btn3 = new sap.m.Button({text: "Expand", press: [TT, this.ExpandAll, this]}),
-                            btn4 = new sap.m.Button({text: "To be confirmed", press: [TT, this.ShowRelevant, this]})
+                            btn4 = new sap.m.Button({text: "To be filled", press: [TT, this.ShowRelevant, this]})
                         ]})],
                 columns: [
                     new sap.ui.table.Column({
@@ -540,7 +540,7 @@ sap.ui.define([
                             text: "{GeneralModel>name}",
                             maxLines: 1}).addStyleClass("verticalAlignment")}),
                     new sap.ui.table.Column({
-                        label: "VALUE",
+                        label: "VALUES",
                         resizable: false,
                         width: "5rem",
                         template: new sap.m.Text({
@@ -553,7 +553,7 @@ sap.ui.define([
                         width: "5rem",
                         template: inputValueMod}),
                     new sap.ui.table.Column({
-                        label: "SERIAL NUMBER/BATCH",
+                        label: "SERIAL NUMBERS",
                         resizable: false,
                         width: "5rem",
                         template: inputCodeValue})
@@ -1318,7 +1318,7 @@ sap.ui.define([
             var that = this;
             setTimeout(function () {
                 that.ShowRelevant(null, "TreeTable_BatchAttrezzaggio");
-            }, 500);
+            }, 1000);
         },
         //        RICHIAMATO DAL BOTTONE "CONFERMA" NELLA SCHERMATA DI PRESA IN CARICO
 //          Questa funzione assegna i modelli alle TreeTables, rimuove la possibilità di
@@ -1369,7 +1369,7 @@ sap.ui.define([
 
         FinePredisposizioneAttrezzaggio: function () {
 
-            var data = {"stringa": "ONLY PREDISPOSITION"};
+            var data = {"stringa": "SETUP ONLY"};
             this.ModelDetailPages.setProperty("/FineAttrezzaggio/", data);
             this.TabContainer = this.getView().byId("TabContainerAttrezzaggio");
             this.getView().setModel(this.ModelDetailPages, "GeneralModel");
@@ -1380,7 +1380,7 @@ sap.ui.define([
                 this.TabContainer.removeItem(tab);
             }
             this.Item = new sap.m.TabContainerItem({});
-            this.Item.setName("CONFIRM PREDISPOSITION");
+            this.Item.setName("CONFIRM SETUP");
             var inputValueMod = new sap.m.Input({
                 editable: "{= ${GeneralModel>modify} === 1}",
                 visible: "{= ${GeneralModel>modify} === 1}",
@@ -1415,7 +1415,7 @@ sap.ui.define([
                             new sap.m.ToolbarSpacer({}),
                             btn2 = new sap.m.Button({text: "Collapse", press: [TT, this.CollapseAll, this]}),
                             btn3 = new sap.m.Button({text: "Expand", press: [TT, this.ExpandAll, this]}),
-                            btn4 = new sap.m.Button({text: "To be confirmed", press: [TT, this.ShowRelevant, this]})
+                            btn4 = new sap.m.Button({text: "To be filled", press: [TT, this.ShowRelevant, this]})
                         ]})],
                 columns: [
                     new sap.ui.table.Column({
@@ -1426,7 +1426,7 @@ sap.ui.define([
                             text: "{GeneralModel>name}",
                             maxLines: 1})}),
                     new sap.ui.table.Column({
-                        label: "VALUE",
+                        label: "VALUES",
                         resizable: false,
                         width: "5rem",
                         template: new sap.m.Text({
@@ -1439,7 +1439,7 @@ sap.ui.define([
                         width: "5rem",
                         template: inputValueMod}),
                     new sap.ui.table.Column({
-                        label: "SERIAL NUMBER/BATCH",
+                        label: "SERIAL NUMBERS",
                         resizable: false,
                         width: "5rem",
                         template: inputCodeValue})
@@ -1484,7 +1484,7 @@ sap.ui.define([
         },
         SospensioneAttrezzaggio: function () {
 
-                var data = {"stringa": "PREDISPOSITION SUSPENDED"};
+                var data = {"stringa": "CONFIRM SETUP"};
             this.ModelDetailPages.setProperty("/FineAttrezzaggio/", data);
             this.TabContainer = this.getView().byId("TabContainerAttrezzaggio");
             this.getView().setModel(this.ModelDetailPages, "GeneralModel");
@@ -1495,7 +1495,7 @@ sap.ui.define([
                 this.TabContainer.removeItem(tab);
             }
             this.Item = new sap.m.TabContainerItem({});
-            this.Item.setName("PREDISPOSITION SUSPENDED");
+            this.Item.setName("CONFIRM SETUP");
             var inputValueMod = new sap.m.Input({
                 editable: "{= ${GeneralModel>modify} === 1}",
                 visible: "{= ${GeneralModel>modify} === 1}",
@@ -1530,7 +1530,7 @@ sap.ui.define([
                             new sap.m.ToolbarSpacer({}),
                             btn2 = new sap.m.Button({text: "Collapse", press: [TT, this.CollapseAll, this]}),
                             btn3 = new sap.m.Button({text: "Expand", press: [TT, this.ExpandAll, this]}),
-                            btn4 = new sap.m.Button({text: "To be confirmed", press: [TT, this.ShowRelevant, this]})
+                            btn4 = new sap.m.Button({text: "To be filled", press: [TT, this.ShowRelevant, this]})
                         ]})],
                 columns: [
                     new sap.ui.table.Column({
@@ -1541,7 +1541,7 @@ sap.ui.define([
                             text: "{GeneralModel>name}",
                             maxLines: 1})}),
                     new sap.ui.table.Column({
-                        label: "VALUE",
+                        label: "VALUES",
                         resizable: false,
                         width: "5rem",
                         template: new sap.m.Text({
@@ -1554,7 +1554,7 @@ sap.ui.define([
                         width: "5rem",
                         template: inputValueMod}),
                     new sap.ui.table.Column({
-                        label: "SERIAL NUMBER/BATCH",
+                        label: "SERIAL NUMBERS",
                         resizable: false,
                         width: "5rem",
                         template: inputCodeValue})
@@ -2196,7 +2196,7 @@ sap.ui.define([
             textHeader.setText(String(this.DescrizioneParametro));
             var samplingHeader = this.getView().byId("samplingSPC");
             if (Number(this.Fase) === 1) {
-                samplingHeader.setText("Campionamento in corso: " + String(this.Avanzamento) + "/50");
+                samplingHeader.setText("Sampling: " + String(this.Avanzamento) + "/50");
             } else {
                 samplingHeader.setText("");
             }
@@ -2611,7 +2611,7 @@ sap.ui.define([
                     if (key === "isIncluded") {
                         if (json[key] === "0") {
                             json.expand = 1;
-                            json.value = "INATTIVO";
+                            json.value = "INACTIVE";
                         }
                     }
                 }
@@ -2670,7 +2670,7 @@ sap.ui.define([
                             break;
                         case "isIncluded":
                             if (std[key] === "0") {
-                                std.value = "INATTIVO";
+                                std.value = "INACTIVE";
                             }
                             break;
                     }
@@ -2684,7 +2684,7 @@ sap.ui.define([
                             break;
                         case "isIncluded":
                             if (std[key] === "0") {
-                                std.value = "INATTIVO";
+                                std.value = "INACTIVE";
                             }
                             break;
                     }

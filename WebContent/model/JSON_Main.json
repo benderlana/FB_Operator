@@ -1,22 +1,22 @@
 {
-    "descrizione": "Fara San Martino",
+    "descrizione": "Techedge Food and Beverage",
     "errore": "0",
     "linee": [
         {
             "icon": "sap-icon://machine",
-            "linea": "Coppia 05",
-            "info": "Produzione",
+            "linea": "Line 1",
+            "info": "Production",
             "infoState": "Success",
             "idlinea": "1",
-            "linea_desc": "05"
+            "linea_desc": "1"
         },
         {
             "icon": "sap-icon://machine",
-            "linea": "Coppia 06",
-            "info": "Produzione",
+            "linea": "Line 2",
+            "info": "Production",
             "infoState": "Success",
             "idlinea": "16",
-            "linea_desc": "06"
+            "linea_desc": "2"
         }
     ]
 }

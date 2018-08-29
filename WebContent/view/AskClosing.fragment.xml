@@ -10,7 +10,7 @@
                 <VBox height="48px"/>
                 <VBox height="60px">
                     <FlexBox alignItems="Start" justifyContent="Center">
-                        <Text text="Packaging closure" class="textTop"/>
+                        <Text text="Terminate packaging" class="textTop"/>
                     </FlexBox>
                 </VBox>
                 <VBox height="60px"/>

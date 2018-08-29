@@ -49,7 +49,6 @@ sap.ui.define([
         },
         Starter: function () {
             this.ModelDetailPages = new JSONModel({});
-            this.ModelDetailPages.setProperty("/ENGStatus/", {});
             clearInterval(this.TIMER);
             this.IDsTreeTables.setProperty("/IDs/", {});
             for (var key in this.IDsTreeTables.getData().IDs) {
@@ -161,7 +160,7 @@ sap.ui.define([
                                 this.SwitchColor("");
                                 this.EnableButtons(["ButtonPresaInCarico"]);
                             }
-                            this.ModelDetailPages.ENGStatus = "EXAMINING BATCH DETAILS";
+                            this.ModelDetailPages.getData().ENGStatus = "EXAMINING BATCH DETAILS";
                             break;
                         case "Disponibile.Attrezzaggio":
                             if (this.State !== "Disponibile.Attrezzaggio") {
@@ -171,24 +170,24 @@ sap.ui.define([
                                 this.PredisposizioneLinea();
                                 this.getView().setModel(this.ModelDetailPages, "GeneralModel");
                             }
-                            this.ModelDetailPages.ENGStatus = "LINE SETUP";
+                            this.ModelDetailPages.getData().ENGStatus = "LINE SETUP";
                             break;
                         case "Disponibile.Lavorazione":
                             link = "/XMII/Runner?Transaction=DeCecco/Transactions/OEE_SPCBatchInCorso&Content-Type=text/json&LineaID=" + this.ModelDetailPages.getData().DettaglioLinea.idLinea + "&OutputParameter=JSON";
                             this.SyncAjaxCallerData(link, this.SUCCESSLavorazioneOEE.bind(this));
-                            this.ModelDetailPages.ENGStatus = "PACKAGING";
+                            this.ModelDetailPages.getData().ENGStatus = "PACKAGING";
                             break;
                         case "Disponibile.Fermo":
                             link = "/XMII/Runner?Transaction=DeCecco/Transactions/OEEBatchInCorso&Content-Type=text/json&OutputParameter=JSON&LineaID=" + this.ModelDetailPages.getData().DettaglioLinea.idLinea;
                             this.SyncAjaxCallerData(link, this.SUCCESSFermoOEE.bind(this));
-                            this.ModelDetailPages.ENGStatus = "STOP";
+                            this.ModelDetailPages.getData().ENGStatus = "STOP";
                             break;
                         case "Disponibile.Svuotamento":
                             if (this.State !== "Disponibile.Svuotamento") {
                                 link = "/XMII/Runner?Transaction=DeCecco/Transactions/RiassuntoOperatore&Content-Type=text/json&OutputParameter=JSON&LineaID=" + this.ModelDetailPages.getData().DettaglioLinea.idLinea;
                                 this.SyncAjaxCallerData(link, this.SUCCESSChiusura.bind(this));
                             }
-                            this.ModelDetailPages.ENGStatus = "EMPTYING THE LINE";
+                            this.ModelDetailPages.getData().ENGStatus = "EMPTYING THE LINE";
                             break;
                     }
                 } else {
@@ -206,7 +205,7 @@ sap.ui.define([
                                 this.SwitchColor("");
                                 this.EnableButtonsAttr(["ButtonBatchAttrezzaggio"]);
                             }
-                            this.ModelDetailPages.ENGStatus = "EXAMINING BATCH DETAILS";
+                            this.ModelDetailPages.getData().ENGStatus = "EXAMINING BATCH DETAILS";
                             break;
                         case "Disponibile.Attrezzaggio":
                             if (this.State !== "Disponibile.Attrezzaggio") {
@@ -216,7 +215,7 @@ sap.ui.define([
                                 this.EnableButtonsAttr(["ButtonFinePredisposizioneAttrezzaggio", "ButtonSospensioneAttrezzaggio"]);
                                 this.getView().setModel(this.ModelDetailPages, "GeneralModel");
                             }
-                            this.ModelDetailPages.ENGStatus = "LINE SETUP";
+                            this.ModelDetailPages.getData().ENGStatus = "LINE SETUP";
                             break;
                         case "Disponibile.Svuotamento":
                             if (this.State !== "Disponibile.Svuotamento") {
@@ -225,7 +224,7 @@ sap.ui.define([
                                 this.SwitchColor("brown");
                                 this.EnableButtonsAttr([]);
                             }
-                            this.ModelDetailPages.ENGStatus = "EMPTYING THE LINE";
+                            this.ModelDetailPages.getData().ENGStatus = "EMPTYING THE LINE";
                             break;
                         default:
                             console.log("C'è un problema.");
@@ -245,14 +244,14 @@ sap.ui.define([
                         this.getSplitAppObj().toDetail(this.createId("Home"));
                         this.SwitchColor("");
                         this.getView().setModel(this.ModelDetailPages, "GeneralModel");
-                        this.ModelDetailPages.ENGStatus = "THE LINE IS EMPTY";
+                        this.ModelDetailPages.getData().ENGStatus = "THE LINE IS EMPTY";
                         break;
                     case "NonDisponibile":
                         this.SwitchColor("red");
                         this.getSplitAppObj().toDetail(this.createId("Home"));
                         model.Intestazione = {"linea": model.DettaglioLinea.Linea, "descrizione": "NON DISPONIBILE", "conforme": ""};
                         this.getView().setModel(this.ModelDetailPages, "GeneralModel");
-                        this.ModelDetailPages.ENGStatus = "NOT AVAILABLE";
+                        this.ModelDetailPages.getData().ENGStatus = "NOT AVAILABLE";
                         break;
                 }
             }
@@ -268,7 +267,7 @@ sap.ui.define([
             this.ModelDetailPages.setProperty("/DatiOEE/", Jdata.OEE);
             this.ModelDetailPages.setProperty("/DatiSPC/", Jdata.SPC);
             if (this.State !== "Disponibile.Lavorazione") {
-                sap.ui.getCore().byId("ButtonFermo").setText("Fermo");
+                sap.ui.getCore().byId("ButtonFermo").setText("Stop");
                 this.getSplitAppObj().toDetail(this.createId("InProgress"));
                 this.SwitchColor("green");
                 this.EnableButtons(["ButtonModificaCondizioni", "ButtonFermo", "ButtonCausalizzazione", "ButtonChiusuraConfezionamento"]);
@@ -294,11 +293,11 @@ sap.ui.define([
             this.ModelDetailPages.setProperty("/DatiOEE/", Jdata);
             var data = this.ModelDetailPages.getData().Linea;
             if (this.State !== "Disponibile.Fermo") {
-                sap.ui.getCore().byId("ButtonFermo").setText("Modifica causale fermo");
+                sap.ui.getCore().byId("ButtonFermo").setText("Modify stop justification");
                 if (data.CausaleEvento === "---") {
-                    this.ModelDetailPages.setProperty("/CausaFermo/", "FERMO AUTOMATICO");
+                    this.ModelDetailPages.setProperty("/CausaFermo/", "AUTOMATIC STOP");
                 } else {
-                    this.ModelDetailPages.setProperty("/CausaFermo/", "FERMO - " + data.CausaleEvento);
+                    this.ModelDetailPages.setProperty("/CausaFermo/", "STOP - " + data.CausaleEvento);
                 }
                 this.SwitchColor("red");
                 this.getSplitAppObj().toDetail(this.createId("Fault"));
@@ -389,7 +388,7 @@ sap.ui.define([
             var that = this;
             setTimeout(function () {
                 that.ShowRelevant(null, "TreeTable_PresaInCarico");
-            }, 500);
+            }, 1000);
         },
 //        RICHIAMATO DAL BOTTONE "CONFERMA" NELLA SCHERMATA DI PRESA IN CARICO
 //          Questa funzione assegna i modelli alle TreeTables, rimuove la possibilità di
@@ -495,7 +494,7 @@ sap.ui.define([
                 this.TabContainer.removeItem(tab);
             }
             this.Item = new sap.m.TabContainerItem({});
-            this.Item.setName("CONFIRM PREDISPOSITION");
+            this.Item.setName("CONFIRM SETUP");
             var inputValueMod = new sap.m.Input({
                 editable: "{= ${GeneralModel>modify} === 1}",
                 visible: "{= ${GeneralModel>modify} === 1}",
@@ -530,7 +529,7 @@ sap.ui.define([
                             new sap.m.ToolbarSpacer({}),
                             btn2 = new sap.m.Button({text: "Collapse", press: [TT, this.CollapseAll, this]}),
                             btn3 = new sap.m.Button({text: "Expand", press: [TT, this.ExpandAll, this]}),
-                            btn4 = new sap.m.Button({text: "To be confirmed", press: [TT, this.ShowRelevant, this]})
+                            btn4 = new sap.m.Button({text: "To be filled", press: [TT, this.ShowRelevant, this]})
                         ]})],
                 columns: [
                     new sap.ui.table.Column({
@@ -541,7 +540,7 @@ sap.ui.define([
                             text: "{GeneralModel>name}",
                             maxLines: 1}).addStyleClass("verticalAlignment")}),
                     new sap.ui.table.Column({
-                        label: "VALUE",
+                        label: "VALUES",
                         resizable: false,
                         width: "5rem",
                         template: new sap.m.Text({
@@ -554,7 +553,7 @@ sap.ui.define([
                         width: "5rem",
                         template: inputValueMod}),
                     new sap.ui.table.Column({
-                        label: "SERIAL NUMBER/BATCH",
+                        label: "SERIAL NUMBERS",
                         resizable: false,
                         width: "5rem",
                         template: inputCodeValue})
@@ -630,7 +629,7 @@ sap.ui.define([
                     this.SyncAjaxCallerData(link, this.SUCCESSConfermaAttrezzaggio.bind(this));
                 }
             } else {
-                MessageToast.show("All serial number/batch codes have to be entered.");
+                MessageToast.show("All serial numbers must be entered.");
             }
         },
         SUCCESSConfermaAttrezzaggio: function (Jdata) {
@@ -807,7 +806,7 @@ sap.ui.define([
                     this.RefreshFunction(0);
                 }
             } else {
-                MessageToast.show("Can't confirm empty serial number/batch codes");
+                MessageToast.show("All serial numbers must be entered");
             }
         },
         SUCCESSConfermaModifica: function (Jdata) {
@@ -823,7 +822,7 @@ sap.ui.define([
         Fermo: function (event) {
             var name = event.getSource().getProperty("text");
             var link;
-            if (name === "Fermo") {
+            if (name === "Stop") {
                 this.discr = "FermoManuale";
             } else {
                 this.discr = "CambioCausaleFermo";
@@ -1017,7 +1016,7 @@ sap.ui.define([
                     this.LOCALState = "Disponibile.Fermo";
                     this.getSplitAppObj().toDetail(this.createId("Fault"));
                     this.EnableButtons(["ButtonModificaCondizioni", "ButtonFermo", "ButtonRiavvio", "ButtonChiusuraConfezionamento"]);
-                    this.ModelDetailPages.setProperty("/CausaFermo/", "FERMO - " + CB.getProperty("text"));
+                    this.ModelDetailPages.setProperty("/CausaFermo/", "STOP - " + CB.getProperty("text"));
                     this.getView().setModel(this.ModelDetailPages, "GeneralModel");
                 } else {
                     link = "/XMII/Runner?Transaction=DeCecco/Transactions/ChangeFermo&Content-Type=text/json&LineaID=" + this.ModelDetailPages.getData().DettaglioLinea.idLinea + "&CausaleID=" + id;
@@ -1106,7 +1105,7 @@ sap.ui.define([
                     this.RefreshFunction(0);
                 }
             } else {
-                MessageToast.show("Can't confirm empty serial number/batch codes");
+                MessageToast.show("All serial numbers must be entered");
                 this.getView().setModel(this.ModelDetailPages, "GeneralModel");
             }
         },
@@ -1319,7 +1318,7 @@ sap.ui.define([
             var that = this;
             setTimeout(function () {
                 that.ShowRelevant(null, "TreeTable_BatchAttrezzaggio");
-            }, 500);
+            }, 1000);
         },
         //        RICHIAMATO DAL BOTTONE "CONFERMA" NELLA SCHERMATA DI PRESA IN CARICO
 //          Questa funzione assegna i modelli alle TreeTables, rimuove la possibilità di
@@ -1370,7 +1369,7 @@ sap.ui.define([
 
         FinePredisposizioneAttrezzaggio: function () {
 
-            var data = {"stringa": "ONLY PREDISPOSITION"};
+            var data = {"stringa": "SETUP ONLY"};
             this.ModelDetailPages.setProperty("/FineAttrezzaggio/", data);
             this.TabContainer = this.getView().byId("TabContainerAttrezzaggio");
             this.getView().setModel(this.ModelDetailPages, "GeneralModel");
@@ -1381,7 +1380,7 @@ sap.ui.define([
                 this.TabContainer.removeItem(tab);
             }
             this.Item = new sap.m.TabContainerItem({});
-            this.Item.setName("CONFIRM PREDISPOSITION");
+            this.Item.setName("CONFIRM SETUP");
             var inputValueMod = new sap.m.Input({
                 editable: "{= ${GeneralModel>modify} === 1}",
                 visible: "{= ${GeneralModel>modify} === 1}",
@@ -1416,7 +1415,7 @@ sap.ui.define([
                             new sap.m.ToolbarSpacer({}),
                             btn2 = new sap.m.Button({text: "Collapse", press: [TT, this.CollapseAll, this]}),
                             btn3 = new sap.m.Button({text: "Expand", press: [TT, this.ExpandAll, this]}),
-                            btn4 = new sap.m.Button({text: "To be confirmed", press: [TT, this.ShowRelevant, this]})
+                            btn4 = new sap.m.Button({text: "To be filled", press: [TT, this.ShowRelevant, this]})
                         ]})],
                 columns: [
                     new sap.ui.table.Column({
@@ -1427,7 +1426,7 @@ sap.ui.define([
                             text: "{GeneralModel>name}",
                             maxLines: 1})}),
                     new sap.ui.table.Column({
-                        label: "VALUE",
+                        label: "VALUES",
                         resizable: false,
                         width: "5rem",
                         template: new sap.m.Text({
@@ -1440,7 +1439,7 @@ sap.ui.define([
                         width: "5rem",
                         template: inputValueMod}),
                     new sap.ui.table.Column({
-                        label: "SERIAL NUMBER/BATCH",
+                        label: "SERIAL NUMBERS",
                         resizable: false,
                         width: "5rem",
                         template: inputCodeValue})
@@ -1485,7 +1484,7 @@ sap.ui.define([
         },
         SospensioneAttrezzaggio: function () {
 
-                var data = {"stringa": "PREDISPOSITION SUSPENDED"};
+                var data = {"stringa": "CONFIRM SETUP"};
             this.ModelDetailPages.setProperty("/FineAttrezzaggio/", data);
             this.TabContainer = this.getView().byId("TabContainerAttrezzaggio");
             this.getView().setModel(this.ModelDetailPages, "GeneralModel");
@@ -1496,7 +1495,7 @@ sap.ui.define([
                 this.TabContainer.removeItem(tab);
             }
             this.Item = new sap.m.TabContainerItem({});
-            this.Item.setName("PREDISPOSITION SUSPENDED");
+            this.Item.setName("CONFIRM SETUP");
             var inputValueMod = new sap.m.Input({
                 editable: "{= ${GeneralModel>modify} === 1}",
                 visible: "{= ${GeneralModel>modify} === 1}",
@@ -1531,7 +1530,7 @@ sap.ui.define([
                             new sap.m.ToolbarSpacer({}),
                             btn2 = new sap.m.Button({text: "Collapse", press: [TT, this.CollapseAll, this]}),
                             btn3 = new sap.m.Button({text: "Expand", press: [TT, this.ExpandAll, this]}),
-                            btn4 = new sap.m.Button({text: "To be confirmed", press: [TT, this.ShowRelevant, this]})
+                            btn4 = new sap.m.Button({text: "To be filled", press: [TT, this.ShowRelevant, this]})
                         ]})],
                 columns: [
                     new sap.ui.table.Column({
@@ -1542,7 +1541,7 @@ sap.ui.define([
                             text: "{GeneralModel>name}",
                             maxLines: 1})}),
                     new sap.ui.table.Column({
-                        label: "VALUE",
+                        label: "VALUES",
                         resizable: false,
                         width: "5rem",
                         template: new sap.m.Text({
@@ -1555,7 +1554,7 @@ sap.ui.define([
                         width: "5rem",
                         template: inputValueMod}),
                     new sap.ui.table.Column({
-                        label: "SERIAL NUMBER/BATCH",
+                        label: "SERIAL NUMBERS",
                         resizable: false,
                         width: "5rem",
                         template: inputCodeValue})
@@ -1613,7 +1612,7 @@ sap.ui.define([
             this.codeCheck = 0;
             data = this.RecursiveJSONCodeCheck(data, "codeValue");
             if (this.codeCheck === 1 && source === 'F') {
-                MessageToast.show("All serial number/batch codes have to be entered.");
+                MessageToast.show("All serial numbers must be entered.");
             } else {
                 if (this.ISLOCAL === 1) {
                     this.getSplitAppObj().toDetail(this.createId("ConfermaAttrezzaggio"));
@@ -1690,14 +1689,14 @@ sap.ui.define([
                 if (stato === "Disponibile.Lavorazione") {
                     fermiString = this.ModelDetailPages.getData().DatiOEE;
                     if (typeof fermiString !== "undefined") {
-                        if (fermiString.tempoFermiAutomatici === "0 ore, 0 min, 0 sec") {
+                        if (fermiString.tempoFermiAutomatici === "0 hh, 0 mm, 0 ss") {
                             sap.ui.getCore().byId(id).setEnabled(false);
                         }
                     }
                 } else if (stato === "Disponibile.Svuotamento") {
                     fermiString = this.ModelDetailPages.getData().ParametriChiusura;
                     if (typeof fermiString !== "undefined") {
-                        if (fermiString.attributi[1].attributi[0].value === "0 ore, 0 min, 0 sec") {
+                        if (fermiString.attributi[1].attributi[0].value === "0 hh, 0 mm, 0 ss") {
                             sap.ui.getCore().byId(id).setEnabled(false);
                         }
                     }
@@ -1752,24 +1751,24 @@ sap.ui.define([
             var data = this.ModelDetailPages.getData().Linea;
             switch (state) {
                 case "Disponibile.Vuota":
-                    return "VUOTA";
+                    return "THE LINE IS EMPTY";
                 case "NonDisponibile":
-                    return "NON DISPONIBILE";
+                    return "NOT AVAILABLE";
                 case "Disponibile.AttesaPresaInCarico":
-                    return "PRESA IN CARICO";
+                    return "EXAMINING BATCH DETAILS";
                 case "Disponibile.Attrezzaggio":
-                    return "ATTREZZAGGIO";
+                    return "LINE SETUP";
                 case "Disponibile.Lavorazione":
-                    return "CONFEZIONAMENTO";
+                    return "PACKAGING";
                 case "Disponibile.Fermo":
                     if (data.CausaleEvento === "---") {
-                        return "FERMO AUTOMATICO";
+                        return "AUTOMATIC STOP";
                     } else {
-                        return "FERMO - " + data.CausaleEvento;
+                        return "STOP - " + data.CausaleEvento;
                     }
                     break;
                 case "Disponibile.Svuotamento":
-                    return "SVUOTAMENTO";
+                    return "EMPTYING THE LINE";
             }
         },
         AddColorDescrizione: function (color) {
@@ -2197,7 +2196,7 @@ sap.ui.define([
             textHeader.setText(String(this.DescrizioneParametro));
             var samplingHeader = this.getView().byId("samplingSPC");
             if (Number(this.Fase) === 1) {
-                samplingHeader.setText("Campionamento in corso: " + String(this.Avanzamento) + "/50");
+                samplingHeader.setText("Sampling: " + String(this.Avanzamento) + "/50");
             } else {
                 samplingHeader.setText("");
             }
@@ -2612,7 +2611,7 @@ sap.ui.define([
                     if (key === "isIncluded") {
                         if (json[key] === "0") {
                             json.expand = 1;
-                            json.value = "INATTIVO";
+                            json.value = "INACTIVE";
                         }
                     }
                 }
@@ -2671,7 +2670,7 @@ sap.ui.define([
                             break;
                         case "isIncluded":
                             if (std[key] === "0") {
-                                std.value = "INATTIVO";
+                                std.value = "INACTIVE";
                             }
                             break;
                     }
@@ -2685,7 +2684,7 @@ sap.ui.define([
                             break;
                         case "isIncluded":
                             if (std[key] === "0") {
-                                std.value = "INATTIVO";
+                                std.value = "INACTIVE";
                             }
                             break;
                     }
