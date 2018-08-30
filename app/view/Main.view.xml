@@ -1,25 +1,58 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:c="sap.ui.commons" xmlns="sap.m"
           xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:t="sap.ui.table" xmlns:cust="myapp.control"
           controllerName="myapp.controller.Main">
-    <Page showHeader="false" class="colorPage">
+    <Page showHeader="false" class="colorPage bckgPage">
         <content>
-            <FlexBox alignItems="Start" justifyContent="Center">
-                <Text text="Techedge Food and Beverage" class="textTop"/>
-            </FlexBox>
-            <TileContainer
-                id="container"
-                tileDelete="handleTileDelete"
-                tiles="{/linee}">
-                <StandardTile
-                    idz="{idlinea}"
-                    icon="{icon}"
-                    type="{type}"
-                    title="{linea}"
-                    number="{linea_desc}"
-                    info="{info}"
-                    infoState="{infoState}"
-                    press="GoToOperatore"/>
-            </TileContainer>
+            <VBox height="100%" width="100%">
+                <HBox>
+                    <VBox width="15%">
+                        <VBox height="25%" class="blueBorderBottom">
+                            <VBox height="10%" width="100%"/>
+                            <VBox height="65%" width="100%">
+                                <Image src="img/logo.png" class="Logo"/>
+                            </VBox>
+                            <VBox height="25%" width="100%"/>
+                        </VBox>
+                        <VBox height="75%"/>
+                    </VBox>
+                    <VBox width="85%">
+                        <VBox height="25%" class="blueBorderBottom">
+                            <FlexBox alignItems="Start" justifyContent="Center">
+                                <Text text="Techedge Food and Beverage" class="textTop"/>
+                            </FlexBox>
+                        </VBox>
+                        <VBox height="75%">
+                            <FlexBox alignItems="Start" justifyContent="Center">
+                                <ScrollContainer id="container" height="300px" width="1100px" vertical="true" horizontal="false" content="{path:'ValuesTiles>/'}">
+                                    <GenericTile header="{ValuesTiles>linea}" press="SPCGraph" class="margine tileContentWidth tileSize bordoBlu tileTitle tileBlue tileTitleHoverBlue">
+                                        <tileContent>
+                                            <TileContent class="absoluteTileContentPosition footerStyle" footer="{ValuesTiles>unit}">
+                                                <content>
+                                                    <NumericContent nullifyValue="SMPL" truncateValueTo="7" state="Disabled" width="100%" value="{ValuesTiles>value}" class="iconWhite" icon="sap-icon://kpi-corporate-performance" />
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+                                </ScrollContainer>
+                            </FlexBox>
+                            <!--                            <TileContainer
+                                id="container"
+                                tileDelete="handleTileDelete"
+                                tiles="{/linee}">
+                                <StandardTile
+                                    idz="{idlinea}"
+                                    icon="{icon}"
+                                    type="{type}"
+                                    title="{linea}"
+                                    number="{linea_desc}"
+                                    info="{info}"
+                                    infoState="{infoState}"
+                                    press="GoToOperatore"/>
+                            </TileContainer>-->
+                        </VBox>
+                    </VBox>
+                </HBox>
+            </VBox>
         </content>
     </Page>
 </mvc:View>

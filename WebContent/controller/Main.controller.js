@@ -25,7 +25,7 @@ sap.ui.define([
             var tempfunc = jQuery.proxy(this.FillModel, this, model);
             req.done(tempfunc);
 
-            this.getView().setModel(model);
+            this.getView().setModel(model, "ValuesTiles");
 
         },
         GoToOperatore: function (event) {

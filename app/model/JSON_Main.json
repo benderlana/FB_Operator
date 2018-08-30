@@ -1,22 +1,50 @@
-{
-    "descrizione": "Techedge Food and Beverage",
-    "errore": "0",
-    "linee": [
-        {
-            "icon": "sap-icon://machine",
-            "linea": "Line 1",
-            "info": "Production",
-            "infoState": "Success",
-            "idlinea": "1",
-            "linea_desc": "1"
-        },
-        {
-            "icon": "sap-icon://machine",
-            "linea": "Line 2",
-            "info": "Production",
-            "infoState": "Success",
-            "idlinea": "16",
-            "linea_desc": "2"
-        }
-    ]
-}
+[
+    {
+        "icon": "sap-icon://machine",
+        "linea": "Line 1",
+        "info": "Production",
+        "infoState": "Success",
+        "idlinea": "1",
+        "linea_desc": "1"
+    },
+    {
+        "icon": "sap-icon://machine",
+        "linea": "Line 2",
+        "info": "Production",
+        "infoState": "Success",
+        "idlinea": "16",
+        "linea_desc": "2"
+    },
+    {
+        "icon": "sap-icon://machine",
+        "linea": "Line 3",
+        "info": "Production",
+        "infoState": "Success",
+        "idlinea": "3",
+        "linea_desc": "3"
+    },
+    {
+        "icon": "sap-icon://machine",
+        "linea": "Line 4",
+        "info": "Production",
+        "infoState": "Success",
+        "idlinea": "4",
+        "linea_desc": "4"
+    },
+    {
+        "icon": "sap-icon://machine",
+        "linea": "Line 5",
+        "info": "Production",
+        "infoState": "Success",
+        "idlinea": "5",
+        "linea_desc": "5"
+    },
+    {
+        "icon": "sap-icon://machine",
+        "linea": "Line 6",
+        "info": "Production",
+        "infoState": "Success",
+        "idlinea": "6",
+        "linea_desc": "6"
+    }
+]

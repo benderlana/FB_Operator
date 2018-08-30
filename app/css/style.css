@@ -2,6 +2,11 @@
 .colorPage {
     background-color: white;
 }
+.bckgPage
+{
+    background-image: url('../img/techedge.png');
+    background-size:cover;
+}
 .sfondobianco {
     background-color: white !important;
 }
@@ -14,10 +19,10 @@
     background-color: #FFD300; 
 }
 .stylePanelGreen {
-    background-color: #7CA295; 
+    background-color: #80C342; 
 }
 .stylePanelRed {
-    background-color: #A71930; 
+    background-color: #DC6774; 
 }
 .stylePanelBrown {
     background-color: #5E3032; 
@@ -26,35 +31,35 @@
     top: 0.25rem;
 }
 .blueBorder {
-    border: solid 1px #003A6B;
+    border: solid 1px #004785;
 }
 .blueBorderRight {
-    border-right: solid 1px #003A6B;
+    border-right: solid 1px #004785;
 }
 .blueBorderBottom {
-    border-bottom: solid 1px #003A6B;
+    border-bottom: solid 1px #004785;
 }
 .blueBorderTop {
-    border-top: solid 1px #003A6B;
+    border-top: solid 1px #004785;
 }
 .blueBorderLeft {
-    border-left: solid 1px #003A6B;
+    border-left: solid 1px #004785;
 }
 .sapMSplitContainerMaster {
-    border-right: solid 1px #003A6B;
+    border-right: solid 1px #004785;
 }
 .yellowBorder {
     border: solid 5px #FFD300;
 }
 .greenBorder {
-    border: solid 5px #7CA295;
+    border: solid 5px #80C342;
 }
 /*STILE BOTTONI SULLA MASTER PAGE*/
 .styleButton .sapMBtnInner {
     margin-left: 5%;
     width:90%;
     height:160%;
-    color: #003A6B;
+    color: #004785;
     padding:4%;
     border-radius: 10px;
 }
@@ -63,14 +68,14 @@
     font-size: 15pt;
     font-family: Arial;
     margin-left: 5%;
-    color: #003A6B;
+    color: #004785;
 }
 .styleLongButton .sapMBtnInner {
     margin-left: 5%;
     width:90%;
     height:160%;
     padding:3%;
-    color: #003A6B;
+    color: #004785;
     border-radius: 10px;
 }
 .styleLongButton .sapMBtnContent {
@@ -79,14 +84,14 @@
     line-height: 17pt;
     white-space: normal;
     margin-left: 5%;
-    color: #003A6B;
+    color: #004785;
 }
 .styleVeryLongButton .sapMBtnInner {
     margin-left: 5%;
     width:90%;
     height:160%;
     padding:3.3%;
-    color: #003A6B;
+    color: #004785;
     border-radius: 10px;
 }
 .styleVeryLongButton .sapMBtnContent {
@@ -95,7 +100,7 @@
     line-height: 17pt;
     white-space: normal;
     margin-left: 5%;
-    color: #003A6B;
+    color: #004785;
 }
 .styleDisabledButton .sapMBtnContent {
     font-style: italic;
@@ -103,13 +108,13 @@
 
 /*STILE TESTI E INPUT TREETABLE*/
 .diffStandard input {
-    color : #A71930;
+    color : #DC6774;
 }
 .diffRed {
-    color : #A71930;
+    color : #DC6774;
 }
 .diffLink {
-    color : #003A6B;
+    color : #004785;
     text-decoration: underline;
 }
 .notIncluded {
@@ -117,11 +122,11 @@
     font-style: italic;
 }
 .sapMTB-Transparent-CTX .sapMBtnInner {
-    color: #003A6B;
+    color: #004785;
     background-color:#efeff5;
 }
 .sapUiTableColHdrCnt {
-    color: #0085ca;
+    color: #00BBD6;
 }
 .sapMTB-Transparent-CTX.sapMTB {
     padding-left: 0rem !important;
@@ -129,7 +134,7 @@
 .TTButton .sapMBtnInner {
     font-size: 15pt;
     font-family: Arial;
-    color: #003A6B;
+    color: #004785;
     background: #FFD300;
     width: 10em;
     border-radius: 10px;
@@ -137,7 +142,7 @@
 .COUPLEDTTButton .sapMBtnInner {
     font-size: 15pt;
     font-family: Arial;
-    color: #003A6B;
+    color: #004785;
     background: #FFD300;
     width: 6em;
     border-radius: 10px;
@@ -148,53 +153,53 @@
     font-family: Arial;
 }
 .sapMLabel {
-    color: #003A6B !important; 
+    color: #004785 !important; 
     font-size: 14pt;
     font-family: Arial;
 }
 .sapUiLbl {
     font-size: 15pt !important;
     font-family: Arial;  
-    color: #003A6B !important; 
+    color: #004785 !important; 
 }
 .textTop {
     font-size: 56pt;
-    color : #003A6B;
+    color : #004785;
     font-family: Arial;
 }
 .textTopReduced1 {
     font-size: 48pt;
-    color : #003A6B;
+    color : #004785;
     font-family: Arial;
 }
 .textTopReduced2 {
     font-size: 40pt;
-    color : #003A6B;
+    color : #004785;
     font-family: Arial;
 }
 .textTopRed {
     font-size: 40pt;
-    color: #A71930;
+    color: #DC6774;
     font-family: Arial;
 }
 .textHugeRed {
     font-size: 56pt;
-    color: #A71930;
+    color: #DC6774;
     font-family: Arial;
 }
 .customText {
     font-size: 35pt;
-    color : #003A6B;
+    color : #004785;
     font-family: Arial;
 }
 .customTextFermi .sapMLabel {
     font-size: 25pt;
-    color : #003A6B;
+    color : #004785;
     font-family: Arial;
 }
 .OEEText {
     font-size: 35pt;
-    color : #003A6B;
+    color : #004785;
     font-family: Arial;
 }
 .underlineOEE {
@@ -203,29 +208,29 @@
 .customTextFermo  {
     font-size: 15pt;
     text-align: center;
-    color : #A71930;
+    color : #DC6774;
     font-family: Arial;
 }
 .titleTT {
-    color : #A71930 !important;
+    color : #DC6774 !important;
     font-family: Arial;
 }
 .textNormal {
     font-size: 15pt;
-    color : #003A6B;
+    color : #004785;
     font-family: Arial;
 }
 .causeText .sapMListTbl .sapMText {
     font-size: 20pt;
-    color : #003A6B;
+    color : #004785;
 }
 .causeSingleTexts .sapMText {
     font-size: 20pt;
-    color : #003A6B;
+    color : #004785;
 }
 .causeText .sapMListTbl .sapMLabel {
     font-size: 20pt;
-    color : #A71930;
+    color : #DC6774;
 }
 
 .verticalAlignment {
@@ -238,7 +243,7 @@
 .annullaButton .sapMBtnInner {
     font-family: Arial;
     font-size: 20pt;
-    background: #A71930;
+    background: #DC6774;
     color: white;
     border-radius: 10px;
     padding: 1.5%;
@@ -248,7 +253,7 @@
     font-family: Arial;
     font-size: 20pt;
     background: #f2f2f2;
-    color: #003A6B;
+    color: #004785;
     border-radius: 10px;
     padding: 2.5%;
     height: 150%;
@@ -257,7 +262,7 @@
     font-family: Arial;
     font-size: 20pt;
     background: #FFD300;
-    color: #003A6B;
+    color: #004785;
     border-radius: 10px;
     padding: 2.5%;
     height: 150%;
@@ -265,7 +270,7 @@
 .confermaButton .sapMBtnInner {
     font-family: Arial;
     font-size: 20pt;
-    background: #7CA295;
+    background: #80C342;
     color: white;
     border-radius: 10px;
     padding: 1.5%;
@@ -274,7 +279,7 @@
 .attrezzaggioButton .sapMBtnInner {
     font-family: Arial;
     font-size: 20pt;
-    background: #0085ca;
+    background: #00BBD6;
     color: white;
     padding: 0.65%;
     height: 150%;
@@ -290,7 +295,7 @@
     font-family: Arial;
     font-size: 30pt;
     color: white;
-    background: #A71930;
+    background: #DC6774;
     border-radius: 10px;
     height: 200%;
     padding: 5%;
@@ -300,7 +305,7 @@
     font-family: Arial;
     font-size: 30pt;
     color: white;
-    background: #7CA295;
+    background: #80C342;
     border-radius: 10px;
     height: 200%;
     padding: 5%;
@@ -310,17 +315,17 @@ textButtonsDialog .sapMBtnContent {
     line-height: 1.8rem;
 }
 /*.sapMTabStrip {
-    background: #0085CA;
+    background: #00BBD6;
 }
 .sapMTabStrip .sapMTSTabsContainer .sapMTSTabs .sapMTabStripItem {
-    background: #0085CA;
+    background: #00BBD6;
     color: white;
 }*/
 
 /*STILE PROGRESS BAR*/
 .ProgressBar {
     padding: 0px;
-    border: solid 1px #003A6B;
+    border: solid 1px #004785;
 }
 .SPCButtonDimensionsEdo .sapMBtnInner {
     padding-left:25% !important;
@@ -330,7 +335,7 @@ textButtonsDialog .sapMBtnContent {
     /*height: 3.5rem;*/ 
 }
 .SPCButtonColorGreen .sapMBtnInner {
-    background: #7CA295; 
+    background: #80C342; 
 }
 .SPCButtonColorYellow .sapMBtnInner {
     background: #FFD300;
@@ -364,17 +369,17 @@ textButtonsDialog .sapMBtnContent {
 }
 .borderBlue .sapMBtnInner {
     border: solid 1px;
-    border-color: #003A6B;
+    border-color: #004785;
 }
 .SPCVBox {
     border: solid 1px;
-    border-color: #003A6B;
+    border-color: #004785;
     height: 90% !important;
     top: 0.3rem;
 }
 .customTextBar *{
     font-size: 56pt;
-    color : #003A6B;
+    color : #004785;
     font-family: Arial;
     font-weight: normal;
 }
@@ -383,20 +388,20 @@ textButtonsDialog .sapMBtnContent {
     font-family: Arial;
 }
 .sapMPIBarPositive {
-    background: #7CA295;
-    border-right: 1px solid #003A6B;
+    background: #80C342;
+    border-right: 1px solid #004785;
 }
 .sapMPIBarNegative{
-    background: #d47600;
-    border-right: 1px solid #003A6B;
+    background: #F68B1F;
+    border-right: 1px solid #004785;
 }
 .sapMPIBarCritical {
     background: #FFD300;
-    border-right: 1px solid #003A6B;
+    border-right: 1px solid #004785;
 }
 .sapMPIBarNeutral {
     background: white;
-    border-right: 1px solid #003A6B;
+    border-right: 1px solid #004785;
 }
 
 /*STILE TABELLA TOTALE CAUSALIZZAZIONE EDO*/
@@ -457,11 +462,11 @@ textButtonsDialog .sapMBtnContent {
 }
 .logoBoxGreen {
     border: solid;
-    border-color: #7CA295;
+    border-color: #80C342;
 }
 .logoBoxRed {
     border: solid;
-    border-color: #A71930; 
+    border-color: #DC6774; 
 }
 .logoBoxBrown {
     border: solid;
@@ -477,7 +482,7 @@ textButtonsDialog .sapMBtnContent {
     margin-left: 17.5%;
 }
 .topBorder {
-    border-top: 2px solid #003A6B;
+    border-top: 2px solid #004785;
 }
 
 
@@ -536,7 +541,7 @@ monobuttonSPC .sapMBtnInner {
     margin-right: 1rem !important;
     background: white !important;
     border: 0px !important;
-    color: #003A6B !important; 
+    color: #004785 !important; 
 }
 .sapMTabStripItem:focus::before {
     border: 0px !important; 
@@ -545,8 +550,8 @@ monobuttonSPC .sapMBtnInner {
     background: white !important;
 }
 .sapMTabStripItemSelected {
-    border-top: 2px solid #003A6B !important;
-    border-bottom: 2px solid #003A6B !important;
+    border-top: 2px solid #004785 !important;
+    border-bottom: 2px solid #004785 !important;
 }
 .sapMTSItemCloseBtnCnt {
     width: 0px !important; 

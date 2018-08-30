@@ -1,0 +1,22 @@
+{
+    "descrizione": "Techedge Food and Beverage",
+    "errore": "0",
+    "linee": [
+        {
+            "icon": "sap-icon://machine",
+            "linea": "Line 1",
+            "info": "Production",
+            "infoState": "Success",
+            "idlinea": "1",
+            "linea_desc": "1"
+        },
+        {
+            "icon": "sap-icon://machine",
+            "linea": "Line 2",
+            "info": "Production",
+            "infoState": "Success",
+            "idlinea": "16",
+            "linea_desc": "2"
+        }
+    ]
+}
