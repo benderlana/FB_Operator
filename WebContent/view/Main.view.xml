@@ -4,7 +4,7 @@
     <Page showHeader="false" class="colorPage bckgPage">
         <content>
             <VBox height="100%" width="100%">
-                <VBox height="25%" class="blueBorderBottom">
+                <VBox height="25%">
                     <HBox>
                         <VBox width="15%">
                             <VBox height="10%" width="100%"/>
