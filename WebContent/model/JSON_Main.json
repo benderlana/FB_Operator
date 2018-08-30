@@ -1,19 +1,23 @@
 [
     {
+        "image": "Farfalle.png",
         "icon": "sap-icon://machine",
         "linea": "Line 1",
         "info": "Production",
         "infoState": "Success",
         "idlinea": "1",
-        "linea_desc": "1"
+        "linea_desc": "1",
+        "state": "active"
     },
     {
+        "image": "Penne.png",
         "icon": "sap-icon://machine",
         "linea": "Line 2",
         "info": "Production",
         "infoState": "Success",
         "idlinea": "16",
-        "linea_desc": "2"
+        "linea_desc": "2",
+        "state": "active"
     },
     {
         "icon": "sap-icon://machine",
@@ -21,7 +25,8 @@
         "info": "Production",
         "infoState": "Success",
         "idlinea": "3",
-        "linea_desc": "3"
+        "linea_desc": "3",
+        "state": "non active"
     },
     {
         "icon": "sap-icon://machine",
@@ -29,7 +34,8 @@
         "info": "Production",
         "infoState": "Success",
         "idlinea": "4",
-        "linea_desc": "4"
+        "linea_desc": "4",
+        "state": "non active"
     },
     {
         "icon": "sap-icon://machine",
@@ -37,7 +43,8 @@
         "info": "Production",
         "infoState": "Success",
         "idlinea": "5",
-        "linea_desc": "5"
+        "linea_desc": "5",
+        "state": "non active"
     },
     {
         "icon": "sap-icon://machine",
@@ -45,6 +52,7 @@
         "info": "Production",
         "infoState": "Success",
         "idlinea": "6",
-        "linea_desc": "6"
+        "linea_desc": "6",
+        "state": "non active"
     }
 ]

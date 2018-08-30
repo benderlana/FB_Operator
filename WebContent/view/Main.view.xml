@@ -13,7 +13,7 @@
                             </VBox>
                             <VBox height="25%" width="100%"/>
                         </VBox>
-                        <VBox width="85%">
+                        <VBox width="70%">
                             <VBox height="30%"/>
                             <VBox height="70%">
                                 <FlexBox alignItems="Start" justifyContent="Center">
@@ -21,6 +21,7 @@
                                 </FlexBox>
                             </VBox>
                         </VBox>
+                        <VBox width="15%"/>
                     </HBox>
                 </VBox>
                 
@@ -28,12 +29,12 @@
                     <VBox height="15%"/>
                     <VBox height="85%">
                         <FlexBox alignItems="Start" justifyContent="Center">
-                            <ScrollContainer id="container" height="600px" width="800px" vertical="true" horizontal="false" content="{path:'ValuesTiles>/'}">
-                                <GenericTile header="{ValuesTiles>linea}" press="GoToOperatore" class="tileSize bordoBlu tileTitle tileBlue tileTitleHoverBlue">
+                            <ScrollContainer id="container" height="600px" width="852px" vertical="true" horizontal="false" content="{path:'ValuesTiles>/'}">
+                                <GenericTile header="{ValuesTiles>linea}" press="GoToOperatore" class="tileSize tileMargin blueBorder tileTitle bckgPage" background-image="../img/techedge.png">
                                     <tileContent>
-                                        <TileContent class="absoluteTileContentPosition footerStyle" footer="{ValuesTiles>unit}">
+                                        <TileContent class="absoluteTileContentPosition" footer="{ValuesTiles>unit}">
                                             <content>
-                                                <NumericContent nullifyValue="SMPL" truncateValueTo="7" state="Disabled" width="100%" value="{ValuesTiles>value}" class="iconWhite" icon="sap-icon://kpi-corporate-performance" />
+                                                <NumericContent nullifyValue="SMPL" truncateValueTo="7" state="Disabled" width="100%" value="{ValuesTiles>value}" class="iconWhite" icon="sap-icon://circle-task-2" />
                                             </content>
                                         </TileContent>
                                     </tileContent>

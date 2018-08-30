@@ -12,11 +12,63 @@
 }
 
 /*STILE TILES*/
+
+.tileMargin {
+    margin: 1rem; 
+}
 .tileSize {
     width: 250px !important;
     height: 250px !important;
 }
-
+.tileTitle .sapMGTHdrContent {
+    margin: 0rem;
+    padding: 1rem;
+    background: white;
+    height: 2rem;
+}
+.tileTitle .sapMGTHdrContent .sapMText{
+    font-size: 20pt;
+    font-family: Arial;
+    line-height: 18pt;
+    white-space: normal;
+    color: #004785;
+}
+.tileTitle .sapMGTHdrContent .sapMText .sapMTextLineClamp {
+    height: 100%; 
+}
+.tileTitle .sapMGTHdrContent .sapMGTHdrTxt{
+    height: 100%;
+}
+.absoluteTileContentPosition {
+    position: absolute;
+    top: 0px;
+    right: 0px; 
+    padding: 0px;
+    margin: 1rem;
+    height: 2rem !important;
+    width: 2rem; 
+}
+.absoluteTileContentPosition .sapMTileCntContent {
+    position: absolute; 
+    padding: 0px;
+    margin: 0px;
+    height: 2rem;
+    width: 2rem; 
+    right: 0px; 
+}
+.sapMNCIconImage {
+    padding-right: 0;
+    margin-top: 0;
+}
+.sapMNCInner {
+    padding-top: 0; 
+}
+.activeState .sapMNCInner .sapMNCValue .sapMNCValueScr .sapMNCIconImage {
+    color: #80C342;
+}
+.nonActiveState .sapMNCInner .sapMNCValue .sapMNCValueScr .sapMNCIconImage {
+    color: #DC6774; 
+}
 /*STILE MASTER PAGE*/
 .MasterPanels {
     justify-content: center;
