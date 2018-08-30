@@ -11,6 +11,12 @@
     background-color: white !important;
 }
 
+/*STILE TILES*/
+.tileSize {
+    width: 250px !important;
+    height: 250px !important;
+}
+
 /*STILE MASTER PAGE*/
 .MasterPanels {
     justify-content: center;
