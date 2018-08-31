@@ -1,8 +1,9 @@
 sap.ui.define([
     'jquery.sap.global',
     'sap/ui/core/mvc/Controller',
+    'sap/m/MessageToast',
     'sap/ui/model/json/JSONModel'
-], function (jQuery, Controller, JSONModel) {
+], function (jQuery, Controller, MessageToast, JSONModel) {
     "use strict";
     var MainController = Controller.extend("myapp.controller.Main", {
         Global: new JSONModel(),
@@ -20,16 +21,20 @@ sap.ui.define([
             this.ToggleColorClassIcons();
         },
         GoToOperatore: function (event) {
-            var line_num = event.getSource().getProperty("title");
-            var chooser;
-            for (var i = 0; i < this.JSONLinee.getData().linee.length; i++) {
-                if (this.JSONLinee.getData().linee[i].linea === line_num) {
-                    chooser = this.JSONLinee.getData().linee[i].idlinea;
+            if (event.getSource().getProperty("state") !== "Failed") {
+                var line_num = event.getSource()._oTitle.getProperty("text");
+                var chooser;
+                for (var i = 0; i < this.JSONLinee.getData().length; i++) {
+                    if (this.JSONLinee.getData()[i].linea === line_num) {
+                        chooser = this.JSONLinee.getData()[i].idlinea;
+                    }
                 }
+                this.Global.setProperty("/", {"Linea": line_num, "idLinea": chooser});
+                sap.ui.getCore().setModel(this.Global, "Global");
+                this.getOwnerComponent().getRouter().navTo("Operatore");
+            } else {
+                MessageToast.show("This line is not available");
             }
-            this.Global.setProperty("/", {"Linea": line_num, "idLinea": chooser});
-            sap.ui.getCore().setModel(this.Global, "Global");
-            this.getOwnerComponent().getRouter().navTo("Operatore");
         },
         FillModel: function (model, data) {
             model.setProperty("/", data);
@@ -46,13 +51,13 @@ sap.ui.define([
                     tiles[i].setState("Loaded");
                     tile_icon.removeStyleClass("nonActiveState");
                     tile_icon.addStyleClass("activeState");
-                    tiles[i].setBackgroundImage("../img/" + this.getView().getModel("ValuesTiles").getProperty(tile_path).image);
+                    tiles[i].setBackgroundImage("img/" + this.getView().getModel("ValuesTiles").getProperty(tile_path).image);
                 } else {
                     tiles[i].setState("Failed");
                     tile_icon.removeStyleClass("activeState");
                     tile_icon.addStyleClass("nonActiveState");
                     tiles[i]._sFailedToLoad = "Line not available";
-                    tiles[i].setBackgroundImage("../img/techedge.png");
+                    tiles[i].setBackgroundImage("img/techedge.png");
                 }
             }
         },
