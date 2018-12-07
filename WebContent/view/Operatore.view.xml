@@ -47,7 +47,9 @@
                                             <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
-                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="15%">
+                                        <wt:CustomButtonMessage newMessages="{GeneralModel>/Linea/msg}" id="msgButton0" icon="sap-icon://message-popup" press="ShowMessaggi" class="messageButton"/>                                    
+                                    </VBox>
                                 </HBox>
                             </VBox>
                         </VBox>
@@ -141,7 +143,9 @@
                                             <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
-                                    <VBox height="100%" width="15%"/>
+                                     <VBox height="100%" width="15%">
+                                        <wt:CustomButtonMessage newMessages="{GeneralModel>/Linea/msg}" id="msgButton2" icon="sap-icon://message-popup" press="ShowMessaggi" class="messageButton"/>
+                                    </VBox>
                                 </HBox>
                             </VBox>
                         </VBox>
@@ -333,7 +337,9 @@
                                             <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
-                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="15%">
+                                        <wt:CustomButtonMessage newMessages="{GeneralModel>/Linea/msg}" id="msgButton3" icon="sap-icon://message-popup" press="ShowMessaggi" class="messageButton"/>                                    
+                                    </VBox>
                                 </HBox>
                             </VBox>
                         </VBox>
@@ -577,7 +583,9 @@
                                             <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
-                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="15%">
+                                        <wt:CustomButtonMessage newMessages="{GeneralModel>/Linea/msg}" id="msgButton4" icon="sap-icon://message-popup" press="ShowMessaggi" class="messageButton"/>                                    
+                                    </VBox>
                                 </HBox>
                             </VBox>
                         </VBox>
@@ -749,7 +757,9 @@
                                             <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
-                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="15%">
+                                        <wt:CustomButtonMessage newMessages="{GeneralModel>/Linea/msg}" id="msgButton5" icon="sap-icon://message-popup" press="ShowMessaggi" class="messageButton"/>                                    
+                                    </VBox>
                                 </HBox>
                             </VBox>
                         </VBox>
@@ -804,7 +814,9 @@
                                             <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
-                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="15%">
+                                        <wt:CustomButtonMessage newMessages="{GeneralModel>/Linea/msg}" id="msgButton6" icon="sap-icon://message-popup" press="ShowMessaggi" class="messageButton"/>                                    
+                                    </VBox>
                                 </HBox>
                             </VBox>
                         </VBox>
@@ -918,7 +930,9 @@
                                             <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
-                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="15%">
+                                        <wt:CustomButtonMessage newMessages="{GeneralModel>/Linea/msg}" id="msgButton7" icon="sap-icon://message-popup" press="ShowMessaggi" class="messageButton"/>                                    
+                                    </VBox>
                                 </HBox>
                             </VBox>
                         </VBox>
@@ -1160,7 +1174,9 @@
                                             <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
-                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="15%">
+                                        <wt:CustomButtonMessage newMessages="{GeneralModel>/Linea/msg}" id="msgButton8" icon="sap-icon://message-popup" press="ShowMessaggi" class="messageButton"/>                                    
+                                    </VBox>
                                 </HBox>
                             </VBox>
                         </VBox>
@@ -1280,7 +1296,9 @@
                                             <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
-                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="15%">
+                                        <wt:CustomButtonMessage newMessages="{GeneralModel>/Linea/msg}" id="msgButton9" icon="sap-icon://message-popup" press="ShowMessaggi" class="messageButton"/>                                    
+                                    </VBox>
                                 </HBox>
                             </VBox>
                         </VBox>
@@ -1372,7 +1390,9 @@
                                             <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
-                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="15%">
+                                        <wt:CustomButtonMessage newMessages="{GeneralModel>/Linea/msg}" id="msgButton10" icon="sap-icon://message-popup" press="ShowMessaggi" class="messageButton"/>                                    
+                                    </VBox>
                                 </HBox>
                             </VBox>
                         </VBox>
@@ -1469,7 +1489,9 @@
                                             <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
-                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="15%">
+                                        <wt:CustomButtonMessage newMessages="{GeneralModel>/Linea/msg}" id="msgButton11" icon="sap-icon://message-popup" press="ShowMessaggi" class="messageButton"/>                                    
+                                    </VBox>
                                 </HBox>
                             </VBox>
                         </VBox>
@@ -1660,7 +1682,9 @@
                                             <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
-                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="15%">
+                                        <wt:CustomButtonMessage newMessages="{GeneralModel>/Linea/msg}" id="msgButton12" icon="sap-icon://message-popup" press="ShowMessaggi" class="messageButton"/>                                    
+                                    </VBox>
                                 </HBox>
                             </VBox>
                         </VBox>
@@ -1719,7 +1743,9 @@
                                             <Text text="{GeneralModel>/Intestazione/StatoLinea}" class="textTop"/>
                                         </FlexBox>
                                     </VBox>
-                                    <VBox height="100%" width="15%"/>
+                                    <VBox height="100%" width="15%">
+                                        <wt:CustomButtonMessage newMessages="{GeneralModel>/Linea/msg}" id="msgButton13" icon="sap-icon://message-popup" press="ShowMessaggi" class="messageButton"/>                                    
+                                    </VBox>
                                 </HBox>
                             </VBox>
                         </VBox>

@@ -13,6 +13,7 @@ sap.ui.define([
         ISLOCAL: 0,
         ISATTR: 0,
         IDsTreeTables: new JSONModel({}),
+        ModelMessaggi: new JSONModel({}),
         LineDetails: {Linea: "Coppia 05", idLinea: "1", Descrizione: "Penne mezzane rigate 241 - Astuccio 3000gr", Destinazione: "HBEX COMERCIAL EXPORTADORA E IMPORTAD. LTDA"},
         ModelDetailPages: new JSONModel({}),
         GlobalBusyDialog: new sap.m.BusyDialog(),
@@ -41,6 +42,7 @@ sap.ui.define([
         SPCTimer: null,
         TIMER: null,
         STOPSPC: null,
+        tempModel: new JSONModel("model/JSON_Old.json"),
 //------------------------------------------------------------------------------
 
         onInit: function () {
@@ -365,9 +367,103 @@ sap.ui.define([
             }
             successFunc(Jdata);
         },
+        
+        
 //        ---------------------------------------------------------------------
 //        ---------------------------  DETAIL PAGES  --------------------------
 //        ---------------------------------------------------------------------
+
+
+//        -------------------------  MESSAGGISTICA  -------------------------
+
+        ShowMessaggi: function (event) {
+            clearInterval(this.SMTIMER);
+            this.linea_id = this.ModelDetailPages.getData().DettaglioLinea.idLinea;
+            this.STOPMSG = 0;
+            var oView = this.getView();
+            this.oDialog = oView.byId("messaggi");
+            if (!this.oDialog) {
+                this.oDialog = sap.ui.xmlfragment(oView.getId(), "myapp.view.MessagePopup", this);
+                oView.addDependent(this.oDialog);
+            }
+            this.oDialog.open();
+            this.oDialog.setBusy(true);
+            this.RefreshMsgCounter = 2;
+            var that = this;
+            this.SMTIMER = setInterval(function () {
+                try {
+                    that.RefreshMsgCounter++;
+                    if (that.STOPMSG === 0 && that.RefreshMsgCounter >= 2) {
+                        that.RefreshMsgFunction();
+                    }
+                } catch (e) {
+                    console.log(e);
+                }
+            }, 1000);
+            this.TabContainer = this.getView().byId("MessageContainer");
+            this.RemoveClosingButtons(2);
+        },
+        SUCCESSMessaggi: function (Jdata) {
+            var temp, i;
+            if (this.oDialog) {
+                if (this.oDialog.isOpen()) {
+                    for (i = 0; i < Jdata.sistema.length; i++) {
+                        temp = Jdata.sistema[i].datalog.split("T");
+                        Jdata.sistema[i].datalog = temp[0].split("-").reverse().join("/") + ", " + temp[1];
+                    }
+                    for (i = 0; i < Jdata.chat.length; i++) {
+                        Jdata.chat[i].origine = Jdata.chat[i].origine.toUpperCase();
+                        temp = Jdata.chat[i].datalog.split("T");
+                        Jdata.chat[i].datalog = temp[0].split("-").reverse().join("/") + ", " + temp[1];
+                    }
+                    this.ModelMessaggi.setData(Jdata);
+                    this.getView().setModel(this.ModelMessaggi, "messaggi");
+                    this.oDialog.setBusy(false);
+                    if (this.STOPMSG === 0) {
+                        this.RefreshMsgCounter = 0;
+                    }
+                }
+            }
+        },
+        RefreshMsgFunction: function (msec) {
+            this.RefreshMsgCounter = 0;
+            if (typeof msec === "undefined") {
+                msec = 0;
+            }
+            setTimeout(this.RefreshMsgCall.bind(this), msec);
+        },
+        RefreshMsgCall: function () {
+            var link;
+            if (this.ISLOCAL !== 1) {
+                link = "/XMII/Runner?Transaction=DeCecco/Transactions/GetMessagesFromLineaIDOrigine&Content-Type=text/json&LineaID=" + this.linea_id + "&Origine=Operatore&OutputParameter=JSON";
+            }
+            this.AjaxCallerData(link, this.SUCCESSMessaggi.bind(this));
+        },
+        DestroyDialogMsg: function () {
+            clearInterval(this.SMTIMER);
+            this.ModelMessaggi.setData({});
+            this.GlobalBusyDialog.close();
+            this.STOPMSG = 1;
+            this.oDialog.destroy();
+        },
+        SendMessage: function () {
+            var link;
+            var msg = this.getView().byId("inputMessage").getValue();
+            this.getView().byId("inputMessage").setValue("");
+            if (this.ISLOCAL !== 1) {
+                link = "/XMII/Runner?Transaction=DeCecco/Transactions/SendMessageChat&Content-Type=text/json&LineaID=" + this.linea_id + "&Messaggio=" + encodeURI(msg) + "&Imp=1&Origine=Operatore&OutputParameter=JSON";
+            }
+            this.AjaxCallerData(link, this.SUCCESSMessaggi.bind(this));
+        },
+        MSGChanged: function () {
+            var obj = this.getView().byId("inputMessage");
+            if (obj.getValue().indexOf('"') > -1 || obj.getValue().indexOf("'") > -1 || obj.getValue().indexOf("&") > -1 || obj.getValue().indexOf("\\") > -1 || obj.getValue().indexOf("#") > -1 || obj.getValue().indexOf("€") > -1 || obj.getValue().indexOf("+") > -1 || obj.getValue() === "?") {
+                this.getView().byId("inputMessage").setValue(this.bckupMSG);
+                MessageToast.show("Carattere non valido!", {duration: 2000});
+            } else {
+                this.bckupMSG = obj.getValue();
+            }
+        },
 
 
 //        -------------------------  PRESA IN CARICO  -------------------------       
@@ -437,7 +533,10 @@ sap.ui.define([
             this.AjaxCallerData(link, this.SUCCESSSetup.bind(this));
         },
         SUCCESSSetup: function (Jdata) {
-            var std = Jdata.Old;
+            var std = this.tempModel.getData();
+            
+//            var std = Jdata.Old;
+            
             var bck = Jdata.New;
             var mod = JSON.parse(JSON.stringify(Jdata.New));
             bck = this.RecursiveJSONComparison(std, bck, "attributi");

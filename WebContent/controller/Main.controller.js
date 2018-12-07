@@ -10,6 +10,7 @@ sap.ui.define([
         JSONLinee: new JSONModel(),
 
         onInit: function () {
+
             this.getOwnerComponent().setModel(this.Global, "Global");
             this.AjaxCallerData("model/JSON_Main.json", this.SUCCESSValuesTiles.bind(this));
         },
@@ -70,7 +71,7 @@ sap.ui.define([
                 success: successFunc,
                 error: errorFunc
             });
-        },
+        }
 
     });
     return MainController;

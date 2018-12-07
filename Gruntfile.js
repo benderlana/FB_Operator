@@ -54,10 +54,10 @@
                 proxies: [
                     {
                         context: "/XMII", // When the url contains this...
-                        host: "sapmiiappdev", // Proxy to this host
-                        port: 50100,
+                        host: "10.230.5.55", // Proxy to this host
+                        port: 50000,
                         changeOrigin: true,
-                        headers: {
+	headers: {
                             "Authorization": "Basic bWJhcmF0ZWxsYTpJbml0MTIzNA=="
                         },
                     }
