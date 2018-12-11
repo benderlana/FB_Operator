@@ -29,17 +29,18 @@
         "state": "non active"
     },
     {
+        "image": "Olio.png",
         "icon": "sap-icon://machine",
-        "linea": "Line 4",
+        "linea": "Line 7",
         "info": "Production",
         "infoState": "Success",
-        "idlinea": "4",
-        "linea_desc": "4",
-        "state": "non active"
+        "idlinea": "31",
+        "linea_desc": "7",
+        "state": "active"
     },
     {
         "icon": "sap-icon://machine",
-        "linea": "Line 5",
+        "linea": "Line 8",
         "info": "Production",
         "infoState": "Success",
         "idlinea": "5",
@@ -48,7 +49,7 @@
     },
     {
         "icon": "sap-icon://machine",
-        "linea": "Line 6",
+        "linea": "Line 9",
         "info": "Production",
         "infoState": "Success",
         "idlinea": "6",

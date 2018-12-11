@@ -225,6 +225,11 @@
     color : #004785;
     font-family: Arial;
 }
+.textTopCT {
+    font-size: 30pt;
+    color : #004785;
+    font-family: Arial;
+}
 .textTopReduced1 {
     font-size: 48pt;
     color : #004785;
@@ -695,7 +700,7 @@ monobuttonSPC .sapMBtnInner {
     margin: 4rem;
 }
 .textCT {
-    color: #A71930;
+    color: #DC6774;
 }
 .textOP {
     color: #003A6B;
@@ -710,4 +715,68 @@ monobuttonSPC .sapMBtnInner {
     width: 100%;
     text-shadow: 0 0 0 ;
     top: 1.5rem;
+}
+
+
+.modebar{
+      display: none !important;
+}
+
+.statsBorderR {
+    border-right: solid 1px #003A6B;
+}
+.statsBorderB {
+    border-bottom: solid 1px #003A6B;
+}
+.chiudiButtonStats .sapMBtnInner {
+    font-family: Arial;
+    font-size: 15pt;
+    background: #f2f2f2;
+    color: #004785;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.LineRunning .sapMBtnInner {
+    background: #80C342;
+    border-radius: 100px;
+    opacity: 1;
+}
+.LineStopped .sapMBtnInner {
+    background: #DC6774;
+    border-radius: 100px;
+    opacity: 1;
+}
+
+.LineDis {
+    opacity: 1 !important;
+}
+
+.ActiveStats .sapMBtnInner {
+    background: #FFD300; 
+    height: 300%;
+}
+
+.ActiveStats .sapMBtnIcon {
+    color: #003A6B;
+    padding-top: 27%;
+    padding-right: 32%;
+    font-size: 70pt !important;
+}
+
+.chiudiButtonStats .sapMBtnInner {
+    font-family: Arial;
+    font-size: 20pt;
+    background: #f2f2f2;
+    color: #004785;
+    border-radius: 10px;
+    padding: 2.5%;
+}
+.allarmeButtonStats .sapMBtnInner {
+    font-family: Arial;
+    font-size: 20pt;
+    background: #FFD300;
+    color: #004785;
+    border-radius: 10px;
+    /*padding: 2.5%;*/
 }

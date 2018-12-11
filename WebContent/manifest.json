@@ -90,6 +90,11 @@
                     "name": "Operatore",
                     "pattern": "Operatore",
                     "target": "Operatore"
+                },
+                {
+                    "name": "LiveStats",
+                    "pattern": "LiveStats",
+                    "target": "LiveStats"
                 }
             ],
             "targets": {
@@ -103,6 +108,10 @@
                 },
                 "Operatore": {
                     "viewName": "view.Operatore",
+                    "viewLevel": 1
+                },
+                "LiveStats": {
+                    "viewName": "view.LiveStats",
                     "viewLevel": 1
                 }
             }
