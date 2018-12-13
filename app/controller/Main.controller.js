@@ -12,7 +12,14 @@ sap.ui.define([
         onInit: function () {
 
             this.getOwnerComponent().setModel(this.Global, "Global");
+            this.SyncAjaxCallerData("/XMII/Runner?Transaction=DeCecco/Transactions/GetAllReparti&Content-Type=text/json&OutputParameter=JSON", this.DoNothing.bind(this), this.RefreshPage.bind(this));
             this.AjaxCallerData("model/JSON_Main.json", this.SUCCESSValuesTiles.bind(this));
+        },
+        DoNothing: function () {
+            console.log("");
+        },
+        RefreshPage: function () {
+            location.reload(true);
         },
         SUCCESSValuesTiles: function (Jdata) {
             var model = new JSONModel({});
@@ -71,8 +78,17 @@ sap.ui.define([
                 success: successFunc,
                 error: errorFunc
             });
+        },
+        SyncAjaxCallerData: function (addressOfJSON, successFunc, errorFunc) {
+            jQuery.ajax({
+                url: addressOfJSON,
+                method: "GET",
+                dataType: "xml",
+                async: false,
+                success: successFunc,
+                error: errorFunc
+            });
         }
-
     });
     return MainController;
 });

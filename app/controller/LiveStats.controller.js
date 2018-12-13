@@ -5,7 +5,7 @@ sap.ui.define([
 ], function (Controller, JSONModel, Library) {
     "use strict";
     return Controller.extend("myapp.controller.LiveStats", {
-        ModelDetailPages: sap.ui.getCore().getModel("GeneralModel"),
+        ModelDetailPages: new JSONModel({}),
         ModelButton: new JSONModel({}),
         STOP: null,
         BusyDialog: new sap.m.BusyDialog(),
@@ -17,13 +17,15 @@ sap.ui.define([
         ModelCausesBarData: new JSONModel({}),
         indexSPC: null,
         batchID: null,
-        buttonPressed: sap.ui.getCore().getModel("buttonPressed"),
+        buttonPressed: new JSONModel({}),
 //  FUNZIONI D'INIZIALIZZAZIONE      
         onInit: function () {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.getRoute("LiveStats").attachPatternMatched(this.URLChangeCheck, this);
         },
         URLChangeCheck: function () {
+            this.buttonPressed = sap.ui.getCore().getModel("buttonPressed");
+            this.ModelDetailPages = sap.ui.getCore().getModel("GeneralModel");
             this.STOP = 0;
             clearInterval(this.TIMER);
             this.Counter = 15;
@@ -89,10 +91,12 @@ sap.ui.define([
         },
         //      FUNZIONI SPC    
         SPCDialogFiller: function () {
+            var allarme = this.ModelSPCData.getData().allarme;
+            var fase = this.ModelSPCData.getData().fase;
             var textHeader = this.getView().byId("headerSPCWindow");
             textHeader.setText(String(this.DescrizioneParametro));
             var alarmButton = this.getView().byId("alarmButton");
-            if (Number(this.Fase) === 2 && Number(this.Allarme) === 1) {
+            if (Number(fase) === 2 && Number(allarme) === 1) {
                 alarmButton.setEnabled(true);
                 alarmButton.removeStyleClass("chiudiButtonStats");
                 alarmButton.addStyleClass("allarmeButtonStats");
@@ -113,7 +117,7 @@ sap.ui.define([
             Plotly.newPlot(ID, result.dataPlot, result.layout, {responsive: true});
             plotBox = this.getView().byId("plotBox");
             data = this.ModelSPCData.getData();
-            result = this.PrepareDataToPlot(data, this.Fase, this.Avanzamento);
+            result = this.PrepareDataToPlot(data);
             ID = jQuery.sap.byId(plotBox.getId()).get(0);
             Plotly.newPlot(ID, result.dataPlot, result.layout, {responsive: true});
             plotBox = this.getView().byId("plotBox4");
@@ -237,11 +241,11 @@ sap.ui.define([
             var max = (isNaN(Math.max.apply(null, Jdata.aboveBad))) ? Jdata.limSup[0] : Math.max(Math.max.apply(null, Jdata.aboveBad) + Jdata.ref[0], Jdata.limSup[0]);
             layout = {
                 title: 'Packages Weight Deviations from Target',
-                titlefont: {color: '#003A6B'},
+                titlefont: {color: '#003A6B', size: 30},
                 showlegend: false,
                 autosize: false,
                 width: 937.5,
-                height: 425,
+                height: 500,
                 xaxis: {
                     showgrid: true,
                     zeroline: false
@@ -266,11 +270,12 @@ sap.ui.define([
                     marker: {colors: ["#80C342", "#DC6774", "#FFD300"]}
                 }];
             var layout = {
+                font: {color: '#003A6B', size: 20},
                 title: 'Packaging Quality',
-                titlefont: {color: '#003A6B'},
+                titlefont: {color: '#003A6B', size: 30},
                 autosize: false,
                 width: 687.5,
-                height: 462.5
+                height: 500
             };
             return {dataPlot: dataPlot, layout: layout};
         },
@@ -290,8 +295,9 @@ sap.ui.define([
                     orientation: 'h'
                 }];
             var layout = {
+                font: {color: '#003A6B', size: 20},
                 title: 'Automatic Stops Distribution',
-                titlefont: {color: '#003A6B'},
+                titlefont: {color: '#003A6B', size: 30},
                 yaxis: {
                     automargin: true
                 },
@@ -300,7 +306,7 @@ sap.ui.define([
                 },
                 autosize: false,
                 width: 1000,
-                height: 437.5
+                height: 500
             };
             return {dataPlot: dataPlot, layout: layout};
         },
@@ -310,8 +316,8 @@ sap.ui.define([
             alarmButton.removeStyleClass("allarmeButtonStats");
             alarmButton.addStyleClass("chiudiButtonStats");
             var link = "/XMII/Runner?Transaction=DeCecco/Transactions/ResetSPCAlarm&Content-Type=text/json&BatchID=" + this.batchID + "&ParametroID=" + this.ParametroID;
-            Library.AjaxCallerVoid(link, this.RefreshFunction.bind(this));
-            this.BackToMain();
+            Library.SyncAjaxCallerVoid(link, this.RefreshFunction.bind(this));
+//            this.BackToMain();
         },
         ParseSPCData: function (data, char) {
             for (var key in data) {
@@ -328,7 +334,10 @@ sap.ui.define([
             }
             return data;
         },
-        PrepareDataToPlot: function (Jdata, fase, avanzamento) {
+        PrepareDataToPlot: function (Jdata) {
+            var allarme = Jdata.allarme[0];
+            var fase = Jdata.fase[0];
+            var avanzamento = Jdata.avanzamento[0];
             var dataPlot, layout;
             var valori = {
                 x: Jdata.time,
@@ -349,15 +358,15 @@ sap.ui.define([
                 type: 'scatter',
                 line: {color: '#DC6774', width: 1}
             };
-            dataPlot = (fase === "1") ? [] : [valori, limSup, limInf];
-            var title = (fase === "1") ? "SPC Chart - Sampling... " + avanzamento + "/50" : "SPC Chart";
+            dataPlot = (fase === 1) ? [] : [valori, limSup, limInf];
+            var title = (fase === 1) ? "SPC Chart - Sampling... " + avanzamento + "/50" : "SPC Chart";
             layout = {
                 title: title,
-                titlefont: {color: '#003A6B'},
+                titlefont: {color: '#003A6B', size: 30},
                 showlegend: false,
                 autosize: false,
                 width: 1000,
-                height: 425,
+                height: 500,
                 xaxis: {
                     showgrid: true,
                     zeroline: false
@@ -368,7 +377,7 @@ sap.ui.define([
                 },
                 config: {displayModeBar: false}
             };
-            if (Number(this.Allarme) === 0) {
+            if (Number(allarme) === 0) {
                 layout.xaxis.linecolor = "#80C342";
                 layout.yaxis.linecolor = "#80C342";
             } else {

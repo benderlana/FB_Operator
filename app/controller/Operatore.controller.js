@@ -98,7 +98,11 @@ sap.ui.define([
 //        ------------------------- FUNZIONE CICLICA CHE CONTROLLA LO STATO -------------------------
 //        -------------------------------------------------------------------------------------------
 
-
+        BackToMain: function () {
+            clearInterval(this.TIMER);
+            this.STOP = 1;
+            this.getOwnerComponent().getRouter().navTo("Main");
+        },
         RefreshFunction: function (msec) {
             this.Counter = 0;
             if (typeof msec === "undefined") {
@@ -181,7 +185,7 @@ sap.ui.define([
                             this.ModelDetailPages.getData().ENGStatus = "PACKAGING";
                             break;
                         case "Disponibile.Fermo":
-                            link = "/XMII/Runner?Transaction=DeCecco/Transactions/OEEBatchInCorso&Content-Type=text/json&OutputParameter=JSON&LineaID=" + this.ModelDetailPages.getData().DettaglioLinea.idLinea;
+                            link = "/XMII/Runner?Transaction=DeCecco/Transactions/OEE_SPCBatchInCorso&Content-Type=text/json&OutputParameter=JSON&LineaID=" + this.ModelDetailPages.getData().DettaglioLinea.idLinea;
                             this.SyncAjaxCallerData(link, this.SUCCESSFermoOEE.bind(this));
                             this.ModelDetailPages.getData().ENGStatus = "STOP";
                             break;
@@ -283,17 +287,18 @@ sap.ui.define([
 //            this.SPCColor(Jdata.SPC);
         },
         SUCCESSFermoOEE: function (Jdata) {
-            if (Jdata.avanzamento >= 100) {
-                Jdata.avanzamento = 100;
+            if (Jdata.OEE.avanzamento >= 100) {
+                Jdata.OEE.avanzamento = 100;
             }
-            if (this.SPCDialog) {
-                if (this.SPCDialog.isOpen()) {
-                    this.CloseSPCDialog();
-                }
-            }
+//            if (this.SPCDialog) {
+//                if (this.SPCDialog.isOpen()) {
+//                    this.CloseSPCDialog();
+//                }
+//            }
             this.GlobalBusyDialog.close();
-            this.AddSpaces(Jdata);
-            this.ModelDetailPages.setProperty("/DatiOEE/", Jdata);
+            this.AddSpaces(Jdata.OEE);
+            this.ModelDetailPages.setProperty("/DatiOEE/", Jdata.OEE);
+            this.ModelDetailPages.setProperty("/DatiSPC/", Jdata.SPC);
             var data = this.ModelDetailPages.getData().Linea;
             if (this.State !== "Disponibile.Fermo") {
                 sap.ui.getCore().byId("ButtonFermo").setText("Modify stop justification");

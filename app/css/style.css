@@ -668,10 +668,12 @@ monobuttonSPC .sapMBtnInner {
     color: #003A6B;
     border-radius: 100px;
     border-color: #003A6B;
-    left: 6rem;
     width: 4.5rem;
     height: 4.5rem;
     padding: 0.6rem;
+}
+.messageButton {
+    left: 5rem;
 }
 .messageButton .sapMBtnIcon {
     color: #003A6B;
@@ -684,7 +686,6 @@ monobuttonSPC .sapMBtnInner {
     color: #003A6B;
     border-radius: 100px;
     border-color: #003A6B;
-    left: 6rem;
     width: 4.5rem;
     height: 4.5rem;
     padding: 0.6rem;
@@ -695,6 +696,28 @@ monobuttonSPC .sapMBtnInner {
     padding-top: 0.5rem;
     padding-right: 0.5rem;
 }
+.newMessageButton {
+    left: 5rem;
+}
+.homeButton .sapMBtnInner {
+    background: white;
+    color: #003A6B;
+    border-radius: 100px;
+    border-color: #003A6B;
+    width: 4.5rem;
+    height: 4.5rem;
+    padding: 0.6rem;
+}
+.homeButton {
+    left: 2rem;
+}
+.homeButton .sapMBtnIcon {
+    color: #003A6B;
+    font-size: 3rem;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+}
+
 
 .shiftDown {
     margin: 4rem;
@@ -719,7 +742,7 @@ monobuttonSPC .sapMBtnInner {
 
 
 .modebar{
-      display: none !important;
+    display: none !important;
 }
 
 .statsBorderR {
@@ -741,11 +764,15 @@ monobuttonSPC .sapMBtnInner {
     background: #80C342;
     border-radius: 100px;
     opacity: 1;
+    height: 40pt;
+    width: 40pt;
 }
 .LineStopped .sapMBtnInner {
     background: #DC6774;
     border-radius: 100px;
     opacity: 1;
+    height: 40pt;
+    width: 40pt;
 }
 
 .LineDis {
@@ -766,17 +793,24 @@ monobuttonSPC .sapMBtnInner {
 
 .chiudiButtonStats .sapMBtnInner {
     font-family: Arial;
-    font-size: 20pt;
+    font-size: 30pt;
     background: #f2f2f2;
     color: #004785;
     border-radius: 10px;
-    padding: 2.5%;
+    height: 40pt;
+    padding-top: 5pt;
 }
 .allarmeButtonStats .sapMBtnInner {
     font-family: Arial;
-    font-size: 20pt;
+    font-size: 30pt;
     background: #FFD300;
     color: #004785;
     border-radius: 10px;
-    /*padding: 2.5%;*/
+    height: 40pt;
+    padding-top: 5pt;
+}
+.textTopStats {
+    font-size: 40pt;
+    color : #003A6B;
+    font-family: Arial;
 }

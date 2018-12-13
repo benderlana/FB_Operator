@@ -6,8 +6,8 @@
     <Page id="LiveStatsPage" class="colorPage" showHeader="false">
         <content>
             <VBox height="100%" width="100%">
-                <VBox height="3%" width="100%"/>
-                <VBox height="4%" width="100%">
+                <VBox height="2%" width="100%"/>
+                <VBox height="8%" width="100%">
                     <HBox>
                         <VBox height="100%" width="20%">
                             <FlexBox alignItems="Start" justifyContent="Center">
@@ -17,7 +17,7 @@
                         <VBox height="100%" width="60%">
                             <FlexBox alignItems="Start" justifyContent="Center">
                                 <wt:CustomStatusButton width="10%" stato="{button>/stato}" class="LineDis" enabled="false"/>
-                                <Text id="headerSPCWindow" text="" class="textTopCT"/>
+                                <Text id="headerSPCWindow" text="" class="textTopStats"/>
                             </FlexBox>
                         </VBox>
                         <VBox height="100%" width="20%">
@@ -27,7 +27,6 @@
                         </VBox>
                     </HBox>
                 </VBox>
-                <VBox height="3%" width="100%"/>
                 <VBox height="90%" width="100%">
                     <HBox>
                         <VBox height="100%" width="50%" class="statsBorderR">
